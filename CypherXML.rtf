@@ -1,0 +1,835 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fmodern\fcharset0 Courier;
+\f3\fnil\fcharset0 HelveticaNeue-Bold;\f4\fnil\fcharset0 HelveticaNeue;\f5\froman\fcharset0 Times-Roman;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red255\green255\blue254;
+\red165\green119\blue5;\red176\green179\blue178;\red212\green212\blue212;\red251\green2\blue7;\red115\green138\blue4;
+\red71\green91\blue98;\red38\green38\blue38;\red165\green119\blue5;\red243\green235\blue10;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\csgray\c0\c0;\cssrgb\c100000\c100000\c99608;
+\cssrgb\c70980\c53725\c0;\cssrgb\c74361\c75378\c75069;\cssrgb\c86240\c86240\c86240;\cssrgb\c100000\c14913\c0;\cssrgb\c52157\c60000\c0;
+\cssrgb\c34510\c43137\c45882;\cssrgb\c20000\c20000\c20000;\cssrgb\c70980\c53725\c0;\cssrgb\c96264\c92423\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19400\viewh13960\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \
+
+\f1\b Step 1: Create Journals, Authors, Papers
+\f0\b0 \
+Do this for every Journal XML file. Change the GitHub url in the first line of code.\
+\
+1. \cb4 \expnd0\expndtw0\kerning0
+https://raw.githubusercontent.com/KatBCN/SDMLab1/main/BigDataMiningAndAnalytics.xml\cb3 \kerning1\expnd0\expndtw0 \
+2. \cf0 \cb1 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/IEEETransactionsOnBigData.xml\cf2 \cb3 \
+3. \cf0 \cb1 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/DataIntelligence.xml\cf2 \cb3 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \expnd0\expndtw0\kerning0
+Creating Graph from Journal XML Data - Includes All Authors per Article and generic WROTE relationship:\
+\
+\pard\tx1137\pardeftab720\fi1146\partightenfactor0
+
+\f2 \cf2 \cb4 WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/BigDataMiningAndAnalytics.xml" AS uri\cb1 \
+\cb4 CALL apoc.load.xml(uri, '', \{\}, true)\cb1 \
+\cb4 YIELD value\cb1 \
+\cb4 UNWIND value._result as result\cb1 \
+\cb4 UNWIND result._hits as hits \cb1 \
+\cb4 WITH [x in hits._hit WHERE x._info] as articles\cb1 \
+\cb4 UNWIND articles as article\cb1 \
+\cb4 WITH [item in article._info WHERE item._type="title"][0]._text as title,\cb1 \
+\cb4 [item in article._info WHERE item._type="venue"][0]._text as journal,\
+[item in article._info WHERE item._type="volume"][0]._text as volume,\
+[item in article._info WHERE item._type="number"][0]._text as number,\cb1 \
+\cb4 ([item in article._info WHERE item._type="venue"][0]._text + \cb1 \
+\cb4 ",vol." + [item in article._info WHERE item._type="volume"][0]._text + \cb1 \
+\cb4 "-" + [item in article._info WHERE item._type="number"][0]._text) as journalVolume,\cb1 \
+\cb4 [item in article._info WHERE item._type="pages"][0]._text as pages,\cb1 \
+\cb4 [item in article._info WHERE item._type="year"][0]._text as year,\cb1 \
+\cb4 [item in article._info WHERE item._type="type"][0]._text as type,\cb1 \
+\cb4 [item in article._info WHERE item._type="access"][0]._text as access,\
+[item in article._info WHERE item._type\cb3 ="ee"][0]._text as doiLink,\cb1 \
+\pard\tx1137\pardeftab720\fi1146\partightenfactor0
+\cf2 \cb4 [item in article._info WHERE item._type = "authors"] AS authorList\cb1 \
+\cb4 \
+MERGE (p:Paper \{title: title\})\cb1 \
+\cb4 SET p.access = access, p.type = type, p.pages = pages, p.doiLink = doiLink\cb1 \
+\
+\cb4 MERGE (jv:JournalVolume \{title: journalVolume\})\cb1 \
+\cb4 SET jv.year = year, jv.volume = volume, jv.number = number\cb1 \
+\
+\cb4 MERGE (j:Journal \{title: journal\})\cb1 \
+\
+\cb4 MERGE (p)-[:PUBLISHED_IN]->(jv)\cb1 \
+\
+\cb4 MERGE (jv)-[:VOLUME_OF]->(j)\cb1 \
+\
+\cb4 WITH p, authorList\cb1 \
+\cb4 UNWIND authorList AS authors\cb1 \
+\cb4 WITH [x in authors._authors WHERE x._type = "author"] AS individuals, p\
+\pard\pardeftab720\li1146\fi-10\partightenfactor0
+\cf2 \cb3 UNWIND individuals as individual\cb4 \
+\pard\tx1137\pardeftab720\fi1146\partightenfactor0
+\cf2 MERGE (a:Author \{name:individual._text\})\
+MERGE (a)-[:WROTE]->(p);\
+\pard\tx1135\pardeftab720\li1121\fi25\partightenfactor0
+\cf2 \cb3 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b \cf2 \kerning1\expnd0\expndtw0 Step 2: Create Conferences, Authors, Papers
+\f0\b0 \
+Do this for every Conference XML file. Change the url link in the first line of code.\
+\
+1. \cf0 \cb1 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/IEEE_ACM_BDCAT.xml\cf2 \cb3 \
+2. \cf0 \cb1 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/IEEE_BigComp.xml\
+\
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+Creating Graph from Conference XML Data - Includes All Authors per Article and generic WROTE relationship:\
+\
+\pard\pardeftab720\li1106\fi-16\partightenfactor0
+
+\f2 \cf2 \cb4 WITH "\cf0 \cb1 \kerning1\expnd0\expndtw0 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/IEEE_ACM_BDCAT.xml\cf2 \cb4 \expnd0\expndtw0\kerning0
+" AS uri\cb1 \
+\cb4 CALL apoc.load.xml(uri, '', \{\}, true)\cb1 \
+\cb4 YIELD value\cb1 \
+\cb4 UNWIND value._result as result\cb1 \
+\cb4 UNWIND result._hits as hits \cb1 \
+\cb4 WITH [x in hits._hit WHERE x._info] as articles\cb1 \
+\cb4 UNWIND articles as article\cb1 \
+\cb4 WITH [item in article._info WHERE item._type="title"][0]._text as title,\cb1 \
+\cb4 [item in article._info WHERE item._type="venue"][0]._text as conference,\cb1 \
+\cb4 [item in article._info WHERE item._type="year"][0]._text as year,\cb1 \
+\cb4 ([item in article._info WHERE item._type="venue"][0]._text + \cb1 \
+\cb4 "-" + [item in article._info WHERE item._type="year"][0]._text) as conferenceEdition,\cb1 \
+\cb4 [item in article._info WHERE item._type="pages"][0]._text as pages,\cb1 \
+\cb4 [item in article._info WHERE item._type="type"][0]._text as type,\cb1 \
+\cb4 [item in article._info WHERE item._type="ee"][0]._text as doiLink,\cb1 \
+\cb4 [item in article._info WHERE item._type="access"][0]._text as access,\cb1 \
+\cb4 [item in article._info WHERE item._type = "authors"] AS authorList\cb1 \
+\pard\tx1137\pardeftab720\fi1146\partightenfactor0
+\cf2 \cb4 \
+MERGE (p:Paper \{title: title\})\cb1 \
+\cb4 SET p.access = access, p.type = type, p.pages = pages\cb1 \
+\
+\cb4 MERGE (ce:conferenceEdition \{title: conferenceEdition\})\cb1 \
+\cb4 SET ce.year = year, ce.doiLink = doiLink\cb1 \
+\
+\cb4 MERGE (c:Conference \{title: conference\})\cb1 \
+\
+\cb4 MERGE (p)-[:PUBLISHED_IN]->(ce)\cb1 \
+\
+\cb4 MERGE (ce)-[:EDITION_OF]->(c)\cb1 \
+\
+\cb4 WITH p, authorList\cb1 \
+\cb4 UNWIND authorList AS authors\cb1 \
+\cb4 WITH [x in authors._authors WHERE x._type = "author"] AS individuals, p\
+\pard\pardeftab720\li1146\fi-10\partightenfactor0
+\cf2 \cb3 UNWIND individuals as individual\cb4 \
+\pard\tx1137\pardeftab720\fi1146\partightenfactor0
+\cf2 MERGE (a:Author \{name:individual._text\})\
+MERGE (a)-[:WROTE]->(p);\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b \cf2 \cb3 \kerning1\expnd0\expndtw0 Step 3: Set properties for \'93corresponding\'94 author (although not essential to solve exercises B, C, and D)\
+
+\f0\b0 Do this for every Journal & Conference XML file. Change the url link in the first line of code.\
+1. \cb4 \expnd0\expndtw0\kerning0
+https://raw.githubusercontent.com/KatBCN/SDMLab1/main/BigDataMiningAndAnalytics.xml\cb3 \kerning1\expnd0\expndtw0 \
+2. \cf0 \cb1 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/IEEETransactionsOnBigData.xml\cf2 \cb3 \
+3. \cf0 \cb1 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/DataIntelligence.xml\
+\cf2 \cb3 4. \cf0 \cb1 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/IEEE_ACM_BDCAT.xml\cf2 \cb3 \
+5. \cf0 \cb1 https://raw.githubusercontent.com/KatBCN/SDMLab1/main/IEEE_BigComp.xml
+\f1\b \cf2 \cb3 \
+
+\f2\b0 \cb4 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf2 \cb3 This must be done after defining nodes and relationships. Set property of role:\'94corresponding\'94 in the WROTE relationship for first Authors per Article:\cb4 \
+
+\f2 \cb3 \
+\pard\tx1135\pardeftab720\li1121\fi25\partightenfactor0
+\cf2 WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/BigDataMiningAndAnalytics.xml" AS uri\
+CALL apoc.load.xml(uri, '', \{\}, true)\
+YIELD value\
+UNWIND value._result as result\
+UNWIND result._hits as hits \
+WITH [x in hits._hit WHERE x._info] as articles\
+UNWIND articles as article\
+WITH [x in article._info WHERE x._type = "authors"] AS authorList, article,\
+[x in article._info WHERE x._type = "title"] AS title\
+UNWIND authorList as authors\
+WITH [x in authors._authors WHERE x._type = "author"] AS individual, title\
+WITH individual[0]._text as author, title[0]._text as title\
+MATCH (a:Author \{name:author\})-[w:WROTE]-(p:Paper \{title:title\})\
+SET w.role = "corresponding"\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b \cf2 \kerning1\expnd0\expndtw0 Step 4: Verify Statistics - just to confirm we are working with same data.\
+\
+\pard\pardeftab720\li1150\fi-3\partightenfactor0
+
+\f2\b0 \cf2 \cb4 \expnd0\expndtw0\kerning0
+MATCH (n) \cb1 \
+\cb4 WITH labels(n) as labels, size(keys(n)) as props, size((n)--()) as degree\cb1 \
+\cb4 RETURN\cb1 \
+\cb4 DISTINCT labels,\cb1 \
+\cb4 count(*) AS NumofNodes,\cb1 \
+\cb4 avg(props) AS AvgNumOfPropPerNode,\cb1 \
+\cb4 min(props) AS MinNumPropPerNode,\cb1 \
+\cb4 max(props) AS MaxNumPropPerNode,\cb1 \
+\cb4 avg(degree) AS AvgNumOfRelationships,\cb1 \
+\cb4 min(degree) AS MinNumOfRelationships,\cb1 \
+\cb4 max(degree) AS MaxNumOfRelationships\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat6 \clwWidth1880\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx1080
+\clvertalt \clcbpat6 \clwWidth1320\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2160
+\clvertalt \clcbpat6 \clwWidth2420\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx3240
+\clvertalt \clcbpat6 \clwWidth2120\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx4320
+\clvertalt \clcbpat6 \clwWidth2160\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5400
+\clvertalt \clcbpat6 \clwWidth2460\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx6480
+\clvertalt \clcbpat6 \clwWidth2360\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx7560
+\clvertalt \clcbpat6 \clwWidth2440\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 labels
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 NumofNodes
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 AvgNumOfPropPerNode
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 MinNumPropPerNode
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 MaxNumPropPerNode
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 AvgNumOfRelationships
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 MinNumOfRelationships
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 MaxNumOfRelationships
+\f0\b0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1880\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx1080
+\clvertalt \clshdrawnil \clwWidth1320\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2160
+\clvertalt \clshdrawnil \clwWidth2420\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx3240
+\clvertalt \clshdrawnil \clwWidth2120\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth2160\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5400
+\clvertalt \clshdrawnil \clwWidth2460\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx6480
+\clvertalt \clshdrawnil \clwWidth2360\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx7560
+\clvertalt \clshdrawnil \clwWidth2440\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 [Paper]
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1515
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 4.351155115511548
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 2
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 5
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 4.932673267326732
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 45
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1880\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx1080
+\clvertalt \clshdrawnil \clwWidth1320\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2160
+\clvertalt \clshdrawnil \clwWidth2420\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx3240
+\clvertalt \clshdrawnil \clwWidth2120\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth2160\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5400
+\clvertalt \clshdrawnil \clwWidth2460\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx6480
+\clvertalt \clshdrawnil \clwWidth2360\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx7560
+\clvertalt \clshdrawnil \clwWidth2440\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 [JournalVolume]
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 61
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 4.0
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 4
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 4
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 10.344262295081966
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 3
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 30
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1880\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx1080
+\clvertalt \clshdrawnil \clwWidth1320\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2160
+\clvertalt \clshdrawnil \clwWidth2420\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx3240
+\clvertalt \clshdrawnil \clwWidth2120\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth2160\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5400
+\clvertalt \clshdrawnil \clwWidth2460\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx6480
+\clvertalt \clshdrawnil \clwWidth2360\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx7560
+\clvertalt \clshdrawnil \clwWidth2440\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 [Journal]
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 3
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1.0
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 20.333333333333332
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 12
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 31
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1880\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx1080
+\clvertalt \clshdrawnil \clwWidth1320\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2160
+\clvertalt \clshdrawnil \clwWidth2420\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx3240
+\clvertalt \clshdrawnil \clwWidth2120\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth2160\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5400
+\clvertalt \clshdrawnil \clwWidth2460\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx6480
+\clvertalt \clshdrawnil \clwWidth2360\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx7560
+\clvertalt \clshdrawnil \clwWidth2440\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 [Author]
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 4647
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1.0
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1.280826339573918
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 54
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1880\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx1080
+\clvertalt \clshdrawnil \clwWidth1320\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2160
+\clvertalt \clshdrawnil \clwWidth2420\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx3240
+\clvertalt \clshdrawnil \clwWidth2120\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth2160\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5400
+\clvertalt \clshdrawnil \clwWidth2460\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx6480
+\clvertalt \clshdrawnil \clwWidth2360\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx7560
+\clvertalt \clshdrawnil \clwWidth2440\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 [conferenceEdition]
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 16
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 3.0
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 3
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 3
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 60.4375
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 15
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 141
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1880\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx1080
+\clvertalt \clshdrawnil \clwWidth1320\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2160
+\clvertalt \clshdrawnil \clwWidth2420\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx3240
+\clvertalt \clshdrawnil \clwWidth2120\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx4320
+\clvertalt \clshdrawnil \clwWidth2160\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5400
+\clvertalt \clshdrawnil \clwWidth2460\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx6480
+\clvertalt \clshdrawnil \clwWidth2360\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx7560
+\clvertalt \clshdrawnil \clwWidth2440\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 [Conference]
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 3
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1.0
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 1
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 5.333333333333333
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 2
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 8
+\f0\fs24 \cf0 \cell \lastrow\row
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+Papers with only one relationship seems suspicious\'85could be a data quality issue\'85how to check?\
+\pard\pardeftab720\li1150\fi-3\partightenfactor0
+\cf2 \cb3 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf8 Problems to Solve:
+\f0\b0 \
+
+\f1\b \cf2 1. Insert Citations - most important for part B & C
+\f0\b0 \
+\
+Some kind of random relationship generator between papers, but a paper cannot cite itself.\
+\
+
+\f1\b 2. Insert Keywords - important for part C & D
+\f0\b0 \
+\
+Some kind of random keyword assignment from the keywords given in the laboratory instructions\cb1 \expnd0\expndtw0\kerning0
+: data management, indexing, data modeling, big data, data processing, data storage and data querying. 
+\f5 \
+
+\f0 \cb3 \kerning1\expnd0\expndtw0 \
+
+\f1\b 3. Configure all cypher code into Python code
+\f0\b0 \
+\
+Requirement of assignment even though most of these things can or should be solved by experimenting with Cypher in the browser first.\
+\
+
+\f1\b 4. Parse :Paper nodes of type:\'94Editorship\'94 for City and Date information of the Conference Edition - not high priority
+\f0\b0 \
+\
+This might be quickest to do by creating a .csv file or pandas data frame to assign the relationships and properties.\
+\
+The information that is showing up in the :Paper node should be transferred to the :conferenceEdition node. In some cases, these \'93papers\'94 also have authors associated with them, which are the organizers of the :conferenceEdition.\
+\
+\pard\pardeftab720\li1116\fi2\partightenfactor0
+
+\f2 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec9 MATCH\strokec10 (\cf2 \strokec2 c\cf2 \strokec10 :\strokec11 Conference\strokec10 )-[]-(\strokec11 ce\strokec10 :\strokec11 conferenceEdition\strokec10 )-[]-(\strokec11 p\strokec10 :\strokec11 Paper \strokec10 \{\strokec11 type\strokec10 :\strokec12 'Editorship'\strokec10 \})\strokec11  \strokec9 RETURN\strokec11  \cf2 \strokec2 c\cf2 \strokec10 ,\strokec11 ce\strokec10 ,\strokec11 p
+\f5 \cf2 \cb1 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf2 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+Results:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \cb1 \
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat6 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clcbpat6 \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clcbpat6 \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 c
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 ce
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 p
+\f0\b0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BDCAT\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2017,"title":BDCAT-2017,"doiLink":{\field{\*\fldinst{HYPERLINK "https://doi.org/10.1145/3148055"}}{\fldrslt \ul https://doi.org/10.1145/3148055}}\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":Proceedings of the Fourth IEEE/ACM International Conference on Big Data Computing, Applications and Technologies, BDCAT 2017, Austin, TX, USA, December 05 - 08, 2017,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BDCAT\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2020,"doiLink":{\field{\*\fldinst{HYPERLINK "https://doi.org/10.1109/BDCAT50828.2020"}}{\fldrslt \ul https://doi.org/10.1109/BDCAT50828.2020}},"title":BDCAT-2020\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":7th IEEE/ACM International Conference on Big Data Computing, Applications and Technologies, BDCAT 2020, Leicester, United Kingdom, December 7-10, 2020,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BDCAT\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2018,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/8603671/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/8603671/proceeding}},"title":BDCAT-2018\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":5th IEEE/ACM International Conference on Big Data Computing Applications and Technologies, BDCAT 2018, Zurich, Switzerland, December 17-20, 2018,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BDCAT\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2019,"title":BDCAT-2019,"doiLink":{\field{\*\fldinst{HYPERLINK "https://doi.org/10.1145/3365109"}}{\fldrslt \ul https://doi.org/10.1145/3365109}}\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":Proceedings of the 6th IEEE/ACM International Conference on Big Data Computing, Applications and Technologies, BDCAT 2019, Auckland, New Zealand, December 2-5, 2019.,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BDCAT\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2021,"title":BDCAT-2021,"doiLink":{\field{\*\fldinst{HYPERLINK "https://doi.org/10.1145/3492324"}}{\fldrslt \ul https://doi.org/10.1145/3492324}}\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":BDCAT '21 - 2021 IEEE/ACM 8th International Conference on Big Data Computing, Applications and Technologies, Leicester, United Kingdom, December 6 - 9, 2021,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BDCAT\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2016,"title":BDCAT-2016,"doiLink":{\field{\*\fldinst{HYPERLINK "https://doi.org/10.1145/3006299"}}{\fldrslt \ul https://doi.org/10.1145/3006299}}\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":Proceedings of the 3rd IEEE/ACM International Conference on Big Data Computing, Applications and Technologies, BDCAT 2016, Shanghai, China, December 6-9, 2016,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BDC\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2014,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/7312651/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/7312651/proceeding}},"title":BDC-2014\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":1st IEEE/ACM International Symposium on Big Data Computing, BDC 2014, London, UK, December 8-11, 2014,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BDC\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2015,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/7406204/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/7406204/proceeding}},"title":BDC-2015\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":2nd IEEE/ACM International Symposium on Big Data Computing, BDC 2015, Limassol, Cyprus, December 7-10, 2015,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BigComp\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2017,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/7877084/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/7877084/proceeding}},"title":BigComp-2017\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":2017 IEEE International Conference on Big Data and Smart Computing, BigComp 2017, Jeju Island, South Korea, February 13-16, 2017,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BigComp\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2015,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/7062153/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/7062153/proceeding}},"title":BigComp-2015\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":2015 International Conference on Big Data and Smart Computing, BIGCOMP 2015, Jeju, South Korea, February 9-11, 2015,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BigComp\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2020,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/9050588/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/9050588/proceeding}},"title":BigComp-2020\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":2020 IEEE International Conference on Big Data and Smart Computing, BigComp 2020, Busan, Korea (South), February 19-22, 2020,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BigComp\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2016,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/7422342/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/7422342/proceeding}},"title":BigComp-2016\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":2016 International Conference on Big Data and Smart Computing, BigComp 2016, Hong Kong, China, January 18-20, 2016,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BigComp\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2021,"doiLink":{\field{\*\fldinst{HYPERLINK "https://doi.org/10.1109/BigComp51126.2021"}}{\fldrslt \ul https://doi.org/10.1109/BigComp51126.2021}},"title":BigComp-2021\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":IEEE International Conference on Big Data and Smart Computing, BigComp 2021, Jeju Island, South Korea, January 17-20, 2021,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BigComp\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2019,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/8671661/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/8671661/proceeding}},"title":BigComp-2019\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":IEEE International Conference on Big Data and Smart Computing, BigComp 2019, Kyoto, Japan, February 27 - March 2, 2019,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight240 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BigComp\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2014,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/6731712/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/6731712/proceeding}},"title":BigComp-2014\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":International Conference on Big Data and Smart Computing, BIGCOMP 2014, Bangkok, Thailand, January 15-17, 2014,"type":Editorship\}
+\f0\fs24 \cf0 \cell \row
+
+\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalt \clcbpat7 \clwWidth1620\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx2880
+\clvertalt \clshdrawnil \clwWidth9580\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx5760
+\clvertalt \clshdrawnil \clwWidth18000\clftsWidth3 \clheight220 \clbrdrt\brdrs\brdrw20\brdrcf2 \clbrdrl\brdrs\brdrw20\brdrcf2 \clbrdrb\brdrs\brdrw20\brdrcf2 \clbrdrr\brdrs\brdrw20\brdrcf2 \clpadt80 \clpadl80 \clpadb80 \clpadr80 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f3\b\fs20 \cf2 \{"title":BigComp\}
+\f0\b0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"year":2018,"doiLink":{\field{\*\fldinst{HYPERLINK "https://ieeexplore.ieee.org/xpl/conhome/8316805/proceeding"}}{\fldrslt \ul https://ieeexplore.ieee.org/xpl/conhome/8316805/proceeding}},"title":BigComp-2018\}
+\f0\fs24 \cf0 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f4\fs20 \cf2 \{"title":2018 IEEE International Conference on Big Data and Smart Computing, BigComp 2018, Shanghai, China, January 15-17, 2018,"type":Editorship\}
+\f0\fs24 \cf0 \cell \lastrow\row
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb3 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf2 \cb1 \expnd0\expndtw0\kerning0
+Example of one hit in our XML structure for an editorship:
+\f2\b0 \
+<hit score="1" id="397046">\
+<info><authors><author pid="09/2505">Herwig Unger</author><author pid="65/1664">Jinho Kim</author><author pid="13/7122">U Kang</author><author pid="49/6689">Chakchai So-In</author><author pid="13/1151">Junping Du</author><author pid="41/6237">Walid Saad</author><author pid="25/6540">Young-Guk Ha</author><author pid="01/2903-2">Christian Wagner 0002</author><author pid="51/1752">Julien Bourgeois</author><author pid="55/6568">Chanboon Sathitwiriyawong</author><author pid="117/9378">Hyuk-Yoon Kwon</author><author pid="29/654">Carson K. Leung</author></authors>\cb13 <title>IEEE International Conference on Big Data and Smart Computing, BigComp 2021, Jeju Island, South Korea, January 17-20, 2021</title>\cb1 <venue>BigComp</venue><publisher>IEEE</publisher><year>2021</year>\cb13 <type>Editorship</type>\cb1 <key>conf/bigcomp/2021</key><doi>10.1109/BIGCOMP51126.2021</doi><ee>https://doi.org/10.1109/BigComp51126.2021</ee><url>https://dblp.org/rec/conf/bigcomp/2021</url></info>\
+<url>URL#397046</url>\
+</hit>\cf2 \cb4 \
+}
