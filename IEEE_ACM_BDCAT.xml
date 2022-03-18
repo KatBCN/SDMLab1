@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+<query id="404814">:facetid:stream:\"streams/conf/bdc\"</query>
+<status code="200">OK</status>
+<time unit="msecs">165.83</time>
+<completions total="1" computed="1" sent="1">
+<c sc="190" dc="190" oc="190" id="35832023">:facetid:stream:streams/conf/bdc</c>
+</completions>
+<hits total="190" computed="190" sent="190" first="0">
+<hit score="1" id="263012">
+<info><authors><author pid="310/9557">Ilyas Ashkir</author><author pid="295/8797">Ben Roullier</author><author pid="30/4562">Frank McQuade</author><author pid="49/3364">Ashiq Anjum</author></authors><title>3D object recognition for Virtual Reality based Digital Twins.</title><venue>BDCAT</venue><pages>9-17</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AshkirRMA21</key><doi>10.1145/3492324.3494171</doi><ee>https://doi.org/10.1145/3492324.3494171</ee><url>https://dblp.org/rec/conf/bdc/AshkirRMA21</url></info>
+<url>URL#263012</url>
+</hit>
+<hit score="1" id="263013">
+<info><authors><author pid="310/9655">Changhao Bai</author><author pid="15/6146">Peng Wu</author></authors><title>PRRL - Path Rotation based Knowledge Graph Representation Learning method.</title><venue>BDCAT</venue><pages>38-45</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BaiW21</key><doi>10.1145/3492324.3494162</doi><ee>https://doi.org/10.1145/3492324.3494162</ee><url>https://dblp.org/rec/conf/bdc/BaiW21</url></info>
+<url>URL#263013</url>
+</hit>
+<hit score="1" id="263014">
+<info><authors><author pid="304/8678">Aimer Bhat</author><author pid="304/8607">Heeki Park</author><author pid="304/8934">Madhumonti Roy</author></authors><title>Evaluating Serverless Architecture for Big Data Enterprise Applications.</title><venue>BDCAT</venue><pages>1-8</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BhatPR21</key><doi>10.1145/3492324.3494169</doi><ee>https://doi.org/10.1145/3492324.3494169</ee><url>https://dblp.org/rec/conf/bdc/BhatPR21</url></info>
+<url>URL#263014</url>
+</hit>
+<hit score="1" id="263015">
+<info><authors><author pid="210/2403">Sheriffo Ceesay</author><author pid="24/11140">Yuhui Lin</author><author pid="24/1959">Adam Barker</author></authors><title>Benchmarking and Performance Modelling of Dataflow with Cycles.</title><venue>BDCAT</venue><pages>91-100</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/CeesayLB21</key><doi>10.1145/3492324.3494159</doi><ee>https://doi.org/10.1145/3492324.3494159</ee><url>https://dblp.org/rec/conf/bdc/CeesayLB21</url></info>
+<url>URL#263015</url>
+</hit>
+<hit score="1" id="263016">
+<info><authors><author pid="223/3510">Wenhan Gao</author><author pid="15/6146">Peng Wu</author><author pid="26/4737">Li Pan</author></authors><title>Attribute Network Embedding Method based on Joint Clustering of Representation and Network.</title><venue>BDCAT</venue><pages>111-119</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/GaoWP21</key><doi>10.1145/3492324.3494160</doi><ee>https://doi.org/10.1145/3492324.3494160</ee><url>https://dblp.org/rec/conf/bdc/GaoWP21</url></info>
+<url>URL#263016</url>
+</hit>
+<hit score="1" id="263017">
+<info><authors><author pid="257/3262">Amirmasoud Ghiassi</author><author pid="09/2498">Robert Birke</author><author pid="93/2896">Lydia Y. Chen</author></authors><title>TrustNet - Learning from Trusted Data Against (A)symmetric Label Noise.</title><venue>BDCAT</venue><pages>52-62</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/GhiassiBC21</key><doi>10.1145/3492324.3494166</doi><ee>https://doi.org/10.1145/3492324.3494166</ee><url>https://dblp.org/rec/conf/bdc/GhiassiBC21</url></info>
+<url>URL#263017</url>
+</hit>
+<hit score="1" id="263018">
+<info><authors><author pid="297/0280">Zuo Huang</author><author pid="99/6289">Richard O. Sinnott</author><author pid="151/3574">Qiuhong Ke</author></authors><title>Crowd Counting Using Deep Learning in Edge Devices.</title><venue>BDCAT</venue><pages>28-37</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HuangSK21</key><doi>10.1145/3492324.3494161</doi><ee>https://doi.org/10.1145/3492324.3494161</ee><url>https://dblp.org/rec/conf/bdc/HuangSK21</url></info>
+<url>URL#263018</url>
+</hit>
+<hit score="1" id="263019">
+<info><authors><author pid="211/0605">Barjinder Kaur</author><author pid="147/3667">Sajjad Dadkhah</author><author pid="67/4410">Pulei Xiong</author><author pid="51/8816">Shahrear Iqbal</author><author pid="19/5099">Suprio Ray</author><author pid="g/AliAGhorbani">Ali A. Ghorbani 0001</author></authors><title>Verification Based Scheme to Restrict IoT Attacks.</title><venue>BDCAT</venue><pages>63-68</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KaurDXIR021</key><doi>10.1145/3492324.3494170</doi><ee>https://doi.org/10.1145/3492324.3494170</ee><url>https://dblp.org/rec/conf/bdc/KaurDXIR021</url></info>
+<url>URL#263019</url>
+</hit>
+<hit score="1" id="263020">
+<info><authors><author pid="310/9441">Maxim Priymak</author><author pid="99/6289">Richard O. Sinnott</author></authors><title>Real-Time Traffic Classification through Deep Learning.</title><venue>BDCAT</venue><pages>128-133</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/PriymakS21</key><doi>10.1145/3492324.3494165</doi><ee>https://doi.org/10.1145/3492324.3494165</ee><url>https://dblp.org/rec/conf/bdc/PriymakS21</url></info>
+<url>URL#263020</url>
+</hit>
+<hit score="1" id="263021">
+<info><authors><author pid="310/9408">Kshitij Sinha</author><author pid="305/4600">Muskan Lalit</author></authors><title>Comparative Analysis of Pre-Trained Deep Neural Networks for Vision-Based Security Systems on a Novel Dataset.</title><venue>BDCAT</venue><pages>120-127</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SinhaL21</key><doi>10.1145/3492324.3494173</doi><ee>https://doi.org/10.1145/3492324.3494173</ee><url>https://dblp.org/rec/conf/bdc/SinhaL21</url></info>
+<url>URL#263021</url>
+</hit>
+<hit score="1" id="263022">
+<info><authors><author pid="99/6289">Richard O. Sinnott</author><author pid="03/4540">Zijian Wang</author></authors><title>Linking User Accounts across Social Media Platforms.</title><venue>BDCAT</venue><pages>18-27</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SinnottW21</key><doi>10.1145/3492324.3494157</doi><ee>https://doi.org/10.1145/3492324.3494157</ee><url>https://dblp.org/rec/conf/bdc/SinnottW21</url></info>
+<url>URL#263022</url>
+</hit>
+<hit score="1" id="263023">
+<info><authors><author pid="227/2508">Menuka Warushavithana</author><author pid="310/9574">Caleb Carlson</author><author pid="226/0788">Saptashwa Mitra</author><author pid="170/1170">Daniel Rammer</author><author pid="38/10472">Mazdak Arabi</author><author pid="147/8844">F. Jay Breidt</author><author pid="38/1106">Sangmi Lee Pallickara</author><author pid="p/ShrideepPallickara">Shrideep Pallickara</author></authors><title>Distributed Orchestration of Regression Models Over Administrative Boundaries.</title><venue>BDCAT</venue><pages>80-90</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WarushavithanaC21</key><doi>10.1145/3492324.3494164</doi><ee>https://doi.org/10.1145/3492324.3494164</ee><url>https://dblp.org/rec/conf/bdc/WarushavithanaC21</url></info>
+<url>URL#263023</url>
+</hit>
+<hit score="1" id="263024">
+<info><authors><author pid="256/2763">Yuanhang Xu</author><author pid="15/6146">Peng Wu</author></authors><title>Multiscale Clustering Based Diffusion Representation Learning Method.</title><venue>BDCAT</venue><pages>46-51</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/XuW21</key><doi>10.1145/3492324.3494163</doi><ee>https://doi.org/10.1145/3492324.3494163</ee><url>https://dblp.org/rec/conf/bdc/XuW21</url></info>
+<url>URL#263024</url>
+</hit>
+<hit score="1" id="263025">
+<info><authors><author pid="230/8680">Zihan Yang</author><author pid="99/6289">Richard O. Sinnott</author><author pid="151/3574">Qiuhong Ke</author><author pid="b/JamesBailey">James Bailey 0001</author></authors><title>Individual Feral Cat Identification through Deep Learning.</title><venue>BDCAT</venue><pages>101-110</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YangSK021</key><doi>10.1145/3492324.3494168</doi><ee>https://doi.org/10.1145/3492324.3494168</ee><url>https://dblp.org/rec/conf/bdc/YangSK021</url></info>
+<url>URL#263025</url>
+</hit>
+<hit score="1" id="263026">
+<info><authors><author pid="72/8125">Guoyi Zhao</author><author pid="31/4578-3">Tian Zhou 0003</author><author pid="69/3480-1">Lixin Gao 0001</author></authors><title>A Proactive Data-Parallel Framework for Machine Learning.</title><venue>BDCAT</venue><pages>69-79</pages><year>2021</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhaoZG21</key><doi>10.1145/3492324.3494167</doi><ee>https://doi.org/10.1145/3492324.3494167</ee><url>https://dblp.org/rec/conf/bdc/ZhaoZG21</url></info>
+<url>URL#263026</url>
+</hit>
+<hit score="1" id="397029">
+<info><title>BDCAT &apos;21 - 2021 IEEE/ACM 8th International Conference on Big Data Computing, Applications and Technologies, Leicester, United Kingdom, December 6 - 9, 2021</title><venue>BDCAT</venue><publisher>ACM</publisher><year>2021</year><type>Editorship</type><key>conf/bdc/2021</key><doi>10.1145/3492324</doi><ee>https://doi.org/10.1145/3492324</ee><url>https://dblp.org/rec/conf/bdc/2021</url></info>
+<url>URL#397029</url>
+</hit>
+<hit score="1" id="675556">
+<info><authors><author pid="290/5338">Samara Banno</author><author pid="290/5557">Hayder Murad</author><author pid="255/4809">Muntadher Sallal</author></authors><title>Automated Cognitive Analyses for Intelligent Tutoring Systems.</title><venue>BDCAT</venue><pages>171-178</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BannoMS20</key><doi>10.1109/BDCAT50828.2020.00007</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00007</ee><url>https://dblp.org/rec/conf/bdc/BannoMS20</url></info>
+<url>URL#675556</url>
+</hit>
+<hit score="1" id="675557">
+<info><authors><author pid="253/9098">Kevin Bruhwiler</author><author pid="183/4822">Thilina Buddhika</author><author pid="p/ShrideepPallickara">Shrideep Pallickara</author><author pid="38/1106">Sangmi Lee Pallickara</author></authors><title>Iris - Amortized, Resource Efficient Visualizations of Voluminous Spatiotemporal Datasets.</title><venue>BDCAT</venue><pages>47-56</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BruhwilerBPP20</key><doi>10.1109/BDCAT50828.2020.00003</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00003</ee><url>https://dblp.org/rec/conf/bdc/BruhwilerBPP20</url></info>
+<url>URL#675557</url>
+</hit>
+<hit score="1" id="675558">
+<info><authors><author pid="167/7895">Walid Budgaga</author><author pid="98/10788">Matthew Malensek</author><author pid="38/1106">Sangmi Lee Pallickara</author><author pid="p/ShrideepPallickara">Shrideep Pallickara</author></authors><title>Concerto - Leveraging Ensembles for Timely, Accurate Model Training Over Voluminous Datasets.</title><venue>BDCAT</venue><pages>106-115</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BudgagaMPP20</key><doi>10.1109/BDCAT50828.2020.00024</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00024</ee><url>https://dblp.org/rec/conf/bdc/BudgagaMPP20</url></info>
+<url>URL#675558</url>
+</hit>
+<hit score="1" id="675559">
+<info><authors><author pid="210/2403">Sheriffo Ceesay</author><author pid="24/11140">Yuhui Lin</author><author pid="24/1959">Adam Barker</author></authors><title>A Survey - Benchmarking and Performance Modelling of Data Intensive Applications.</title><venue>BDCAT</venue><pages>67-76</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/CeesayLB20</key><doi>10.1109/BDCAT50828.2020.00012</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00012</ee><url>https://dblp.org/rec/conf/bdc/CeesayLB20</url></info>
+<url>URL#675559</url>
+</hit>
+<hit score="1" id="675560">
+<info><authors><author pid="242/4646">Tirana Noor Fatyanosa</author><author pid="86/3844">Masayoshi Aritsugi</author></authors><title>Effects of the Number of Hyperparameters on the Performance of GA-CNN.</title><venue>BDCAT</venue><pages>144-153</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/FatyanosaA20</key><doi>10.1109/BDCAT50828.2020.00016</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00016</ee><url>https://dblp.org/rec/conf/bdc/FatyanosaA20</url></info>
+<url>URL#675560</url>
+</hit>
+<hit score="1" id="675561">
+<info><authors><author pid="50/9925">Hongwei Jin</author><author pid="35/3947">Ning Yan</author><author pid="260/0364">Masood S. Mortazavi</author></authors><title>Simulating Aggregation Algorithms for Empirical Verification of Resilient and Adaptive Federated Learning.</title><venue>BDCAT</venue><pages>124-133</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/JinYM20</key><doi>10.1109/BDCAT50828.2020.00021</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00021</ee><url>https://dblp.org/rec/conf/bdc/JinYM20</url></info>
+<url>URL#675561</url>
+</hit>
+<hit score="1" id="675562">
+<info><authors><author pid="290/5142">Md. Riftabin Kabir</author><author pid="274/9296">Tarek Ibne Faysal</author><author pid="05/10827">Md. Sazzad Hossain</author><author pid="290/5186">Jannatun Naima Shorno</author><author pid="245/8851">Shahnewaz Siddique</author></authors><title>A satellite collision avoidance system based on General Regression Neural Network.</title><venue>BDCAT</venue><pages>154-160</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KabirFHSS20</key><doi>10.1109/BDCAT50828.2020.00004</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00004</ee><url>https://dblp.org/rec/conf/bdc/KabirFHSS20</url></info>
+<url>URL#675562</url>
+</hit>
+<hit score="1" id="675563">
+<info><authors><author pid="264/9385">Jovan Kalajdjieski</author><author pid="51/2871">Georgina Mirceva</author><author pid="29/964">Slobodan Kalajdziski</author></authors><title>Attention Models for PM2.5 Prediction.</title><venue>BDCAT</venue><pages>1-8</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KalajdjieskiMK20</key><doi>10.1109/BDCAT50828.2020.00010</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00010</ee><url>https://dblp.org/rec/conf/bdc/KalajdjieskiMK20</url></info>
+<url>URL#675563</url>
+</hit>
+<hit score="1" id="675564">
+<info><authors><author pid="288/7016">Anang Kunaefi</author><author pid="86/3844">Masayoshi Aritsugi</author></authors><title>Characterizing User Decision based on Argumentative Reviews.</title><venue>BDCAT</venue><pages>161-170</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KunaefiA20</key><doi>10.1109/BDCAT50828.2020.00002</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00002</ee><url>https://dblp.org/rec/conf/bdc/KunaefiA20</url></info>
+<url>URL#675564</url>
+</hit>
+<hit score="1" id="675565">
+<info><authors><author pid="35/8644">Mingxin Lu</author><author pid="56/4411">Edmund Wong</author><author pid="290/5102">Daniel Barajas</author><author pid="49/1510">Xiaochen Li</author><author pid="290/5275">Mosopefoluwa Ogundipe</author><author pid="290/5227">Nate Wilson</author><author pid="290/5474">Pragya Garg</author><author pid="60/3543">Alark Joshi</author><author pid="98/10788">Matthew Malensek</author></authors><title>AGAMI - Scalable Visual Analytics over Multidimensional Data Streams.</title><venue>BDCAT</venue><pages>57-66</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LuWBLOWGJM20</key><doi>10.1109/BDCAT50828.2020.00020</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00020</ee><url>https://dblp.org/rec/conf/bdc/LuWBLOWGJM20</url></info>
+<url>URL#675565</url>
+</hit>
+<hit score="1" id="675566">
+<info><authors><author pid="270/3992">Abdulla Kalandar Mohideen</author><author pid="79/4577">Shikharesh Majumdar</author><author pid="57/4385">Marc St-Hilaire</author><author pid="158/5199">Ali El-Haraki</author></authors><title>A Data Indexing Technique to Improve the Search Latency of AND Queries for Large Scale Textual Documents.</title><venue>BDCAT</venue><pages>37-46</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/MohideenMSE20</key><doi>10.1109/BDCAT50828.2020.00019</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00019</ee><url>https://dblp.org/rec/conf/bdc/MohideenMSE20</url></info>
+<url>URL#675566</url>
+</hit>
+<hit score="1" id="675567">
+<info><authors><author pid="218/9661">Maryleen U. Ndubuaku</author><author pid="290/5151">Muhammad K. Ali</author><author pid="49/3364">Ashiq Anjum</author><author pid="31/1394">Antonio Liotta</author><author pid="r/StephanReiffMarganiec">Stephan Reiff-Marganiec</author></authors><title>Edge-enhanced analytics via latent space dimensionality reduction.</title><venue>BDCAT</venue><pages>87-95</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/NdubuakuAALR20</key><doi>10.1109/BDCAT50828.2020.00018</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00018</ee><url>https://dblp.org/rec/conf/bdc/NdubuakuAALR20</url></info>
+<url>URL#675567</url>
+</hit>
+<hit score="1" id="675568">
+<info><authors><author pid="290/5075">Chris Christos Nikolopoulos</author><author pid="290/5491">Scott Small</author><author pid="290/5529">Howard Dwyer</author><author pid="290/5374">Anthony Grichnik</author><author pid="290/5235">Mageshwaran Mohan</author><author pid="290/5284">Vishnu Vishwanathan</author></authors><title>Calculating the Topological Resilience of Supply Chain Networks Using Hopfield Neural Networks.</title><venue>BDCAT</venue><pages>116-123</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/NikolopoulosSDG20</key><doi>10.1109/BDCAT50828.2020.00011</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00011</ee><url>https://dblp.org/rec/conf/bdc/NikolopoulosSDG20</url></info>
+<url>URL#675568</url>
+</hit>
+<hit score="1" id="675569">
+<info><authors><author pid="56/2238">Deng Pan</author><author pid="290/5567">Lixian Sun</author><author pid="06/2293">Rui Wang</author><author pid="36/5276">Xingjian Zhang</author><author pid="99/6289">Richard O. Sinnott</author></authors><title>Deepfake Detection through Deep Learning.</title><venue>BDCAT</venue><pages>134-143</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/PanSWZS20</key><doi>10.1109/BDCAT50828.2020.00001</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00001</ee><url>https://dblp.org/rec/conf/bdc/PanSWZS20</url></info>
+<url>URL#675569</url>
+</hit>
+<hit score="1" id="675570">
+<info><authors><author pid="290/5457">Tyler Petty</author><author pid="290/5225">Thong Vu</author><author pid="38/5842">Xinghui Zhao</author><author pid="290/5432">Robert A. Hirsh</author><author pid="290/5330">Greggory Murray</author><author pid="290/5241">Francis M. Haas</author><author pid="75/3841">Wei Xue</author></authors><title>Evaluating Deep Learning Algorithms for Real-Time Arrhythmia Detection.</title><venue>BDCAT</venue><pages>19-26</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/PettyVZHMHX20</key><doi>10.1109/BDCAT50828.2020.00022</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00022</ee><url>https://dblp.org/rec/conf/bdc/PettyVZHMHX20</url></info>
+<url>URL#675570</url>
+</hit>
+<hit score="1" id="675571">
+<info><authors><author pid="290/5525">Sijan S. Rana</author><author pid="10/7037">Xinhui Ma</author><author pid="21/2823">Wei Pang</author><author pid="221/9262">Emma Wolverson</author></authors><title>A Multi-Modal Deep Learning Approach to the Early Prediction of Mild Cognitive Impairment Conversion to Alzheimer&apos;s Disease.</title><venue>BDCAT</venue><pages>9-18</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/RanaMPW20</key><doi>10.1109/BDCAT50828.2020.00013</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00013</ee><url>https://dblp.org/rec/conf/bdc/RanaMPW20</url></info>
+<url>URL#675571</url>
+</hit>
+<hit score="1" id="675572">
+<info><authors><author pid="223/1188">Danielle Turvill</author><author pid="223/1225">Lee Barnby</author><author pid="41/1662-4">Bo Yuan 0004</author><author pid="87/8068">Ali Zahir</author></authors><title>A Survey of Interpretability of Machine Learning in Accelerator-based High Energy Physics.</title><venue>BDCAT</venue><pages>77-86</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/TurvillBYZ20</key><doi>10.1109/BDCAT50828.2020.00025</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00025</ee><url>https://dblp.org/rec/conf/bdc/TurvillBYZ20</url></info>
+<url>URL#675572</url>
+</hit>
+<hit score="1" id="675573">
+<info><authors><author pid="290/5113">Muhammad Sadiq Hassan Zada</author><author pid="41/1662-4">Bo Yuan 0004</author><author pid="49/3364">Ashiq Anjum</author><author pid="18/9965">Muhammad Ajmal Azad</author><author pid="52/11188">Wajahat Ali Khan</author><author pid="r/StephanReiffMarganiec">Stephan Reiff-Marganiec</author></authors><title>Large-scale Data Integration Using Graph Probabilistic Dependencies (GPDs).</title><venue>BDCAT</venue><pages>27-36</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Zada0AAKR20</key><doi>10.1109/BDCAT50828.2020.00028</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00028</ee><url>https://dblp.org/rec/conf/bdc/Zada0AAKR20</url></info>
+<url>URL#675573</url>
+</hit>
+<hit score="1" id="675574">
+<info><authors><author pid="197/2002">Xinyu Zheng</author><author pid="290/5489">Yuanmin Wang</author><author pid="38/5842">Xinghui Zhao</author><author pid="29/3124">Hakan Gurocak</author></authors><title>Enabling Precise Control of a Haptic Device - A Machine Learning Approach.</title><venue>BDCAT</venue><pages>96-105</pages><year>2020</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhengWZG20</key><doi>10.1109/BDCAT50828.2020.00023</doi><ee>https://doi.org/10.1109/BDCAT50828.2020.00023</ee><url>https://dblp.org/rec/conf/bdc/ZhengWZG20</url></info>
+<url>URL#675574</url>
+</hit>
+<hit score="1" id="824654">
+<info><title>7th IEEE/ACM International Conference on Big Data Computing, Applications and Technologies, BDCAT 2020, Leicester, United Kingdom, December 7-10, 2020</title><venue>BDCAT</venue><publisher>IEEE</publisher><year>2020</year><type>Editorship</type><key>conf/bdc/2020</key><doi>10.1109/BDCAT50828.2020</doi><ee>https://doi.org/10.1109/BDCAT50828.2020</ee><url>https://dblp.org/rec/conf/bdc/2020</url></info>
+<url>URL#824654</url>
+</hit>
+<hit score="1" id="1082455">
+<info><authors><author pid="253/8839">Samuel Armstrong</author><author pid="253/9098">Kevin Bruhwiler</author><author pid="38/1106">Sangmi Lee Pallickara</author></authors><title>Rapid, Progressive Sub-Graph Explorations for Interactive Visual Analytics over Large-Scale Graph Datasets.</title><venue>BDCAT</venue><pages>1-10</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ArmstrongBP19</key><doi>10.1145/3365109.3368793</doi><ee>https://doi.org/10.1145/3365109.3368793</ee><url>https://dblp.org/rec/conf/bdc/ArmstrongBP19</url></info>
+<url>URL#1082455</url>
+</hit>
+<hit score="1" id="1082456">
+<info><authors><author pid="69/157">Lu Chen</author><author pid="253/9382">Yunjie Jia</author><author pid="253/9266">Pei-Yun Sun</author><author pid="99/6289">Richard O. Sinnott</author></authors><title>Identification and Classification of Trucks and Trailers on the Road Network through Deep Learning.</title><venue>BDCAT</venue><pages>117-126</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ChenJSS19</key><doi>10.1145/3365109.3368781</doi><ee>https://doi.org/10.1145/3365109.3368781</ee><url>https://dblp.org/rec/conf/bdc/ChenJSS19</url></info>
+<url>URL#1082456</url>
+</hit>
+<hit score="1" id="1082457">
+<info><authors><author pid="253/8917">Marianne Cherrington</author><author pid="176/3906">David Airehrour</author><author pid="06/4029">Joan Lu</author><author pid="43/1230-2">Qiang Xu 0002</author><author pid="253/9062">Stephen Wade</author><author pid="168/7483">Samaneh Madanian</author></authors><title>Feature Selection Methods for Linked Data - Limitations, Capabilities and Potentials.</title><venue>BDCAT</venue><pages>103-112</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/CherringtonAL0W19</key><doi>10.1145/3365109.3368792</doi><ee>https://doi.org/10.1145/3365109.3368792</ee><url>https://dblp.org/rec/conf/bdc/CherringtonAL0W19</url></info>
+<url>URL#1082457</url>
+</hit>
+<hit score="1" id="1082458">
+<info><authors><author pid="253/8992">Priyanthi M. Dassanayake</author><author pid="49/3364">Ashiq Anjum</author><author pid="253/8896">Warren Manning</author><author pid="253/9323">Craig Bower</author></authors><title>A Deep Reinforcement Learning based Homeostatic System for Unmanned Position Control.</title><venue>BDCAT</venue><pages>127-136</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/DassanayakeAMB19</key><doi>10.1145/3365109.3368780</doi><ee>https://doi.org/10.1145/3365109.3368780</ee><url>https://dblp.org/rec/conf/bdc/DassanayakeAMB19</url></info>
+<url>URL#1082458</url>
+</hit>
+<hit score="1" id="1082459">
+<info><authors><author pid="233/8968">Henrique Varella Ehrenfried</author><author pid="91/2657">Eduardo Todt</author><author pid="94/5519">Daniel Weingaertner</author><author pid="78/3197">Luis Carlos Erpen De Bona</author><author pid="78/6175">Fabiano Silva</author><author pid="15/5866">Marcos Didonet Del Fabro</author></authors><title>Managing Open Data Evolution through Bi-dimensional Mappings.</title><venue>BDCAT</venue><pages>159-162</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/EhrenfriedTWBSF19</key><doi>10.1145/3365109.3368774</doi><ee>https://doi.org/10.1145/3365109.3368774</ee><url>https://dblp.org/rec/conf/bdc/EhrenfriedTWBSF19</url></info>
+<url>URL#1082459</url>
+</hit>
+<hit score="1" id="1082460">
+<info><authors><author pid="171/0939">Amir Jalalirad</author><author pid="155/5226">Marco Scavuzzo</author><author pid="238/7618">Catalin Capota</author><author pid="238/7617">Michael R. Sprague</author></authors><title>A Simple and Efficient Federated Recommender System.</title><venue>BDCAT</venue><pages>53-58</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/JalaliradSCS19</key><doi>10.1145/3365109.3368788</doi><ee>https://doi.org/10.1145/3365109.3368788</ee><url>https://dblp.org/rec/conf/bdc/JalaliradSCS19</url></info>
+<url>URL#1082460</url>
+</hit>
+<hit score="1" id="1082461">
+<info><authors><author pid="129/8464">Taehee Jeong</author><author pid="253/9513">Deeksha Prakash Kankalale</author><author pid="13/4415">Raymond Chau</author><author pid="56/9122">Hyeran Jeon</author></authors><title>Going Deeper or Wider - Throughput Prediction for Cluster Tools with Machine Learning.</title><venue>BDCAT</venue><pages>21-30</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/JeongKCJ19</key><doi>10.1145/3365109.3368786</doi><ee>https://doi.org/10.1145/3365109.3368786</ee><url>https://dblp.org/rec/conf/bdc/JeongKCJ19</url></info>
+<url>URL#1082461</url>
+</hit>
+<hit score="1" id="1082462">
+<info><authors><author pid="253/8984">Yuncheng Jin</author><author pid="78/3726">Zhihong Chen</author><author pid="239/4897">Zhaowei Cheng</author><author pid="66/3019">Chao Chen</author><author pid="14/3339">Xinyu Jin</author><author pid="01/5401">Bin Sun</author></authors><title>Class-Level Adaptation Network with Self Training for Unsupervised Domain Adaptation.</title><venue>BDCAT</venue><pages>137-143</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/JinCCCJS19</key><doi>10.1145/3365109.3368783</doi><ee>https://doi.org/10.1145/3365109.3368783</ee><url>https://dblp.org/rec/conf/bdc/JinCCCJS19</url></info>
+<url>URL#1082462</url>
+</hit>
+<hit score="1" id="1082463">
+<info><authors><author pid="253/9026">Sota Kato</author><author pid="67/3575">Takafumi Nakanishi</author><author pid="253/9275">Hirokazu Shimauchi</author><author pid="92/692">Budrul Ahsan</author></authors><title>Topic Variation Detection Method for Detecting Political Business Cycles.</title><venue>BDCAT</venue><pages>85-93</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KatoNSA19</key><doi>10.1145/3365109.3368787</doi><ee>https://doi.org/10.1145/3365109.3368787</ee><url>https://dblp.org/rec/conf/bdc/KatoNSA19</url></info>
+<url>URL#1082463</url>
+</hit>
+<hit score="1" id="1082464">
+<info><authors><author pid="03/2134">Jie Liu</author><author pid="56/5140">Yan Tang</author><author pid="20/8606">Xinyi Xu</author></authors><title>HISDOM - A Hybrid Ontology Mapping System based on Convolutional Neural Network and Dynamic Weight.</title><venue>BDCAT</venue><pages>67-70</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LiuTX19</key><doi>10.1145/3365109.3368779</doi><ee>https://doi.org/10.1145/3365109.3368779</ee><url>https://dblp.org/rec/conf/bdc/LiuTX19</url></info>
+<url>URL#1082464</url>
+</hit>
+<hit score="1" id="1082465">
+<info><authors><author pid="253/9327">Mitchell Nelson</author><author pid="253/9438">Zachary Sorenson</author><author pid="65/7785">Joseph M. Myre</author><author pid="26/2984">Jason Sawin</author><author pid="64/411">David Chiu 0001</author></authors><title>GPU Acceleration of Range Queries over Large Data Sets.</title><venue>BDCAT</venue><pages>11-20</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/NelsonSMSC19</key><doi>10.1145/3365109.3368789</doi><ee>https://doi.org/10.1145/3365109.3368789</ee><url>https://dblp.org/rec/conf/bdc/NelsonSMSC19</url></info>
+<url>URL#1082465</url>
+</hit>
+<hit score="1" id="1082466">
+<info><authors><author pid="35/1106">Yan Pang</author><author pid="253/9203">Ganeshkumar Sundararaj</author><author pid="253/9186">Jiewen Ren</author></authors><title>Cryptocurrency Price Prediction using Time Series and Social Sentiment Data.</title><venue>BDCAT</venue><pages>35-41</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/PangSR19</key><doi>10.1145/3365109.3368785</doi><ee>https://doi.org/10.1145/3365109.3368785</ee><url>https://dblp.org/rec/conf/bdc/PangSR19</url></info>
+<url>URL#1082466</url>
+</hit>
+<hit score="1" id="1082467">
+<info><authors><author pid="144/1443">Takuto Sato</author><author pid="51/3802">Osamu Tatebe</author><author pid="65/9096">Hiroyuki Kusaka</author></authors><title>In-situ Data Analysis System for High Resolution Meteorological Large Eddy Simulation Model.</title><venue>BDCAT</venue><pages>155-158</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SatoTK19</key><doi>10.1145/3365109.3368769</doi><ee>https://doi.org/10.1145/3365109.3368769</ee><url>https://dblp.org/rec/conf/bdc/SatoTK19</url></info>
+<url>URL#1082467</url>
+</hit>
+<hit score="1" id="1082468">
+<info><authors><author pid="253/9321">Kazuhiro Serizawa</author><author pid="51/3802">Osamu Tatebe</author></authors><title>Accelerating Machine Learning I/O by Overlapping Data Staging and Mini-batch Generations.</title><venue>BDCAT</venue><pages>31-34</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SerizawaT19</key><doi>10.1145/3365109.3368768</doi><ee>https://doi.org/10.1145/3365109.3368768</ee><url>https://dblp.org/rec/conf/bdc/SerizawaT19</url></info>
+<url>URL#1082468</url>
+</hit>
+<hit score="1" id="1082469">
+<info><authors><author pid="189/0265">Chandan Sharma</author><author pid="93/2143">Roopak Sinha</author></authors><title>A Schema-First Formalism for Labeled Property Graph Databases - Enabling Structured Data Loading and Analytics.</title><venue>BDCAT</venue><pages>71-80</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SharmaS19</key><doi>10.1145/3365109.3368782</doi><ee>https://doi.org/10.1145/3365109.3368782</ee><url>https://dblp.org/rec/conf/bdc/SharmaS19</url></info>
+<url>URL#1082469</url>
+</hit>
+<hit score="1" id="1082470">
+<info><authors><author pid="253/8952">Nagaraju Vadranam</author><author pid="19/1143">K. M. George</author><author pid="253/9167">Starla Marier Demings</author></authors><title>An Analysis of Slant in Tweets - Case Study.</title><venue>BDCAT</venue><pages>59-62</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/VadranamGD19</key><doi>10.1145/3365109.3368770</doi><ee>https://doi.org/10.1145/3365109.3368770</ee><url>https://dblp.org/rec/conf/bdc/VadranamGD19</url></info>
+<url>URL#1082470</url>
+</hit>
+<hit score="1" id="1082471">
+<info><authors><author pid="68/10831">Chun-Yu Wang</author><author pid="253/9419">Shih-Hao Fuh</author><author pid="38/5276">Ta-Chun Lo</author><author pid="253/8894">Qi-Jun Cheng</author><author pid="63/1555">Yu-Cheng Chen</author><author pid="228/1898">Feng-Min Cho</author><author pid="49/2899">Jyh-Biau Chang</author><author pid="26/6833">Ce-Kuen Shieh</author></authors><title>A Data Compacting Technique to reduce the NetFlow size in Botnet Detection with BotCluster.</title><venue>BDCAT</venue><pages>81-84</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WangFLCCCCS19</key><doi>10.1145/3365109.3368778</doi><ee>https://doi.org/10.1145/3365109.3368778</ee><url>https://dblp.org/rec/conf/bdc/WangFLCCCCS19</url></info>
+<url>URL#1082471</url>
+</hit>
+<hit score="1" id="1082472">
+<info><authors><author pid="253/9065">Mihira Wanninayake</author><author pid="99/6289">Richard O. Sinnott</author></authors><title>An Exploration of Commuter Travel Time Through Social Media Analytics on the Cloud.</title><venue>BDCAT</venue><pages>43-51</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WanninayakeS19</key><doi>10.1145/3365109.3368790</doi><ee>https://doi.org/10.1145/3365109.3368790</ee><url>https://dblp.org/rec/conf/bdc/WanninayakeS19</url></info>
+<url>URL#1082472</url>
+</hit>
+<hit score="1" id="1082473">
+<info><authors><author pid="194/7267">Musen Wen</author><author pid="217/9118">Deepak Kumar Vasthimal</author><author pid="130/0449">Alan Lu</author><author pid="25/3246">Tian Wang</author><author pid="37/10439">Aimin Guo</author></authors><title>Building Large-Scale Deep Learning System for Entity Recognition in E-Commerce Search.</title><venue>BDCAT</venue><pages>149-154</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WenVLWG19</key><doi>10.1145/3365109.3368765</doi><ee>https://doi.org/10.1145/3365109.3368765</ee><url>https://dblp.org/rec/conf/bdc/WenVLWG19</url></info>
+<url>URL#1082473</url>
+</hit>
+<hit score="1" id="1082474">
+<info><authors><author pid="31/1175">Tao Yan</author><author pid="88/3973">Chongzhao Han</author><author pid="76/4362">Yong Jia</author></authors><title>A Fused Intelligent Computing Approach Using Stock Big Data for Near Future Trend Prediction.</title><venue>BDCAT</venue><pages>113-116</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YanHJ19</key><doi>10.1145/3365109.3368775</doi><ee>https://doi.org/10.1145/3365109.3368775</ee><url>https://dblp.org/rec/conf/bdc/YanHJ19</url></info>
+<url>URL#1082474</url>
+</hit>
+<hit score="1" id="1082475">
+<info><authors><author pid="249/1198">Huaqing Yu</author><author pid="219/8489">Shining Song</author><author pid="253/9142">Shaoxi Ma</author><author pid="99/6289">Richard O. Sinnott</author></authors><title>Estimating Fruit Crop Yield through Deep Learning.</title><venue>BDCAT</venue><pages>145-148</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YuSMS19</key><doi>10.1145/3365109.3368766</doi><ee>https://doi.org/10.1145/3365109.3368766</ee><url>https://dblp.org/rec/conf/bdc/YuSMS19</url></info>
+<url>URL#1082475</url>
+</hit>
+<hit score="1" id="1082476">
+<info><authors><author pid="233/6405">Alwin Yaoxian Zhang</author><author pid="175/4441">Sean Shao Wei Lam</author><author pid="35/9856">Marcus Eng Hock Ong</author><author pid="233/6377">Phua Hwee Tang</author><author pid="219/2101">Ling Ling Chan</author></authors><title>Explainable AI - Classification of MRI Brain Scans Orders for Quality Improvement.</title><venue>BDCAT</venue><pages>95-102</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhangLOTC19</key><doi>10.1145/3365109.3368791</doi><ee>https://doi.org/10.1145/3365109.3368791</ee><url>https://dblp.org/rec/conf/bdc/ZhangLOTC19</url></info>
+<url>URL#1082476</url>
+</hit>
+<hit score="1" id="1082477">
+<info><authors><author pid="93/4324">Peng Zhao</author><author pid="146/6473">Xinrui Lyu</author><author pid="99/6289">Richard O. Sinnott</author><author pid="59/610">Shimin Wei</author></authors><title>Crowd-Counting through a Cascaded, Multi-Task Convolutional Neural Network.</title><venue>BDCAT</venue><pages>63-66</pages><year>2019</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhaoLSW19</key><doi>10.1145/3365109.3368767</doi><ee>https://doi.org/10.1145/3365109.3368767</ee><url>https://dblp.org/rec/conf/bdc/ZhaoLSW19</url></info>
+<url>URL#1082477</url>
+</hit>
+<hit score="1" id="1248960">
+<info><authors><author pid="03/5135">Kenneth Johnson</author><author pid="99/2643">Josef Spillner</author><author pid="38/5842">Xinghui Zhao</author><author pid="210/4078">Olga Datskova</author><author pid="32/7786">Blesson Varghese</author></authors><title>Proceedings of the 6th IEEE/ACM International Conference on Big Data Computing, Applications and Technologies, BDCAT 2019, Auckland, New Zealand, December 2-5, 2019.</title><venue>BDCAT</venue><publisher>ACM</publisher><year>2019</year><type>Editorship</type><key>conf/bdc/2019</key><doi>10.1145/3365109</doi><ee>https://doi.org/10.1145/3365109</ee><url>https://dblp.org/rec/conf/bdc/2019</url></info>
+<url>URL#1248960</url>
+</hit>
+<hit score="1" id="1471123">
+<info><authors><author pid="184/3925">Tobi Ajila</author><author pid="79/4577">Shikharesh Majumdar</author></authors><title>Data Driven Priority Scheduling on Spark Based Stream Processing.</title><venue>BDCAT</venue><pages>208-210</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AjilaM18</key><doi>10.1109/BDCAT.2018.00034</doi><ee>https://doi.org/10.1109/BDCAT.2018.00034</ee><url>https://dblp.org/rec/conf/bdc/AjilaM18</url></info>
+<url>URL#1471123</url>
+</hit>
+<hit score="1" id="1471124">
+<info><authors><author pid="199/9457">Noufa Alnajran</author><author pid="01/5563">Keeley A. Crockett</author><author pid="26/2563-1">David McLean 0001</author><author pid="35/7870">Annabel Latham</author></authors><title>An Empirical Performance Evaluation of Semantic-Based Similarity Measures in Microblogging Social Media.</title><venue>BDCAT</venue><pages>126-135</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AlnajranCML18</key><doi>10.1109/BDCAT.2018.00023</doi><ee>https://doi.org/10.1109/BDCAT.2018.00023</ee><url>https://dblp.org/rec/conf/bdc/AlnajranCML18</url></info>
+<url>URL#1471124</url>
+</hit>
+<hit score="1" id="1471125">
+<info><authors><author pid="122/1762">Claudio Atzori</author><author pid="28/2137">Paolo Manghi</author><author pid="21/8419">Alessia Bardi</author></authors><title>GDup - De-Duplication of Scholarly Communication Big Graphs.</title><venue>BDCAT</venue><pages>142-151</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AtzoriMB18</key><doi>10.1109/BDCAT.2018.00025</doi><ee>https://doi.org/10.1109/BDCAT.2018.00025</ee><url>https://dblp.org/rec/conf/bdc/AtzoriMB18</url></info>
+<url>URL#1471125</url>
+</hit>
+<hit score="1" id="1471126">
+<info><authors><author pid="69/1147">Inanç Birol</author><author pid="66/2488">Hamid Mohamadi</author><author pid="154/3962">Justin Chu</author></authors><title>ntPack - A Software Package for Big Data in Genomics.</title><venue>BDCAT</venue><pages>41-50</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BirolMC18</key><doi>10.1109/BDCAT.2018.00014</doi><ee>https://doi.org/10.1109/BDCAT.2018.00014</ee><url>https://dblp.org/rec/conf/bdc/BirolMC18</url></info>
+<url>URL#1471126</url>
+</hit>
+<hit score="1" id="1471127">
+<info><authors><author pid="233/6488">Sam Burdick</author><author pid="233/6480">Jahrme Risner</author><author pid="64/411">David Chiu 0001</author><author pid="26/2984">Jason Sawin</author></authors><title>Fault-Tolerant Query Execution over Distributed Bitmap Indices.</title><venue>BDCAT</venue><pages>21-30</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BurdickRCS18</key><doi>10.1109/BDCAT.2018.00012</doi><ee>https://doi.org/10.1109/BDCAT.2018.00012</ee><url>https://dblp.org/rec/conf/bdc/BurdickRCS18</url></info>
+<url>URL#1471127</url>
+</hit>
+<hit score="1" id="1471128">
+<info><authors><author pid="155/4941">Silvina Caíno-Lores</author><author pid="c/JCarretero">Jesús Carretero 0001</author><author pid="85/4553">Bogdan Nicolae</author><author pid="152/0205">Orcun Yildiz</author><author pid="26/2029">Tom Peterka</author></authors><title>Spark-DIY - A Framework for Interoperable Spark Operations with High Performance Block-Based Data Models.</title><venue>BDCAT</venue><pages>1-10</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Caino-LoresCNYP18</key><doi>10.1109/BDCAT.2018.00010</doi><ee>https://doi.org/10.1109/BDCAT.2018.00010</ee><url>https://dblp.org/rec/conf/bdc/Caino-LoresCNYP18</url></info>
+<url>URL#1471128</url>
+</hit>
+<hit score="1" id="1471129">
+<info><authors><author pid="134/3143">Muawya Habib Sarnoub Eldaw</author><author pid="l/MarkLevene">Mark Levene</author><author pid="55/4141">George Roussos</author></authors><title>Presence Analytics - Making Sense of Human Social Presence within a Learning Environment.</title><venue>BDCAT</venue><pages>174-183</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/EldawLR18</key><doi>10.1109/BDCAT.2018.00029</doi><ee>https://doi.org/10.1109/BDCAT.2018.00029</ee><url>https://dblp.org/rec/conf/bdc/EldawLR18</url></info>
+<url>URL#1471129</url>
+</hit>
+<hit score="1" id="1471130">
+<info><authors><author pid="219/6485">Maria Th. Kotouza</author><author pid="39/6705">Konstantinos N. Vavliakis</author><author pid="79/8353">Fotis E. Psomopoulos</author><author pid="79/1157">Pericles A. Mitkas</author></authors><title>A Hierarchical Multi-Metric Framework for Item Clustering.</title><venue>BDCAT</venue><pages>191-197</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KotouzaVPM18</key><doi>10.1109/BDCAT.2018.00031</doi><ee>https://doi.org/10.1109/BDCAT.2018.00031</ee><url>https://dblp.org/rec/conf/bdc/KotouzaVPM18</url></info>
+<url>URL#1471130</url>
+</hit>
+<hit score="1" id="1471131">
+<info><authors><author pid="217/8672">Ruriko Kudo</author><author pid="41/7967">Miki Enoki</author><author pid="71/4736">Akihiro Nakao</author><author pid="70/6951">Shu Yamamoto</author><author pid="14/566">Saneyasu Yamaguchi</author><author pid="70/2895">Masato Oguchi</author></authors><title>Proposal and Evaluation of Event Search Method Based on SNS Data Analysis Focusing on Place and Time.</title><venue>BDCAT</venue><pages>211-212</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KudoENYYO18</key><doi>10.1109/BDCAT.2018.00035</doi><ee>https://doi.org/10.1109/BDCAT.2018.00035</ee><url>https://dblp.org/rec/conf/bdc/KudoENYYO18</url></info>
+<url>URL#1471131</url>
+</hit>
+<hit score="1" id="1471132">
+<info><authors><author pid="233/6467">Sarthak Kukreti</author><author pid="46/2933-1">Frank Mueller 0001</author></authors><title>CloneHadoop - Process Cloning to Reduce Hadoop&apos;s Long Tail.</title><venue>BDCAT</venue><pages>11-20</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KukretiM18</key><doi>10.1109/BDCAT.2018.00011</doi><ee>https://doi.org/10.1109/BDCAT.2018.00011</ee><url>https://dblp.org/rec/conf/bdc/KukretiM18</url></info>
+<url>URL#1471132</url>
+</hit>
+<hit score="1" id="1471133">
+<info><authors><author pid="192/7202">Linh Le</author><author pid="51/6470">Ying Xie</author></authors><title>Recurrent Embedding Kernel for Predicting Stock Daily Direction.</title><venue>BDCAT</venue><pages>160-166</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LeX18</key><doi>10.1109/BDCAT.2018.00027</doi><ee>https://doi.org/10.1109/BDCAT.2018.00027</ee><url>https://dblp.org/rec/conf/bdc/LeX18</url></info>
+<url>URL#1471133</url>
+</hit>
+<hit score="1" id="1471134">
+<info><authors><author pid="190/7509">Jongsun Lee</author><author pid="178/8112">Hyun-Soo Choi</author><author pid="122/3568">Yongkweon Jeon</author><author pid="13/3100">Yongsik Kwon</author><author pid="49/1454">Donghun Lee</author><author pid="99/1474">Sungroh Yoon</author></authors><title>Detecting System Anomalies in Multivariate Time Series with Information Transfer and Random Walk.</title><venue>BDCAT</venue><pages>71-80</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LeeCJKLY18</key><doi>10.1109/BDCAT.2018.00017</doi><ee>https://doi.org/10.1109/BDCAT.2018.00017</ee><url>https://dblp.org/rec/conf/bdc/LeeCJKLY18</url></info>
+<url>URL#1471134</url>
+</hit>
+<hit score="1" id="1471135">
+<info><authors><author pid="143/5652">Guilherme F. Lima</author><author pid="206/7321">Ahmad Slo</author><author pid="154/4287">Sukanya Bhowmik</author><author pid="e/MarkusEndler">Markus Endler</author><author pid="r/KurtRothermel">Kurt Rothermel</author></authors><title>Skipping Unused Events to Speed Up Rollback-Recovery in Distributed Data-Parallel CEP.</title><venue>BDCAT</venue><pages>31-40</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LimaSBER18</key><doi>10.1109/BDCAT.2018.00013</doi><ee>https://doi.org/10.1109/BDCAT.2018.00013</ee><url>https://dblp.org/rec/conf/bdc/LimaSBER18</url></info>
+<url>URL#1471135</url>
+</hit>
+<hit score="1" id="1471136">
+<info><authors><author pid="15/5923-15">Chao Liu 0015</author><author pid="05/490">Qi Zhao</author><author pid="133/0570">Bai Yan</author><author pid="84/8728">Saber M. Elsayed</author><author pid="s/RuhulASarker">Ruhul A. Sarker</author></authors><title>An Improved Multi-Objective Evolutionary Approach for Clustering High-Dimensional Data.</title><venue>BDCAT</venue><pages>184-190</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LiuZYES18</key><doi>10.1109/BDCAT.2018.00030</doi><ee>https://doi.org/10.1109/BDCAT.2018.00030</ee><url>https://dblp.org/rec/conf/bdc/LiuZYES18</url></info>
+<url>URL#1471136</url>
+</hit>
+<hit score="1" id="1471137">
+<info><authors><author pid="233/6385">Tamara Matthews</author><author pid="148/2398">Muhammad Iqbal</author><author pid="53/564">Horacio González-Vélez</author></authors><title>Non-Linear Machine Learning with Active Sampling for MOX Drift Compensation.</title><venue>BDCAT</venue><pages>61-70</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/MatthewsIG18</key><doi>10.1109/BDCAT.2018.00016</doi><ee>https://doi.org/10.1109/BDCAT.2018.00016</ee><url>https://dblp.org/rec/conf/bdc/MatthewsIG18</url></info>
+<url>URL#1471137</url>
+</hit>
+<hit score="1" id="1471138">
+<info><authors><author pid="233/6375">Muhammad Nauman Rafiq</author><author pid="60/11266">Hasan Farooq</author><author pid="120/5120">Ahmed Zoha</author><author pid="167/1888">Ali Imran</author></authors><title>Can Temperature Be Used as a Predictor of Data Traffic? A Real Network Big Data Analysis.</title><venue>BDCAT</venue><pages>167-173</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/RafiqFZI18</key><doi>10.1109/BDCAT.2018.00028</doi><ee>https://doi.org/10.1109/BDCAT.2018.00028</ee><url>https://dblp.org/rec/conf/bdc/RafiqFZI18</url></info>
+<url>URL#1471138</url>
+</hit>
+<hit score="1" id="1471139">
+<info><authors><author pid="99/6289">Richard O. Sinnott</author><author pid="233/6345">Ziyue Guan</author></authors><title>Prediction of Air Pollution through Machine Learning Approaches on the Cloud.</title><venue>BDCAT</venue><pages>51-60</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SinnottG18</key><doi>10.1109/BDCAT.2018.00015</doi><ee>https://doi.org/10.1109/BDCAT.2018.00015</ee><url>https://dblp.org/rec/conf/bdc/SinnottG18</url></info>
+<url>URL#1471139</url>
+</hit>
+<hit score="1" id="1471140">
+<info><authors><author pid="99/6289">Richard O. Sinnott</author><author pid="01/836">Fang Wu</author><author pid="c/WenbinChen">Wenbin Chen</author></authors><title>A Mobile Application for Dog Breed Detection and Recognition Based on Deep Learning.</title><venue>BDCAT</venue><pages>87-96</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SinnottWC18</key><doi>10.1109/BDCAT.2018.00019</doi><ee>https://doi.org/10.1109/BDCAT.2018.00019</ee><url>https://dblp.org/rec/conf/bdc/SinnottWC18</url></info>
+<url>URL#1471140</url>
+</hit>
+<hit score="1" id="1471141">
+<info><authors><author pid="233/6429">Kamil Smolak</author><author pid="233/6483">Barbara Kasieczka</author><author pid="178/5440">Katarzyna Sila-Nowicka</author><author pid="233/6402">Katarzyna Kopanczyk</author><author pid="159/2967">Witold Rohm</author><author pid="233/6332">Wieslaw Fialkiewicz</author></authors><title>Urban Hourly Water Demand Prediction Using Human Mobility Data.</title><venue>BDCAT</venue><pages>213-214</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SmolakKSKRF18</key><doi>10.1109/BDCAT.2018.00036</doi><ee>https://doi.org/10.1109/BDCAT.2018.00036</ee><url>https://dblp.org/rec/conf/bdc/SmolakKSKRF18</url></info>
+<url>URL#1471141</url>
+</hit>
+<hit score="1" id="1471142">
+<info><authors><author pid="38/5145">Kurt Stockinger</author><author pid="209/5277">Jonas Heitz</author><author pid="231/3130">Nils Bundi</author><author pid="129/1624">Wolfgang Breymann</author></authors><title>Large-Scale Data-Driven Financial Risk Modeling Using Big Data Technology.</title><venue>BDCAT</venue><pages>206-207</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/StockingerHBB18</key><doi>10.1109/BDCAT.2018.00033</doi><ee>https://doi.org/10.1109/BDCAT.2018.00033</ee><url>https://dblp.org/rec/conf/bdc/StockingerHBB18</url></info>
+<url>URL#1471142</url>
+</hit>
+<hit score="1" id="1471143">
+<info><authors><author pid="87/6581">Zhenyu Wu</author><author pid="126/6574">Jiaying Chen</author><author pid="90/7422">Yinuo Zhang</author></authors><title>An Incremental Community Detection Method in Social Big Data.</title><venue>BDCAT</venue><pages>136-141</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WuCZ18</key><doi>10.1109/BDCAT.2018.00024</doi><ee>https://doi.org/10.1109/BDCAT.2018.00024</ee><url>https://dblp.org/rec/conf/bdc/WuCZ18</url></info>
+<url>URL#1471143</url>
+</hit>
+<hit score="1" id="1471144">
+<info><authors><author pid="20/8499">Yingying Wu</author><author pid="233/6390">Zhenghe Liang</author></authors><title>Implementation of Distributed XA Transactions in MyCat Based on Table Broadcasting Mechanism.</title><venue>BDCAT</venue><pages>215-216</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WuL18</key><doi>10.1109/BDCAT.2018.00037</doi><ee>https://doi.org/10.1109/BDCAT.2018.00037</ee><url>https://dblp.org/rec/conf/bdc/WuL18</url></info>
+<url>URL#1471144</url>
+</hit>
+<hit score="1" id="1471145">
+<info><authors><author pid="132/9611">Tsubasa Yamaguchi</author><author pid="219/4447">Mansur As</author><author pid="65/742">Tsunenori Mine</author></authors><title>Prediction of Bus Delay over Intervals on Various Kinds of Routes Using Bus Probe Data.</title><venue>BDCAT</venue><pages>97-106</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YamaguchiAM18</key><doi>10.1109/BDCAT.2018.00020</doi><ee>https://doi.org/10.1109/BDCAT.2018.00020</ee><url>https://dblp.org/rec/conf/bdc/YamaguchiAM18</url></info>
+<url>URL#1471145</url>
+</hit>
+<hit score="1" id="1471146">
+<info><authors><author pid="31/1175">Tao Yan</author><author pid="88/3973">Chongzhao Han</author><author pid="233/6430">Chengnan Wang</author></authors><title>A Positive Approximation Set Based Accelerating Approach for Condition Attribute Reduction.</title><venue>BDCAT</venue><pages>198-205</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YanHW18</key><doi>10.1109/BDCAT.2018.00032</doi><ee>https://doi.org/10.1109/BDCAT.2018.00032</ee><url>https://dblp.org/rec/conf/bdc/YanHW18</url></info>
+<url>URL#1471146</url>
+</hit>
+<hit score="1" id="1471147">
+<info><authors><author pid="26/6190">Hui Yu</author><author pid="53/2865">Yasunori Owada</author><author pid="70/2895">Masato Oguchi</author></authors><title>A Decentralized SNS System Based on XMPP with Connection Control in Large-Scale Disasters.</title><venue>BDCAT</venue><pages>81-86</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YuOO18</key><doi>10.1109/BDCAT.2018.00018</doi><ee>https://doi.org/10.1109/BDCAT.2018.00018</ee><url>https://dblp.org/rec/conf/bdc/YuOO18</url></info>
+<url>URL#1471147</url>
+</hit>
+<hit score="1" id="1471148">
+<info><authors><author pid="233/6405">Alwin Yaoxian Zhang</author><author pid="175/4441">Sean Shao Wei Lam</author><author pid="86/4643-3">Nan Liu 0003</author><author pid="35/1106">Yan Pang</author><author pid="219/2101">Ling Ling Chan</author><author pid="233/6377">Phua Hwee Tang</author></authors><title>Development of a Radiology Decision Support System for the Classification of MRI Brain Scans.</title><venue>BDCAT</venue><pages>107-115</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhangLLPCT18</key><doi>10.1109/BDCAT.2018.00021</doi><ee>https://doi.org/10.1109/BDCAT.2018.00021</ee><url>https://dblp.org/rec/conf/bdc/ZhangLLPCT18</url></info>
+<url>URL#1471148</url>
+</hit>
+<hit score="1" id="1471149">
+<info><authors><author pid="67/4993">Qidong Zhang</author><author pid="56/5140">Yan Tang</author><author pid="233/6368">Zequan Guo</author><author pid="20/815">Tingting Wu</author><author pid="85/2168">Li Xu</author><author pid="95/6947">Xiaofeng Gao</author></authors><title>Adaptive General Event Popularity Analysis on Streaming Data.</title><venue>BDCAT</venue><pages>116-125</pages><year>2018</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhangTGWXG18</key><doi>10.1109/BDCAT.2018.00022</doi><ee>https://doi.org/10.1109/BDCAT.2018.00022</ee><url>https://dblp.org/rec/conf/bdc/ZhangTGWXG18</url></info>
+<url>URL#1471149</url>
+</hit>
+<hit score="1" id="1628226">
+<info><title>5th IEEE/ACM International Conference on Big Data Computing Applications and Technologies, BDCAT 2018, Zurich, Switzerland, December 17-20, 2018</title><venue>BDCAT</venue><publisher>IEEE Computer Society</publisher><year>2018</year><type>Editorship</type><key>conf/bdc/2018</key><ee>https://ieeexplore.ieee.org/xpl/conhome/8603671/proceeding</ee><url>https://dblp.org/rec/conf/bdc/2018</url></info>
+<url>URL#1628226</url>
+</hit>
+<hit score="1" id="1823296">
+<info><authors><author pid="45/5662">Tariq Abdullah</author><author pid="281/5405">Ahmed Ahmet</author></authors><title>Genomics Analyser - A Big Data Framework for Analysing Genomics Data.</title><venue>BDCAT</venue><pages>189-197</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AbdullahA17</key><doi>10.1145/3148055.3148072</doi><ee>https://doi.org/10.1145/3148055.3148072</ee><url>https://dblp.org/rec/conf/bdc/AbdullahA17</url></info>
+<url>URL#1823296</url>
+</hit>
+<hit score="1" id="1823297">
+<info><authors><author pid="167/8096">Dabiah Ahmed Alboaneen</author><author pid="69/5144">Huaglory Tianfield</author><author pid="04/3348-47">Yan Zhang 0047</author></authors><title>Glowworm Swarm Optimisation for Training Multi-Layer Perceptrons.</title><venue>BDCAT</venue><pages>131-138</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AlboaneenTZ17</key><doi>10.1145/3148055.3148075</doi><ee>https://doi.org/10.1145/3148055.3148075</ee><url>https://dblp.org/rec/conf/bdc/AlboaneenTZ17</url></info>
+<url>URL#1823297</url>
+</hit>
+<hit score="1" id="1823298">
+<info><authors><author pid="194/5153">Rana Alnashwan</author><author pid="14/2248">Humphrey Sorensen</author><author pid="88/3363">Adrian O&apos;Riordan</author><author pid="15/795">Cathal Hoare</author></authors><title>Multiclass Sentiment Classification of Online Health Forums using Both Domain-independent and Domain-specific Features.</title><venue>BDCAT</venue><pages>75-83</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AlnashwanSOH17</key><doi>10.1145/3148055.3148058</doi><ee>https://doi.org/10.1145/3148055.3148058</ee><url>https://dblp.org/rec/conf/bdc/AlnashwanSOH17</url></info>
+<url>URL#1823298</url>
+</hit>
+<hit score="1" id="1823299">
+<info><authors><author pid="210/3356">Aikaterini Boufea</author><author pid="116/9484">Richard Finkers</author><author pid="141/4908">Martijn van Kaauwen</author><author pid="29/8277">Mark Kramer</author><author pid="66/775">Ioannis N. Athanasiadis</author></authors><title>Managing Variant Calling Files the Big Data Way - Using HDFS and Apache Parquet.</title><venue>BDCAT</venue><pages>219-226</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BoufeaFKKA17</key><doi>10.1145/3148055.3148060</doi><ee>https://doi.org/10.1145/3148055.3148060</ee><url>https://dblp.org/rec/conf/bdc/BoufeaFKKA17</url></info>
+<url>URL#1823299</url>
+</hit>
+<hit score="1" id="1823300">
+<info><authors><author pid="172/1007">Benjamin Bryant</author><author pid="47/5442">Hamed Sari-Sarraf</author><author pid="69/3663">L. Rodney Long</author><author pid="01/1603">Sameer K. Antani</author></authors><title>A Kernel Support Vector Machine Trained Using Approximate Global and Exhaustive Local Sampling.</title><venue>BDCAT</venue><pages>267-268</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BryantSLA17</key><doi>10.1145/3148055.3149206</doi><ee>https://doi.org/10.1145/3148055.3149206</ee><url>https://dblp.org/rec/conf/bdc/BryantSLA17</url></info>
+<url>URL#1823300</url>
+</hit>
+<hit score="1" id="1823301">
+<info><authors><author pid="210/3387">Rudraneel Chakraborty</author><author pid="79/4577">Shikharesh Majumdar</author></authors><title>Priority Based Resource Scheduling Techniques for a Resource Constrained Stream Processing System.</title><venue>BDCAT</venue><pages>21-31</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ChakrabortyM17</key><doi>10.1145/3148055.3148066</doi><ee>https://doi.org/10.1145/3148055.3148066</ee><url>https://dblp.org/rec/conf/bdc/ChakrabortyM17</url></info>
+<url>URL#1823301</url>
+</hit>
+<hit score="1" id="1823302">
+<info><authors><author pid="210/3384">Shouwei Chen</author><author pid="85/1328">Ivan Rodero</author></authors><title>Understanding Behavior Trends of Big Data Frameworks in Ongoing Software-Defined Cyber-Infrastructure.</title><venue>BDCAT</venue><pages>199-208</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ChenR17</key><doi>10.1145/3148055.3148079</doi><ee>https://doi.org/10.1145/3148055.3148079</ee><url>https://dblp.org/rec/conf/bdc/ChenR17</url></info>
+<url>URL#1823302</url>
+</hit>
+<hit score="1" id="1823303">
+<info><authors><author pid="171/7306">Riqing Chen</author><author pid="z/HuiZhang6">Hui Zhang 0006</author></authors><title>Large-scale 3D Reconstruction with an R-based Analysis Workflow.</title><venue>BDCAT</venue><pages>85-93</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ChenZ17</key><doi>10.1145/3148055.3148062</doi><ee>https://doi.org/10.1145/3148055.3148062</ee><url>https://dblp.org/rec/conf/bdc/ChenZ17</url></info>
+<url>URL#1823303</url>
+</hit>
+<hit score="1" id="1823304">
+<info><authors><author pid="189/6598">Mellitus Ezeme</author><author pid="02/8669">Akramul Azim</author><author pid="m/QusayHMahmoud">Qusay H. Mahmoud</author></authors><title>An Imputation-based Augmented Anomaly Detection from Large Traces of Operating System Events.</title><venue>BDCAT</venue><pages>43-52</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/EzemeAM17</key><doi>10.1145/3148055.3148076</doi><ee>https://doi.org/10.1145/3148055.3148076</ee><url>https://dblp.org/rec/conf/bdc/EzemeAM17</url></info>
+<url>URL#1823304</url>
+</hit>
+<hit score="1" id="1823305">
+<info><authors><author pid="12/8874">Cong Feng</author><author pid="210/3349">Erol Kevin Chartan</author><author pid="57/9985">Bri-Mathias S. Hodge</author><author pid="84/6889-54">Jie Zhang 0054</author></authors><title>Characterizing Time Series Data Diversity for Wind Forecasting.</title><venue>BDCAT</venue><pages>113-119</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/FengCHZ17</key><doi>10.1145/3148055.3148065</doi><ee>https://doi.org/10.1145/3148055.3148065</ee><url>https://dblp.org/rec/conf/bdc/FengCHZ17</url></info>
+<url>URL#1823305</url>
+</hit>
+<hit score="1" id="1823306">
+<info><authors><author pid="16/2996">Debessay Fesehaye</author><author pid="93/4283">Lenin Singaravelu</author><author pid="27/4138">Amitabha Banerjee</author><author pid="129/2868">Ruijin Zhou</author><author pid="119/1764">Xiaobo Huang</author><author pid="128/8256">Chien-Chia Chen</author><author pid="203/0740">Rajesh Somasundaran</author></authors><title>Performance Analysis of Large Scale Distributed Systems by Ranking Dominant Features.</title><venue>BDCAT</venue><pages>227-236</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/FesehayeSBZHCS17</key><doi>10.1145/3148055.3148070</doi><ee>https://doi.org/10.1145/3148055.3148070</ee><url>https://dblp.org/rec/conf/bdc/FesehayeSBZHCS17</url></info>
+<url>URL#1823306</url>
+</hit>
+<hit score="1" id="1823307">
+<info><authors><author pid="210/3370">Logan Hall</author><author pid="194/5473">Bryan Harris</author><author pid="206/3991">Erica Tomes</author><author pid="21/8166">Nihat Altiparmak</author></authors><title>Big Data Aware Virtual Machine Placement in Cloud Data Centers.</title><venue>BDCAT</venue><pages>209-218</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HallHTA17</key><doi>10.1145/3148055.3148057</doi><ee>https://doi.org/10.1145/3148055.3148057</ee><url>https://dblp.org/rec/conf/bdc/HallHTA17</url></info>
+<url>URL#1823307</url>
+</hit>
+<hit score="1" id="1823308">
+<info><authors><author pid="153/1912">Amartya Hatua</author><author pid="210/3354">Trung T. Nguyen</author><author pid="79/1202">Andrew H. Sung</author></authors><title>Information Diffusion on Twitter - Pattern Recognition and Prediction of Volume, Sentiment, and Influence.</title><venue>BDCAT</venue><pages>157-167</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HatuaNS17</key><doi>10.1145/3148055.3148078</doi><ee>https://doi.org/10.1145/3148055.3148078</ee><url>https://dblp.org/rec/conf/bdc/HatuaNS17</url></info>
+<url>URL#1823308</url>
+</hit>
+<hit score="1" id="1823309">
+<info><authors><author pid="72/3825">Felix Heine</author><author pid="208/8280">Marius Rohde</author></authors><title>PopUp-Cubing - An Algorithm to Efficiently Use Iceberg Cubes in Data Streams.</title><venue>BDCAT</venue><pages>11-20</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HeineR17</key><doi>10.1145/3148055.3148061</doi><ee>https://doi.org/10.1145/3148055.3148061</ee><url>https://dblp.org/rec/conf/bdc/HeineR17</url></info>
+<url>URL#1823309</url>
+</hit>
+<hit score="1" id="1823310">
+<info><authors><author pid="62/885">Siyuan Huang</author><author pid="60/2536-66">Rui Zhang 0066</author><author pid="210/3367">Nuofei Li</author><author pid="42/8500">Jiming Guo</author><author pid="25/4108-1">Hongbo Jiang 0001</author></authors><title>Automatic Mining of Multi-granularity Temporal Regularity from Trajectory Data.</title><venue>BDCAT</venue><pages>247-254</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HuangZLGJ17</key><doi>10.1145/3148055.3148067</doi><ee>https://doi.org/10.1145/3148055.3148067</ee><url>https://dblp.org/rec/conf/bdc/HuangZLGJ17</url></info>
+<url>URL#1823310</url>
+</hit>
+<hit score="1" id="1823311">
+<info><authors><author pid="210/3392">Joojay Huyn</author></authors><title>A Scalable Real-Time Framework for DDoS Traffic Monitoring and Characterization.</title><venue>BDCAT</venue><pages>265-266</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Huyn17</key><doi>10.1145/3148055.3149205</doi><ee>https://doi.org/10.1145/3148055.3149205</ee><url>https://dblp.org/rec/conf/bdc/Huyn17</url></info>
+<url>URL#1823311</url>
+</hit>
+<hit score="1" id="1823312">
+<info><authors><author pid="207/3509">M. Haseeb Javed</author><author pid="27/5660">Xiaoyi Lu</author><author pid="p/DhabaleswarKPanda">Dhabaleswar K. Panda 0001</author></authors><title>Characterization of Big Data Stream Processing Pipeline - A Case Study using Flink and Kafka.</title><venue>BDCAT</venue><pages>1-10</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/JavedLP17</key><doi>10.1145/3148055.3148068</doi><ee>https://doi.org/10.1145/3148055.3148068</ee><url>https://dblp.org/rec/conf/bdc/JavedLP17</url></info>
+<url>URL#1823312</url>
+</hit>
+<hit score="1" id="1823313">
+<info><authors><author pid="88/4302">Jun Jiang</author><author pid="38/5842">Xinghui Zhao</author><author pid="16/4841">Scott A. Wallace</author><author pid="77/7905">Eduardo Cotilla Sanchez</author><author pid="168/8651">Robert B. Bass</author></authors><title>Mining PMU Data Streams to Improve Electric Power System Resilience.</title><venue>BDCAT</venue><pages>95-102</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/JiangZWSB17</key><doi>10.1145/3148055.3148082</doi><ee>https://doi.org/10.1145/3148055.3148082</ee><url>https://dblp.org/rec/conf/bdc/JiangZWSB17</url></info>
+<url>URL#1823313</url>
+</hit>
+<hit score="1" id="1823314">
+<info><authors><author pid="03/5135">Kenneth Johnson</author><author pid="210/3326">Shahper Richter</author></authors><title>Quantitative Verification of Social Media Networks - The Case Study of Twitter.</title><venue>BDCAT</venue><pages>53-62</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/JohnsonR17</key><doi>10.1145/3148055.3148063</doi><ee>https://doi.org/10.1145/3148055.3148063</ee><url>https://dblp.org/rec/conf/bdc/JohnsonR17</url></info>
+<url>URL#1823314</url>
+</hit>
+<hit score="1" id="1823315">
+<info><authors><author pid="151/4752">Hasan Kurban</author><author pid="192/8364">Can Kockan</author><author pid="151/4842">Mark Jenne</author><author pid="16/4499">Mehmet M. Dalkilic</author></authors><title>Case Study - Clustering Big Stellar Data with EM.</title><venue>BDCAT</venue><pages>271-272</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KurbanKJD17</key><doi>10.1145/3148055.3149208</doi><ee>https://doi.org/10.1145/3148055.3149208</ee><url>https://dblp.org/rec/conf/bdc/KurbanKJD17</url></info>
+<url>URL#1823315</url>
+</hit>
+<hit score="1" id="1823316">
+<info><authors><author pid="149/5891">André Petermann</author><author pid="149/5877">Martin Junghanns</author><author pid="r/ERahm">Erhard Rahm</author></authors><title>DIMSpan - Transactional Frequent Subgraph Mining with Distributed In-Memory Dataflow Systems.</title><venue>BDCAT</venue><pages>237-246</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/PetermannJR17</key><doi>10.1145/3148055.3148064</doi><ee>https://doi.org/10.1145/3148055.3148064</ee><url>https://dblp.org/rec/conf/bdc/PetermannJR17</url></info>
+<url>URL#1823316</url>
+</hit>
+<hit score="1" id="1823317">
+<info><authors><author pid="56/6989">Mayur Punekar</author><author pid="99/5275">Qutaibah M. Malluhi</author><author pid="w/YonggeWang">Yongge Wang</author><author pid="d/YvoDesmedt">Yvo Desmedt</author></authors><title>Candidate MDS Array Codes for Tolerating Three Disk Failures in RAID-7 Architectures.</title><venue>BDCAT</venue><pages>33-42</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/PunekarMWD17</key><doi>10.1145/3148055.3148056</doi><ee>https://doi.org/10.1145/3148055.3148056</ee><url>https://dblp.org/rec/conf/bdc/PunekarMWD17</url></info>
+<url>URL#1823317</url>
+</hit>
+<hit score="1" id="1823318">
+<info><authors><author pid="68/8325">Muhammad Mahbubur Rahman</author><author pid="f/TWFinin">Tim Finin</author></authors><title>Deep Understanding of a Document&apos;s Structure.</title><venue>BDCAT</venue><pages>63-73</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/RahmanF17</key><doi>10.1145/3148055.3148080</doi><ee>https://doi.org/10.1145/3148055.3148080</ee><url>https://dblp.org/rec/conf/bdc/RahmanF17</url></info>
+<url>URL#1823318</url>
+</hit>
+<hit score="1" id="1823319">
+<info><authors><author pid="210/3397">Daniel Medina Sada</author><author pid="13/6995">Susan Mengel</author><author pid="210/3329">Lisaann S. Gittner</author><author pid="210/3345">Hafiz Khan</author><author pid="210/3372">Mario A. Pitalua Rodriguez</author><author pid="71/86">Ravi Vadapalli</author></authors><title>A Preliminary Investigation with Twitter to Augment CVD Exposome Research.</title><venue>BDCAT</venue><pages>169-178</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SadaMGKRV17</key><doi>10.1145/3148055.3148074</doi><ee>https://doi.org/10.1145/3148055.3148074</ee><url>https://dblp.org/rec/conf/bdc/SadaMGKRV17</url></info>
+<url>URL#1823319</url>
+</hit>
+<hit score="1" id="1823320">
+<info><authors><author pid="189/4566">Rongye Shi</author><author pid="s/PeterSteenkiste">Peter Steenkiste</author><author pid="v/ManuelaMVeloso">Manuela M. Veloso</author></authors><title>Second-Order Destination Inference using Semi-Supervised Self-Training for Entry-Only Passenger Data.</title><venue>BDCAT</venue><pages>255-264</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ShiSV17</key><doi>10.1145/3148055.3148069</doi><ee>https://doi.org/10.1145/3148055.3148069</ee><url>https://dblp.org/rec/conf/bdc/ShiSV17</url></info>
+<url>URL#1823320</url>
+</hit>
+<hit score="1" id="1823321">
+<info><authors><author pid="78/6923">Jun Suzuki</author><author pid="05/3991">Yuki Hayashi</author><author pid="126/0623">Masaki Kan</author><author pid="117/8437">Shinya Miyakawa</author><author pid="77/4880">Takashi Takenaka</author><author pid="49/1707">Takuya Araki</author><author pid="k/MasaruKitsuregawa">Masaru Kitsuregawa</author></authors><title>Victream - Computing Framework for Out-of-Core Processing on Multiple GPUs.</title><venue>BDCAT</venue><pages>179-188</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SuzukiHKMTAK17</key><doi>10.1145/3148055.3148059</doi><ee>https://doi.org/10.1145/3148055.3148059</ee><url>https://dblp.org/rec/conf/bdc/SuzukiHKMTAK17</url></info>
+<url>URL#1823321</url>
+</hit>
+<hit score="1" id="1823322">
+<info><authors><author pid="56/5140">Yan Tang</author><author pid="210/3321">Mingzheng Li</author><author pid="197/1683">Wangsong Wang</author><author pid="206/6103">Pengcheng Xuan</author><author pid="210/3333">Kun Geng</author></authors><title>Quality-Aware Movie Recommendation System on Big Data.</title><venue>BDCAT</venue><pages>273-274</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/TangLWXG17</key><doi>10.1145/3148055.3149209</doi><ee>https://doi.org/10.1145/3148055.3149209</ee><url>https://dblp.org/rec/conf/bdc/TangLWXG17</url></info>
+<url>URL#1823322</url>
+</hit>
+<hit score="1" id="1823323">
+<info><authors><author pid="210/3365">Johnny Torres</author><author pid="17/4961">Carmen Vaca</author><author pid="88/282">Cristina L. Abad</author></authors><title>What Ignites a Reply? - Characterizing Conversations in Microblogs.</title><venue>BDCAT</venue><pages>149-156</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/TorresVA17</key><doi>10.1145/3148055.3148071</doi><ee>https://doi.org/10.1145/3148055.3148071</ee><url>https://dblp.org/rec/conf/bdc/TorresVA17</url></info>
+<url>URL#1823323</url>
+</hit>
+<hit score="1" id="1823324">
+<info><authors><author pid="191/5643">Juan J. Villalobos</author><author pid="85/1328">Ivan Rodero</author><author pid="p/ManishParashar">Manish Parashar</author></authors><title>An Unsupervised Approach for Online Detection and Mitigation of High-Rate DDoS Attacks Based on an In-Memory Distributed Graph Using Streaming Data and Analytics.</title><venue>BDCAT</venue><pages>103-112</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/VillalobosRP17</key><doi>10.1145/3148055.3148077</doi><ee>https://doi.org/10.1145/3148055.3148077</ee><url>https://dblp.org/rec/conf/bdc/VillalobosRP17</url></info>
+<url>URL#1823324</url>
+</hit>
+<hit score="1" id="1823325">
+<info><authors><author pid="86/8795">Jonathan Wang</author><author pid="30/4395">Kesheng Wu</author><author pid="75/4666">Alex Sim</author><author pid="210/3393">Seongwook Hwangbo</author></authors><title>Feature Engineering and Classification Models for Partial Discharge Events in Power Transformers.</title><venue>BDCAT</venue><pages>269-270</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WangWSH17</key><doi>10.1145/3148055.3149270</doi><ee>https://doi.org/10.1145/3148055.3149270</ee><url>https://dblp.org/rec/conf/bdc/WangWSH17</url></info>
+<url>URL#1823325</url>
+</hit>
+<hit score="1" id="1823326">
+<info><authors><author pid="180/3067">Muhammad Usman Yaseen</author><author pid="49/3364">Ashiq Anjum</author><author pid="66/3455">Nick Antonopoulos</author></authors><title>Modeling and Analysis of a Deep Learning Pipeline for Cloud based Video Analytics.</title><venue>BDCAT</venue><pages>121-130</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YaseenAA17</key><doi>10.1145/3148055.3148081</doi><ee>https://doi.org/10.1145/3148055.3148081</ee><url>https://dblp.org/rec/conf/bdc/YaseenAA17</url></info>
+<url>URL#1823326</url>
+</hit>
+<hit score="1" id="1823327">
+<info><authors><author pid="17/5765-2">Jing Yuan 0002</author><author pid="w/WeiliWu">Weili Wu 0001</author><author pid="59/871-30">Yi Li 0030</author><author pid="d/DingZhuDu">Ding-Zhu Du</author></authors><title>Active Friending in Online Social Networks.</title><venue>BDCAT</venue><pages>139-148</pages><year>2017</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YuanWLD17</key><doi>10.1145/3148055.3148073</doi><ee>https://doi.org/10.1145/3148055.3148073</ee><url>https://dblp.org/rec/conf/bdc/YuanWLD17</url></info>
+<url>URL#1823327</url>
+</hit>
+<hit score="1" id="1973528">
+<info><authors><author pid="49/3364">Ashiq Anjum</author><author pid="133/2540">Alan Sill</author><author pid="38/5842">Xinghui Zhao</author><author pid="44/217">Mohsen M. Farid</author><author pid="p/ShrideepPallickara">Shrideep Pallickara</author><author pid="c/JiannongCao">Jiannong Cao 0001</author></authors><title>Proceedings of the Fourth IEEE/ACM International Conference on Big Data Computing, Applications and Technologies, BDCAT 2017, Austin, TX, USA, December 05 - 08, 2017</title><venue>BDCAT</venue><publisher>ACM</publisher><year>2017</year><type>Editorship</type><key>conf/bdc/2017</key><doi>10.1145/3148055</doi><ee>https://doi.org/10.1145/3148055</ee><url>https://dblp.org/rec/conf/bdc/2017</url></info>
+<url>URL#1973528</url>
+</hit>
+<hit score="1" id="2145983">
+<info><authors><author pid="14/10112">Arjun P. Athreya</author><author pid="192/7337">Kee Yuan Ngiam</author><author pid="169/3426">Zhaojing Luo</author><author pid="192/7266">E. Shyong Tai</author><author pid="18/5985">Zbigniew Kalbarczyk</author><author pid="i/RavishankarKIyer">Ravishankar K. Iyer</author></authors><title>Towards longitudinal analysis of a population&apos;s electronic health records using factor graphs.</title><venue>BDCAT</venue><pages>79-86</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AthreyaNLTKI16</key><doi>10.1145/3006299.3006309</doi><ee>https://doi.org/10.1145/3006299.3006309</ee><url>https://dblp.org/rec/conf/bdc/AthreyaNLTKI16</url></info>
+<url>URL#2145983</url>
+</hit>
+<hit score="1" id="2145984">
+<info><authors><author pid="04/8978">Ahsan Javed Awan</author><author pid="47/1386">Vladimir Vlassov</author><author pid="30/2217">Mats Brorsson</author><author pid="62/6835">Eduard Ayguadé</author></authors><title>Node architecture implications for in-memory data analytics on scale-in clusters.</title><venue>BDCAT</venue><pages>237-246</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AwanVBA16</key><doi>10.1145/3006299.3006319</doi><ee>https://doi.org/10.1145/3006299.3006319</ee><url>https://dblp.org/rec/conf/bdc/AwanVBA16</url></info>
+<url>URL#2145984</url>
+</hit>
+<hit score="1" id="2145985">
+<info><authors><author pid="176/2529">Mohammed N. Ba-Hutair</author><author pid="a/ZaherAlAghbari">Zaher Al Aghbari</author><author pid="82/617">Ibrahim Kamel</author></authors><title>Social community detection based on node distance and interest.</title><venue>BDCAT</venue><pages>274-289</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Ba-HutairAK16</key><doi>10.1145/3006299.3006342</doi><ee>https://doi.org/10.1145/3006299.3006342</ee><url>https://dblp.org/rec/conf/bdc/Ba-HutairAK16</url></info>
+<url>URL#2145985</url>
+</hit>
+<hit score="1" id="2145986">
+<info><authors><author pid="192/7314">Mohammed Bahja</author><author pid="62/1001">Mark Lycett</author></authors><title>Identifying patient experience from online resources via sentiment analysis and topic modelling.</title><venue>BDCAT</venue><pages>94-99</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BahjaL16</key><doi>10.1145/3006299.3006335</doi><ee>https://doi.org/10.1145/3006299.3006335</ee><url>https://dblp.org/rec/conf/bdc/BahjaL16</url></info>
+<url>URL#2145986</url>
+</hit>
+<hit score="1" id="2145987">
+<info><authors><author pid="166/2649">Marco Cavallo</author><author pid="166/2250">Carmelo Polito</author><author pid="52/6324">Giuseppe Di Modica</author><author pid="43/5379">Orazio Tomarchio</author></authors><title>H2F - a hierarchical hadoop framework for big data processing in geo-distributed environments.</title><venue>BDCAT</venue><pages>27-35</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/CavalloPMT16</key><doi>10.1145/3006299.3006320</doi><ee>https://doi.org/10.1145/3006299.3006320</ee><url>https://dblp.org/rec/conf/bdc/CavalloPMT16</url></info>
+<url>URL#2145987</url>
+</hit>
+<hit score="1" id="2145988">
+<info><authors><author pid="49/6574">Yi Chen</author><author pid="58/6025">Behzad Bordbar</author></authors><title>DRESS - a rule engine on spark for event stream processing.</title><venue>BDCAT</venue><pages>46-51</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ChenB16</key><doi>10.1145/3006299.3006326</doi><ee>https://doi.org/10.1145/3006299.3006326</ee><url>https://dblp.org/rec/conf/bdc/ChenB16</url></info>
+<url>URL#2145988</url>
+</hit>
+<hit score="1" id="2145989">
+<info><authors><author pid="150/6711">Francisco J. Clemente-Castelló</author><author pid="85/4553">Bogdan Nicolae</author><author pid="272/5869">Rafael Mayo 0002</author><author pid="250/4545">Juan Carlos Fernández 0002</author><author pid="32/5404">M. Mustafa Rafique</author></authors><title>On exploiting data locality for iterative mapreduce applications in hybrid clouds.</title><venue>BDCAT</venue><pages>118-122</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Clemente-Castello16</key><doi>10.1145/3006299.3006329</doi><ee>https://doi.org/10.1145/3006299.3006329</ee><url>https://dblp.org/rec/conf/bdc/Clemente-Castello16</url></info>
+<url>URL#2145989</url>
+</hit>
+<hit score="1" id="2145990">
+<info><authors><author pid="30/6728">Christophe Courtin</author><author pid="192/7281">Miguel Tomasena</author></authors><title>A benchmarking platform for analyzing corpora of traces - the recognition of the users&apos; involvement in fields of competencies.</title><venue>BDCAT</venue><pages>178-186</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/CourtinT16</key><doi>10.1145/3006299.3006303</doi><ee>https://doi.org/10.1145/3006299.3006303</ee><url>https://dblp.org/rec/conf/bdc/CourtinT16</url></info>
+<url>URL#2145990</url>
+</hit>
+<hit score="1" id="2145991">
+<info><authors><author pid="192/7244">Phuong-Hanh Du</author><author pid="192/7328">Hai-Dang Pham</author><author pid="35/1627">Ngoc-Hoa Nguyen</author></authors><title>Optimizing the shortest path query on large-scale dynamic directed graph.</title><venue>BDCAT</venue><pages>210-216</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/DuPN16</key><doi>10.1145/3006299.3006321</doi><ee>https://doi.org/10.1145/3006299.3006321</ee><url>https://dblp.org/rec/conf/bdc/DuPN16</url></info>
+<url>URL#2145991</url>
+</hit>
+<hit score="1" id="2145992">
+<info><authors><author pid="137/4173">Manxing Du</author><author pid="05/6228">Radu State</author><author pid="30/2217">Mats Brorsson</author><author pid="39/7643">Tigran Avanesov</author></authors><title>Behavior profiling for mobile advertising.</title><venue>BDCAT</venue><pages>302-307</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/DuSBA16</key><doi>10.1145/3006299.3006339</doi><ee>https://doi.org/10.1145/3006299.3006339</ee><url>https://dblp.org/rec/conf/bdc/DuSBA16</url></info>
+<url>URL#2145992</url>
+</hit>
+<hit score="1" id="2145993">
+<info><authors><author pid="192/7277">Mariam Malak Fahmy</author><author pid="27/3502">Iman Elghandour</author><author pid="76/5814">Magdy H. Nagi</author></authors><title>CoS-HDFS - co-locating geo-distributed spatial data in hadoop distributed file system.</title><venue>BDCAT</venue><pages>123-132</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/FahmyEN16</key><doi>10.1145/3006299.3006314</doi><ee>https://doi.org/10.1145/3006299.3006314</ee><url>https://dblp.org/rec/conf/bdc/FahmyEN16</url></info>
+<url>URL#2145993</url>
+</hit>
+<hit score="1" id="2145994">
+<info><authors><author pid="117/3630">Patrick O. Glauner</author><author pid="135/1302">Jorge Augusto Meira</author><author pid="142/9432">Lautaro Dolberg</author><author pid="05/6228">Radu State</author><author pid="79/3888">Franck Bettinger</author><author pid="r/YvesRangoni">Yves Rangoni</author></authors><title>Neighborhood features help detecting non-technical losses in big data sets.</title><venue>BDCAT</venue><pages>253-261</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/GlaunerMDSBR16</key><doi>10.1145/3006299.3006310</doi><ee>https://doi.org/10.1145/3006299.3006310</ee><url>https://dblp.org/rec/conf/bdc/GlaunerMDSBR16</url></info>
+<url>URL#2145994</url>
+</hit>
+<hit score="1" id="2145995">
+<info><authors><author pid="150/4855">Shashank Gugnani</author><author pid="27/5660">Xiaoyi Lu</author><author pid="p/DhabaleswarKPanda">Dhabaleswar K. Panda 0001</author></authors><title>Performance characterization of hadoop workloads on SR-IOV-enabled virtualized InfiniBand clusters.</title><venue>BDCAT</venue><pages>36-45</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/GugnaniLP16</key><doi>10.1145/3006299.3006313</doi><ee>https://doi.org/10.1145/3006299.3006313</ee><url>https://dblp.org/rec/conf/bdc/GugnaniLP16</url></info>
+<url>URL#2145995</url>
+</hit>
+<hit score="1" id="2145996">
+<info><authors><author pid="192/7270">Jingcai Guo</author></authors><title>An improved incremental training approach for large scaled dataset based on support vector machine.</title><venue>BDCAT</venue><pages>149-157</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Guo16</key><doi>10.1145/3006299.3006307</doi><ee>https://doi.org/10.1145/3006299.3006307</ee><url>https://dblp.org/rec/conf/bdc/Guo16</url></info>
+<url>URL#2145996</url>
+</hit>
+<hit score="1" id="2145997">
+<info><authors><author pid="192/7331">Aqsa Hameed</author><author pid="47/5437">Saqib Ali</author><author pid="42/2615">Roger Les Cottrell</author><author pid="72/4237">Bebo White</author></authors><title>Applying big data warehousing and visualization techniques on pingER data.</title><venue>BDCAT</venue><pages>67-72</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HameedACW16</key><doi>10.1145/3006299.3006337</doi><ee>https://doi.org/10.1145/3006299.3006337</ee><url>https://dblp.org/rec/conf/bdc/HameedACW16</url></info>
+<url>URL#2145997</url>
+</hit>
+<hit score="1" id="2145998">
+<info><authors><author pid="192/7344">Mohamed Hassaan</author><author pid="27/3502">Iman Elghandour</author></authors><title>A real-time big data analysis framework on a CPU/GPU heterogeneous cluster - a meteorological application case study.</title><venue>BDCAT</venue><pages>168-177</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HassaanE16</key><doi>10.1145/3006299.3006304</doi><ee>https://doi.org/10.1145/3006299.3006304</ee><url>https://dblp.org/rec/conf/bdc/HassaanE16</url></info>
+<url>URL#2145998</url>
+</hit>
+<hit score="1" id="2145999">
+<info><authors><author pid="17/36">Jie Hou</author><author pid="85/3714-2">Ya Zhang 0002</author><author pid="41/2698-1">Xiao Gu 0001</author></authors><title>Synergy and antagonism in online advertising.</title><venue>BDCAT</venue><pages>293-301</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HouZG16</key><doi>10.1145/3006299.3006328</doi><ee>https://doi.org/10.1145/3006299.3006328</ee><url>https://dblp.org/rec/conf/bdc/HouZG16</url></info>
+<url>URL#2145999</url>
+</hit>
+<hit score="1" id="2146000">
+<info><authors><author pid="62/7536">Tim Kiefer</author><author pid="97/5806">Dirk Habich</author><author pid="l/WLehner">Wolfgang Lehner</author></authors><title>Penalized graph partitioning based allocation strategy for database-as-a-service systems.</title><venue>BDCAT</venue><pages>200-209</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KieferHL16</key><doi>10.1145/3006299.3006300</doi><ee>https://doi.org/10.1145/3006299.3006300</ee><url>https://dblp.org/rec/conf/bdc/KieferHL16</url></info>
+<url>URL#2146000</url>
+</hit>
+<hit score="1" id="2146001">
+<info><authors><author pid="157/2690">Billy Pik Lik Lau</author><author pid="182/2537">Tanmay Chaturvedi</author><author pid="192/7213">Benny Kai Kiat Ng</author><author pid="199/3954">Kai Li 0002</author><author pid="192/7203">Marakkalage S. Hasala</author><author pid="01/753">Chau Yuen</author></authors><title>Spatial and temporal analysis of urban space utilization with renewable wireless sensor network.</title><venue>BDCAT</venue><pages>133-142</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LauCNLHY16</key><doi>10.1145/3006299.3006308</doi><ee>https://doi.org/10.1145/3006299.3006308</ee><url>https://dblp.org/rec/conf/bdc/LauCNLHY16</url></info>
+<url>URL#2146001</url>
+</hit>
+<hit score="1" id="2146002">
+<info><authors><author pid="192/7202">Linh Le</author><author pid="80/4735">Jie Hao</author><author pid="51/6470">Ying Xie</author><author pid="70/1530">Jennifer L. Priestley</author></authors><title>Deep kernel - learning kernel function from data using deep neural network.</title><venue>BDCAT</venue><pages>1-7</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LeHXP16</key><doi>10.1145/3006299.3006312</doi><ee>https://doi.org/10.1145/3006299.3006312</ee><url>https://dblp.org/rec/conf/bdc/LeHXP16</url></info>
+<url>URL#2146002</url>
+</hit>
+<hit score="1" id="2146003">
+<info><authors><author pid="33/5448-32">Jian Li 0032</author><author pid="126/4016">Guanjun Liu</author><author pid="31/5933">Changjun Jiang</author><author pid="92/5298">ChunGang Yan</author></authors><title>A hybrid method of recommending POIs based on context and personal preference confidence.</title><venue>BDCAT</venue><pages>287-292</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LiLJY16</key><doi>10.1145/3006299.3006330</doi><ee>https://doi.org/10.1145/3006299.3006330</ee><url>https://dblp.org/rec/conf/bdc/LiLJY16</url></info>
+<url>URL#2146003</url>
+</hit>
+<hit score="1" id="2146004">
+<info><authors><author pid="16/1917">Christina Lioma</author><author pid="34/421">Birger Larsen</author><author pid="98/6613">Wei Lu</author><author pid="35/198-8">Yong Huang 0008</author></authors><title>A study of factuality, objectivity and relevance - three desiderata in large-scale information retrieval?</title><venue>BDCAT</venue><pages>107-117</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LiomaLLH16</key><doi>10.1145/3006299.3006315</doi><ee>https://doi.org/10.1145/3006299.3006315</ee><url>https://dblp.org/rec/conf/bdc/LiomaLLH16</url></info>
+<url>URL#2146004</url>
+</hit>
+<hit score="1" id="2146005">
+<info><authors><author pid="62/5695">Chris W. Muelder</author><author pid="115/8855">Robert Faris</author><author pid="93/5838">Kwan-Liu Ma</author></authors><title>A visual analytics approach to author name disambiguation.</title><venue>BDCAT</venue><pages>52-60</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/MuelderFM16</key><doi>10.1145/3006299.3006302</doi><ee>https://doi.org/10.1145/3006299.3006302</ee><url>https://dblp.org/rec/conf/bdc/MuelderFM16</url></info>
+<url>URL#2146005</url>
+</hit>
+<hit score="1" id="2146006">
+<info><authors><author pid="192/7236">Mehnuma Tabassum Omar</author><author pid="68/1878">K. M. Azharul Hasan</author></authors><title>A scalable storage system for structured data based on higher order index array.</title><venue>BDCAT</venue><pages>247-252</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/OmarH16</key><doi>10.1145/3006299.3006333</doi><ee>https://doi.org/10.1145/3006299.3006333</ee><url>https://dblp.org/rec/conf/bdc/OmarH16</url></info>
+<url>URL#2146006</url>
+</hit>
+<hit score="1" id="2146007">
+<info><authors><author pid="57/6919-1">Abdul Razaq 0001</author><author pid="69/5144">Huaglory Tianfield</author><author pid="73/3114">Peter Barrie</author></authors><title>A big data analytics based approach to anomaly detection.</title><venue>BDCAT</venue><pages>187-193</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/RazaqTB16</key><doi>10.1145/3006299.3006317</doi><ee>https://doi.org/10.1145/3006299.3006317</ee><url>https://dblp.org/rec/conf/bdc/RazaqTB16</url></info>
+<url>URL#2146007</url>
+</hit>
+<hit score="1" id="2146008">
+<info><authors><author pid="192/7230">Salman Salloum</author><author pid="h/JoshuaZhexueHuang">Joshua Zhexue Huang</author><author pid="38/5213">Yu-Lin He</author></authors><title>Empirical analysis of asymptotic ensemble learning for big data.</title><venue>BDCAT</venue><pages>8-17</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SalloumHH16</key><doi>10.1145/3006299.3006306</doi><ee>https://doi.org/10.1145/3006299.3006306</ee><url>https://dblp.org/rec/conf/bdc/SalloumHH16</url></info>
+<url>URL#2146008</url>
+</hit>
+<hit score="1" id="2146009">
+<info><authors><author pid="169/4185">Vinutha Magal Shreenath</author><author pid="31/6596">Sebastiaan A. Meijer</author></authors><title>Spatial big data for designing large scale infrastructure - a case-study of electrical road systems.</title><venue>BDCAT</venue><pages>143-148</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ShreenathM16</key><doi>10.1145/3006299.3006334</doi><ee>https://doi.org/10.1145/3006299.3006334</ee><url>https://dblp.org/rec/conf/bdc/ShreenathM16</url></info>
+<url>URL#2146009</url>
+</hit>
+<hit score="1" id="2146010">
+<info><authors><author pid="183/8649">Amir Sinaeepourfard</author><author pid="07/2950">Jordi Garcia</author><author pid="04/4820">Xavier Masip-Bruin</author><author pid="85/1160">Eva Marín-Tordera</author></authors><title>Towards a comprehensive data lifecycle model for big data environments.</title><venue>BDCAT</venue><pages>100-106</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SinaeepourfardG16</key><doi>10.1145/3006299.3006311</doi><ee>https://doi.org/10.1145/3006299.3006311</ee><url>https://dblp.org/rec/conf/bdc/SinaeepourfardG16</url></info>
+<url>URL#2146010</url>
+</hit>
+<hit score="1" id="2146011">
+<info><authors><author pid="34/7845-4">Qing Sun 0004</author><author pid="25/4653">Jianwei Niu</author><author pid="78/2754">Zhong Yao</author><author pid="192/7292">Dongmin Qiu</author></authors><title>Research on semantic orientation classification of chinese online product reviews based on multi-aspect sentiment analysis.</title><venue>BDCAT</venue><pages>262-267</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SunNYQ16</key><doi>10.1145/3006299.3006325</doi><ee>https://doi.org/10.1145/3006299.3006325</ee><url>https://dblp.org/rec/conf/bdc/SunNYQ16</url></info>
+<url>URL#2146011</url>
+</hit>
+<hit score="1" id="2146012">
+<info><authors><author pid="281/7218">Anne M. Tall</author><author pid="w/JunWang1">Jun Wang 0001</author><author pid="48/1843">Dezhi Han</author></authors><title>Survey of data intensive computing technologies application to to security log data management.</title><venue>BDCAT</venue><pages>268-273</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/TallWH16</key><doi>10.1145/3006299.3006336</doi><ee>https://doi.org/10.1145/3006299.3006336</ee><url>https://dblp.org/rec/conf/bdc/TallWH16</url></info>
+<url>URL#2146012</url>
+</hit>
+<hit score="1" id="2146013">
+<info><authors><author pid="51/6470">Ying Xie</author><author pid="192/7316">Pooja Chenna</author><author pid="85/93-1">Jing (Selena) He</author><author pid="192/7202">Linh Le</author><author pid="192/7339">Jacey Planteen</author></authors><title>Visualization of big high dimensional data in a three dimensional space.</title><venue>BDCAT</venue><pages>61-66</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/XieCHLP16</key><doi>10.1145/3006299.3006340</doi><ee>https://doi.org/10.1145/3006299.3006340</ee><url>https://dblp.org/rec/conf/bdc/XieCHLP16</url></info>
+<url>URL#2146013</url>
+</hit>
+<hit score="1" id="2146014">
+<info><authors><author pid="x/ChunxiaoXing">Chunxiao Xing</author><author pid="05/8212">Shunyao Wu</author><author pid="07/2681">Fengjing Shao</author><author pid="49/3444">Rencheng Sun</author></authors><title>Disease gene discovery of single-gene disorders based on complex network.</title><venue>BDCAT</venue><pages>87-93</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/XingWSS16</key><doi>10.1145/3006299.3006316</doi><ee>https://doi.org/10.1145/3006299.3006316</ee><url>https://dblp.org/rec/conf/bdc/XingWSS16</url></info>
+<url>URL#2146014</url>
+</hit>
+<hit score="1" id="2146015">
+<info><authors><author pid="192/7229">Zhenglong Yan</author><author pid="82/5868">Wenjian Luo</author><author pid="151/4309">Chenyang Bu</author><author pid="68/4734">Li Ni</author></authors><title>Clustering spatial data by the neighbors intersection and the density difference.</title><venue>BDCAT</venue><pages>217-226</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YanLBN16</key><doi>10.1145/3006299.3006332</doi><ee>https://doi.org/10.1145/3006299.3006332</ee><url>https://dblp.org/rec/conf/bdc/YanLBN16</url></info>
+<url>URL#2146015</url>
+</hit>
+<hit score="1" id="2146016">
+<info><authors><author pid="180/3067">Muhammad Usman Yaseen</author><author pid="49/3364">Ashiq Anjum</author><author pid="66/3455">Nick Antonopoulos</author></authors><title>Spatial frequency based video stream analysis for object classification and recognition in clouds.</title><venue>BDCAT</venue><pages>18-26</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YaseenAA16</key><doi>10.1145/3006299.3006322</doi><ee>https://doi.org/10.1145/3006299.3006322</ee><url>https://dblp.org/rec/conf/bdc/YaseenAA16</url></info>
+<url>URL#2146016</url>
+</hit>
+<hit score="1" id="2146017">
+<info><authors><author pid="143/8502">Linlin You</author><author pid="172/4387">Bige Tunçer</author></authors><title>SAPAM - a scalable &quot;activities in places&quot; analysis mechanism for informed place design.</title><venue>BDCAT</venue><pages>158-167</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YouT16</key><doi>10.1145/3006299.3006301</doi><ee>https://doi.org/10.1145/3006299.3006301</ee><url>https://dblp.org/rec/conf/bdc/YouT16</url></info>
+<url>URL#2146017</url>
+</hit>
+<hit score="1" id="2146018">
+<info><authors><author pid="41/1662-4">Bo Yuan 0004</author><author pid="31/2088-1">Lu Liu 0001</author><author pid="66/3455">Nick Antonopoulos</author></authors><title>Efficient service discovery in decentralized online social networks.</title><venue>BDCAT</venue><pages>73-78</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/YuanLA16</key><doi>10.1145/3006299.3006338</doi><ee>https://doi.org/10.1145/3006299.3006338</ee><url>https://dblp.org/rec/conf/bdc/YuanLA16</url></info>
+<url>URL#2146018</url>
+</hit>
+<hit score="1" id="2146019">
+<info><authors><author pid="192/7240">Jingjiao Zhang</author><author pid="192/7287">Jiaqing Fu</author><author pid="50/2736">Chunhong Zhang</author><author pid="37/2611">Xin Ke</author><author pid="04/1729">Zheng Hu</author></authors><title>Not too late to identify potential churners - early churn prediction in telecommunication industry.</title><venue>BDCAT</venue><pages>194-199</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhangFZKH16</key><doi>10.1145/3006299.3006324</doi><ee>https://doi.org/10.1145/3006299.3006324</ee><url>https://dblp.org/rec/conf/bdc/ZhangFZKH16</url></info>
+<url>URL#2146019</url>
+</hit>
+<hit score="1" id="2146020">
+<info><authors><author pid="10/3890">Guoying Zhang</author><author pid="01/1">Min He</author><author pid="72/4250-10">Hao Wu 0010</author><author pid="119/0665">Guanghui Cai</author><author pid="26/4531">Jianhong Ge</author></authors><title>Non-negative multiple matrix factorization with social similarity for recommender systems.</title><venue>BDCAT</venue><pages>280-286</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhangHWCG16</key><doi>10.1145/3006299.3006323</doi><ee>https://doi.org/10.1145/3006299.3006323</ee><url>https://dblp.org/rec/conf/bdc/ZhangHWCG16</url></info>
+<url>URL#2146020</url>
+</hit>
+<hit score="1" id="2146021">
+<info><authors><author pid="00/5012">Jie Zhou</author><author pid="74/2905">Yanyan Shen</author><author pid="174/4620">Sumin Li</author><author pid="93/4039">Linpeng Huang</author></authors><title>NVHT - an efficient key-value storage library for non-volatile memory.</title><venue>BDCAT</venue><pages>227-236</pages><year>2016</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/ZhouSLH16</key><doi>10.1145/3006299.3006318</doi><ee>https://doi.org/10.1145/3006299.3006318</ee><url>https://dblp.org/rec/conf/bdc/ZhouSLH16</url></info>
+<url>URL#2146021</url>
+</hit>
+<hit score="1" id="2292313">
+<info><authors><author pid="49/3364">Ashiq Anjum</author><author pid="38/5842">Xinghui Zhao</author></authors><title>Proceedings of the 3rd IEEE/ACM International Conference on Big Data Computing, Applications and Technologies, BDCAT 2016, Shanghai, China, December 6-9, 2016</title><venue>BDCAT</venue><publisher>ACM</publisher><year>2016</year><type>Editorship</type><key>conf/bdc/2016</key><doi>10.1145/3006299</doi><ee>https://doi.org/10.1145/3006299</ee><url>https://dblp.org/rec/conf/bdc/2016</url></info>
+<url>URL#2292313</url>
+</hit>
+<hit score="1" id="2449981">
+<info><authors><author pid="176/0579">Ahmad Ahmadov</author><author pid="48/2949">Maik Thiele</author><author pid="25/9582">Julian Eberius</author><author pid="l/WLehner">Wolfgang Lehner</author><author pid="41/3391">Robert Wrembel</author></authors><title>Towards a Hybrid Imputation Approach Using Web Tables.</title><venue>BDC</venue><pages>21-30</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/AhmadovTELW15</key><doi>10.1109/BDC.2015.38</doi><ee>https://doi.org/10.1109/BDC.2015.38</ee><url>https://dblp.org/rec/conf/bdc/AhmadovTELW15</url></info>
+<url>URL#2449981</url>
+</hit>
+<hit score="1" id="2449982">
+<info><authors><author pid="79/2624">Kenneth Bloom</author><author pid="137/7813">Tommaso Boccali</author><author pid="68/1391">Brian Bockelman</author><author pid="07/7712">Daniel C. Bradley</author><author pid="07/7958">Sridhara Dasu</author><author pid="167/3867">Jeff Dost</author><author pid="24/5451">Federica Fanzago</author><author pid="44/1570">Igor Sfiligoi</author><author pid="167/4296">Alja Mrak Tadel</author><author pid="132/7611">Matevz Tadel</author><author pid="167/4264">Carl Vuosalo</author><author pid="69/5000">Frank Würthwein</author><author pid="167/3835">Avi Yagil</author><author pid="80/10760">Marián Zvada</author></authors><title>Any Data, Any Time, Anywhere - Global Data Access for Science.</title><venue>BDC</venue><pages>85-91</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/BloomBBBDDFSTTV15</key><doi>10.1109/BDC.2015.33</doi><ee>https://doi.org/10.1109/BDC.2015.33</ee><url>https://dblp.org/rec/conf/bdc/BloomBBBDDFSTTV15</url></info>
+<url>URL#2449982</url>
+</hit>
+<hit score="1" id="2449983">
+<info><authors><author pid="176/0634">Marco Capuccini</author><author pid="54/8709">Lars Carlsson</author><author pid="39/1688">Ulf Norinder</author><author pid="03/3606">Ola Spjuth</author></authors><title>Conformal Prediction in Spark - Large-Scale Machine Learning with Confidence.</title><venue>BDC</venue><pages>61-67</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/CapucciniCNS15</key><doi>10.1109/BDC.2015.35</doi><ee>https://doi.org/10.1109/BDC.2015.35</ee><url>https://dblp.org/rec/conf/bdc/CapucciniCNS15</url></info>
+<url>URL#2449983</url>
+</hit>
+<hit score="1" id="2449984">
+<info><authors><author pid="120/6701">Jeremy Debattista</author><author pid="l/ChristophLange2">Christoph Lange 0002</author><author pid="25/4763">Simon Scerri</author><author pid="05/6406">Sören Auer</author></authors><title>Linked &apos;Big&apos; Data - Towards a Manifold Increase in Big Data Value and Veracity.</title><venue>BDC</venue><pages>92-98</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Debattista0SA15</key><doi>10.1109/BDC.2015.34</doi><ee>https://doi.org/10.1109/BDC.2015.34</ee><url>https://dblp.org/rec/conf/bdc/Debattista0SA15</url></info>
+<url>URL#2449984</url>
+</hit>
+<hit score="1" id="2449985">
+<info><authors><author pid="25/9582">Julian Eberius</author><author pid="08/10929">Katrin Braunschweig</author><author pid="176/0585">Markus Hentsch</author><author pid="48/2949">Maik Thiele</author><author pid="176/0579">Ahmad Ahmadov</author><author pid="l/WLehner">Wolfgang Lehner</author></authors><title>Building the Dresden Web Table Corpus - A Classification Approach.</title><venue>BDC</venue><pages>41-50</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/EberiusBHTAL15</key><doi>10.1109/BDC.2015.30</doi><ee>https://doi.org/10.1109/BDC.2015.30</ee><url>https://dblp.org/rec/conf/bdc/EberiusBHTAL15</url></info>
+<url>URL#2449985</url>
+</hit>
+<hit score="1" id="2449986">
+<info><authors><author pid="49/747">Sergio Hernández</author><author pid="67/3188">Joaquin Ezpeleta</author><author pid="154/2455">Sebastiaan J. van Zelst</author><author pid="a/WilMPvanderAalst">Wil M. P. van der Aalst</author></authors><title>Assessing Process Discovery Scalability in Data Intensive Environments.</title><venue>BDC</venue><pages>99-104</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/HernandezEZA15</key><doi>10.1109/BDC.2015.31</doi><ee>https://doi.org/10.1109/BDC.2015.31</ee><url>https://dblp.org/rec/conf/bdc/HernandezEZA15</url></info>
+<url>URL#2449986</url>
+</hit>
+<hit score="1" id="2449987">
+<info><authors><author pid="151/9216">Ashwin Kumar T. K</author><author pid="19/1143">K. M. George</author><author pid="99/5655">Johnson P. Thomas</author></authors><title>An Empirical Approach to Detection of Topic Bubbles in Tweets.</title><venue>BDC</venue><pages>31-40</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KGT15</key><doi>10.1109/BDC.2015.36</doi><ee>https://doi.org/10.1109/BDC.2015.36</ee><url>https://dblp.org/rec/conf/bdc/KGT15</url></info>
+<url>URL#2449987</url>
+</hit>
+<hit score="1" id="2449988">
+<info><authors><author pid="98/10788">Matthew Malensek</author><author pid="38/1106">Sangmi Lee Pallickara</author><author pid="p/ShrideepPallickara">Shrideep Pallickara</author></authors><title>Alleviation of Disk I/O Contention in Virtualized Settings for Data-Intensive Computing.</title><venue>BDC</venue><pages>1-10</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/MalensekPP15</key><doi>10.1109/BDC.2015.32</doi><ee>https://doi.org/10.1109/BDC.2015.32</ee><url>https://dblp.org/rec/conf/bdc/MalensekPP15</url></info>
+<url>URL#2449988</url>
+</hit>
+<hit score="1" id="2449989">
+<info><authors><author pid="148/4512">Ansar Rafique</author><author pid="20/6363">Dimitri Van Landuyt</author><author pid="49/6710">Bert Lagaisse</author><author pid="13/86">Wouter Joosen</author></authors><title>Policy-Driven Data Management Middleware for Multi-cloud Storage in Multi-tenant SaaS.</title><venue>BDC</venue><pages>78-84</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/RafiqueLLJ15</key><doi>10.1109/BDC.2015.39</doi><ee>https://doi.org/10.1109/BDC.2015.39</ee><url>https://dblp.org/rec/conf/bdc/RafiqueLLJ15</url></info>
+<url>URL#2449989</url>
+</hit>
+<hit score="1" id="2449990">
+<info><authors><author pid="148/6695">Iman Sadooghi</author><author pid="181/2613-12">Ke Wang 0012</author><author pid="148/6635">Dharmit Patel</author><author pid="25/5030-1">Dongfang Zhao 0001</author><author pid="58/11205">Tonglin Li</author><author pid="119/3388">Shiva Srivastava</author><author pid="94/3254">Ioan Raicu</author></authors><title>FaBRiQ - Leveraging Distributed Hash Tables towards Distributed Publish-Subscribe Message Queues.</title><venue>BDC</venue><pages>11-20</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SadooghiWPZLSR15</key><doi>10.1109/BDC.2015.42</doi><ee>https://doi.org/10.1109/BDC.2015.42</ee><url>https://dblp.org/rec/conf/bdc/SadooghiWPZLSR15</url></info>
+<url>URL#2449990</url>
+</hit>
+<hit score="1" id="2449991">
+<info><authors><author pid="04/7098">Andreas Wilke</author><author pid="92/3476">Wolfgang Gerlach</author><author pid="117/5261">Travis Harrison</author><author pid="81/922">Tobias Paczian</author><author pid="58/1874-1">Wei Tang 0001</author><author pid="117/5215">William L. Trimble</author><author pid="44/7105">Jared Wilkening</author><author pid="01/6327">Narayan Desai</author><author pid="42/6569">Folker Meyer</author></authors><title>Shock - Active Storage for Multicloud Streaming Data Analysis.</title><venue>BDC</venue><pages>68-72</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WilkeGHPTTWDM15</key><doi>10.1109/BDC.2015.40</doi><ee>https://doi.org/10.1109/BDC.2015.40</ee><url>https://dblp.org/rec/conf/bdc/WilkeGHPTTWDM15</url></info>
+<url>URL#2449991</url>
+</hit>
+<hit score="1" id="2449992">
+<info><authors><author pid="03/4784">Justin M. Wozniak</author><author pid="10/6661">Kyle Chard</author><author pid="170/0318">Ben Blaiszik</author><author pid="176/0710">Ray Osborn</author><author pid="19/3006">Michael Wilde</author><author pid="f/IanTFoster">Ian T. Foster</author></authors><title>Big Data Remote Access Interfaces for Light Source Science.</title><venue>BDC</venue><pages>51-60</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WozniakCBOWF15</key><doi>10.1109/BDC.2015.37</doi><ee>https://doi.org/10.1109/BDC.2015.37</ee><url>https://dblp.org/rec/conf/bdc/WozniakCBOWF15</url></info>
+<url>URL#2449992</url>
+</hit>
+<hit score="1" id="2449993">
+<info><authors><author pid="82/5658">Chenyang Xu</author><author pid="02/7548">Yanjie Chen</author><author pid="06/2123">Qin Liu</author><author pid="79/5179">Weixiong Rao</author><author pid="47/1976">Hong Min</author><author pid="18/6259">Gong Su</author></authors><title>A Unified Computation Engine for Big Data Analytics.</title><venue>BDC</venue><pages>73-77</pages><year>2015</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/XuCLRMS15</key><doi>10.1109/BDC.2015.41</doi><ee>https://doi.org/10.1109/BDC.2015.41</ee><url>https://dblp.org/rec/conf/bdc/XuCLRMS15</url></info>
+<url>URL#2449993</url>
+</hit>
+<hit score="1" id="2596037">
+<info><authors><author pid="94/3254">Ioan Raicu</author><author pid="r/OmerFRana">Omer F. Rana</author><author pid="b/RajkumarBuyya">Rajkumar Buyya</author></authors><title>2nd IEEE/ACM International Symposium on Big Data Computing, BDC 2015, Limassol, Cyprus, December 7-10, 2015</title><venue>BDC</venue><publisher>IEEE Computer Society</publisher><year>2015</year><type>Editorship</type><key>conf/bdc/2015</key><ee>https://ieeexplore.ieee.org/xpl/conhome/7406204/proceeding</ee><url>https://dblp.org/rec/conf/bdc/2015</url></info>
+<url>URL#2596037</url>
+</hit>
+<hit score="1" id="2743309">
+<info><authors><author pid="36/6369">Jong Hoon Ahnn</author></authors><title>A Practical Approach to Scalable Big Data Computing for the Personalization of Services at Samsung.</title><venue>BDC</venue><pages>64-73</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Ahnn14</key><doi>10.1109/BDC.2014.11</doi><ee>https://doi.org/10.1109/BDC.2014.11</ee><url>https://dblp.org/rec/conf/bdc/Ahnn14</url></info>
+<url>URL#2743309</url>
+</hit>
+<hit score="1" id="2743310">
+<info><authors><author pid="121/1929">Pablo Fuentes</author><author pid="29/3095">José Luis Bosque</author><author pid="24/5270">Ramón Beivide</author><author pid="v/MateoValero">Mateo Valero</author><author pid="09/659">Cyriel Minkenberg</author></authors><title>Characterizing the Communication Demands of the Graph500 Benchmark on a Commodity Cluster.</title><venue>BDC</venue><pages>83-89</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/FuentesBBVM14</key><doi>10.1109/BDC.2014.16</doi><ee>https://doi.org/10.1109/BDC.2014.16</ee><url>https://dblp.org/rec/conf/bdc/FuentesBBVM14</url></info>
+<url>URL#2743310</url>
+</hit>
+<hit score="1" id="2743311">
+<info><authors><author pid="150/7873">Said Jai-Andaloussi</author><author pid="176/0556">Aboulaite Mohamed</author><author pid="86/5033">Nabil Madrane</author><author pid="92/5302">Abderrahim Sekkaki</author></authors><title>Soccer Video Summarization Using Video Content Analysis and Social Media Streams.</title><venue>BDC</venue><pages>1-7</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Jai-AndaloussiM14</key><doi>10.1109/BDC.2014.20</doi><ee>https://doi.org/10.1109/BDC.2014.20</ee><url>https://dblp.org/rec/conf/bdc/Jai-AndaloussiM14</url></info>
+<url>URL#2743311</url>
+</hit>
+<hit score="1" id="2743312">
+<info><authors><author pid="167/7965">Joarder Mohammad Mustafa Kamal</author><author pid="35/2552">M. Manzur Murshed</author><author pid="75/5251">Mohamed Medhat Gaber</author></authors><title>Progressive Data Stream Mining and Transaction Classification for Workload-Aware Incremental Database Repartitioning.</title><venue>BDC</venue><pages>8-15</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KamalMG14</key><doi>10.1109/BDC.2014.8</doi><ee>https://doi.org/10.1109/BDC.2014.8</ee><url>https://dblp.org/rec/conf/bdc/KamalMG14</url></info>
+<url>URL#2743312</url>
+</hit>
+<hit score="1" id="2743313">
+<info><authors><author pid="46/452">Vassilis Kolias</author><author pid="91/6022">Ioannis Anagnostopoulos</author><author pid="62/2751">Eleftherios Kayafas</author></authors><title>A Covering Classification Rule Induction Approach for Big Datasets.</title><venue>BDC</venue><pages>45-53</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KoliasAK14</key><doi>10.1109/BDC.2014.17</doi><ee>https://doi.org/10.1109/BDC.2014.17</ee><url>https://dblp.org/rec/conf/bdc/KoliasAK14</url></info>
+<url>URL#2743313</url>
+</hit>
+<hit score="1" id="2743314">
+<info><authors><author pid="176/0716">Jared Koontz</author><author pid="98/10788">Matthew Malensek</author><author pid="38/1106">Sangmi Lee Pallickara</author></authors><title>GeoLens - Enabling Interactive Visual Analytics over Large-Scale, Multidimensional Geospatial Datasets.</title><venue>BDC</venue><pages>35-44</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KoontzMP14</key><doi>10.1109/BDC.2014.12</doi><ee>https://doi.org/10.1109/BDC.2014.12</ee><url>https://dblp.org/rec/conf/bdc/KoontzMP14</url></info>
+<url>URL#2743314</url>
+</hit>
+<hit score="1" id="2743315">
+<info><authors><author pid="71/9769">Eileen Kuehn</author><author pid="88/3816">Max Fischer</author><author pid="08/8676">Christopher Jung</author><author pid="124/1018">Andreas Petzold</author><author pid="s/AchimStreit">Achim Streit</author></authors><title>Monitoring Data Streams at Process Level in Scientific Big Data Batch Clusters.</title><venue>BDC</venue><pages>90-95</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KuehnFJPS14</key><doi>10.1109/BDC.2014.21</doi><ee>https://doi.org/10.1109/BDC.2014.21</ee><url>https://dblp.org/rec/conf/bdc/KuehnFJPS14</url></info>
+<url>URL#2743315</url>
+</hit>
+<hit score="1" id="2743316">
+<info><authors><author pid="168/8378">Raghavendra Kune</author><author pid="90/1546">Pramodkumar Konugurthi</author><author pid="97/3869">Arun Agarwal</author><author pid="07/5281-1">Chillarige Raghavendra Rao</author><author pid="b/RajkumarBuyya">Rajkumar Buyya</author></authors><title>Genetic Algorithm Based Data-Aware Group Scheduling for Big Data Clouds.</title><venue>BDC</venue><pages>96-104</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/KuneKARB14</key><doi>10.1109/BDC.2014.15</doi><ee>https://doi.org/10.1109/BDC.2014.15</ee><url>https://dblp.org/rec/conf/bdc/KuneKARB14</url></info>
+<url>URL#2743316</url>
+</hit>
+<hit score="1" id="2743317">
+<info><authors><author pid="142/7909">Parisa Lak</author><author pid="60/7093">Bora Çaglayan</author><author pid="55/2997">Ayse Basar Bener</author></authors><title>The Impact of Basic Matrix Factorization Refinements on Recommendation Accuracy.</title><venue>BDC</venue><pages>105-112</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/LakCB14</key><doi>10.1109/BDC.2014.19</doi><ee>https://doi.org/10.1109/BDC.2014.19</ee><url>https://dblp.org/rec/conf/bdc/LakCB14</url></info>
+<url>URL#2743317</url>
+</hit>
+<hit score="1" id="2743318">
+<info><authors><author pid="55/804">Arkaitz Ruiz-Alvarez</author><author pid="h/MartyHumphrey">Marty Humphrey</author></authors><title>Toward Optimal Resource Provisioning for Cloud MapReduce and Hybrid Cloud Applications.</title><venue>BDC</venue><pages>74-82</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/Ruiz-AlvarezH14</key><doi>10.1109/BDC.2014.14</doi><ee>https://doi.org/10.1109/BDC.2014.14</ee><url>https://dblp.org/rec/conf/bdc/Ruiz-AlvarezH14</url></info>
+<url>URL#2743318</url>
+</hit>
+<hit score="1" id="2743319">
+<info><authors><author pid="23/10908">Brian Schmidt</author><author pid="00/237">Dionysios Kountanis</author><author pid="22/2131">Ala I. Al-Fuqaha</author></authors><title>A Biologically-Inspired Approach to Network Traffic Classification for Resource-Constrained Systems.</title><venue>BDC</venue><pages>113-118</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/SchmidtKA14</key><doi>10.1109/BDC.2014.13</doi><ee>https://doi.org/10.1109/BDC.2014.13</ee><url>https://dblp.org/rec/conf/bdc/SchmidtKA14</url></info>
+<url>URL#2743319</url>
+</hit>
+<hit score="1" id="2743320">
+<info><authors><author pid="32/7786">Blesson Varghese</author><author pid="24/1959">Adam Barker</author></authors><title>Are Clouds Ready to Accelerate Ad Hoc Financial Simulations?</title><venue>BDC</venue><pages>54-63</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/VargheseB14</key><doi>10.1109/BDC.2014.9</doi><ee>https://doi.org/10.1109/BDC.2014.9</ee><url>https://dblp.org/rec/conf/bdc/VargheseB14</url></info>
+<url>URL#2743320</url>
+</hit>
+<hit score="1" id="2743321">
+<info><authors><author pid="181/2471-1">Jianwu Wang 0001</author><author pid="56/5140">Yan Tang</author><author pid="54/3961">Mai H. Nguyen</author><author pid="95/6475">Ilkay Altintas</author></authors><title>A Scalable Data Science Workflow Approach for Big Data Bayesian Network Learning.</title><venue>BDC</venue><pages>16-25</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WangTNA14</key><doi>10.1109/BDC.2014.10</doi><ee>https://doi.org/10.1109/BDC.2014.10</ee><url>https://dblp.org/rec/conf/bdc/WangTNA14</url></info>
+<url>URL#2743321</url>
+</hit>
+<hit score="1" id="2743322">
+<info><authors><author pid="03/4784">Justin M. Wozniak</author><author pid="69/6897">Hemant Sharma</author><author pid="76/7185">Timothy G. Armstrong</author><author pid="19/3006">Michael Wilde</author><author pid="176/0488">Jonathan D. Almer</author><author pid="f/IanTFoster">Ian T. Foster</author></authors><title>Big Data Staging with MPI-IO for Interactive X-ray Science.</title><venue>BDC</venue><pages>26-34</pages><year>2014</year><type>Conference and Workshop Papers</type><access>closed</access><key>conf/bdc/WozniakSAWAF14</key><doi>10.1109/BDC.2014.18</doi><ee>https://doi.org/10.1109/BDC.2014.18</ee><url>https://dblp.org/rec/conf/bdc/WozniakSAWAF14</url></info>
+<url>URL#2743322</url>
+</hit>
+<hit score="1" id="2886116">
+<info><title>1st IEEE/ACM International Symposium on Big Data Computing, BDC 2014, London, UK, December 8-11, 2014</title><venue>BDC</venue><publisher>IEEE Computer Society</publisher><year>2014</year><type>Editorship</type><key>conf/bdc/2014</key><ee>https://ieeexplore.ieee.org/xpl/conhome/7312651/proceeding</ee><url>https://dblp.org/rec/conf/bdc/2014</url></info>
+<url>URL#2886116</url>
+</hit>
+</hits>
+</result>
