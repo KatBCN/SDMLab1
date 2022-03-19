@@ -1,4 +1,4 @@
-WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/{}.xml" AS uri
+WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/Data/{}.xml" AS uri
 CALL apoc.load.xml(uri, '', {{}}, true)
 YIELD value
 UNWIND value._result as result

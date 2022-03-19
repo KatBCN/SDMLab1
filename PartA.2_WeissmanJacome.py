@@ -6,21 +6,21 @@ graph = py2neo.Graph("bolt://localhost:7687", user='neo4j', password='1234katmat
 
 
 def load_journals(filename):
-    with open('CYPHER_journals_creation.txt', 'r') as queryfile:
+    with open('Cypher queries/CYPHER_journals_creation.txt', 'r') as queryfile:
         query = queryfile.read().format(filename)
         graph.run(query)
         print('Loaded {} into the DB!'.format(filename))
 
 
 def load_conferences(filename):
-    with open('CYPHER_conferences_creation.txt', 'r') as queryfile:
+    with open('Cypher queries/CYPHER_conferences_creation.txt', 'r') as queryfile:
         query = queryfile.read().format(filename)
         graph.run(query)
         print('Loaded {} into the DB!'.format(filename))
 
 
 def create_corresponding_authors(filename):
-    with open('CYPHER_corresponding_authors.txt', 'r') as queryfile:
+    with open('Cypher queries/CYPHER_corresponding_authors.txt', 'r') as queryfile:
         query = queryfile.read().format(filename)
         graph.run(query)
         print('Loaded {}\'s corr. auth. into the DB!'.format(filename))
@@ -33,14 +33,14 @@ conferences = ['IEEE_ACM_BDCAT',
                'IEEE_BigComp']
 
 
-# for journal in journals:
-#     load_journals(journal)
-#
-# for conf in conferences:
-#     load_conferences(conf)
-#
-# for element in journals + conferences:
-#     create_corresponding_authors(element)
+for journal in journals:
+    load_journals(journal)
+
+for conf in conferences:
+    load_conferences(conf)
+
+for element in journals + conferences:
+    create_corresponding_authors(element)
 
 
 def random_keywords():
@@ -71,7 +71,7 @@ def assign_keywords():
                                                                               kw=kw))
 
 
-#load_keywords()
-#assign_keywords()
+load_keywords()
+assign_keywords()
 
 
