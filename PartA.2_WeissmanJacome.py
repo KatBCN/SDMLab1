@@ -42,6 +42,10 @@ with open('CYPHER_journals_creation.txt', 'r') as file:
     create_journals = file.read()
 with open('CYPHER_conferences_creation.txt', 'r') as file:
     create_conferences = file.read()
+with open('CYPHER_corresponding_authors.txt', 'r') as file:
+    corr_authors = file.read()
 
 # conn.query(create_journals)
-conn.query(create_conferences)
+# conn.query(create_conferences)
+# conn.query(corr_authors)
+
