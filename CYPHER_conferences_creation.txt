@@ -1,0 +1,36 @@
+WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/IEEE_ACM_BDCAT.xml" AS uri
+CALL apoc.load.xml(uri, '', {}, true)
+YIELD value
+UNWIND value._result as result
+UNWIND result._hits as hits
+WITH [x in hits._hit WHERE x._info] as articles
+UNWIND articles as article
+WITH [item in article._info WHERE item._type="title"][0]._text as title,
+[item in article._info WHERE item._type="venue"][0]._text as conference,
+[item in article._info WHERE item._type="year"][0]._text as year,
+([item in article._info WHERE item._type="venue"][0]._text +
+"-" + [item in article._info WHERE item._type="year"][0]._text) as conferenceEdition,
+[item in article._info WHERE item._type="pages"][0]._text as pages,
+[item in article._info WHERE item._type="type"][0]._text as type,
+[item in article._info WHERE item._type="ee"][0]._text as doiLink,
+[item in article._info WHERE item._type="access"][0]._text as access,
+[item in article._info WHERE item._type = "authors"] AS authorList
+
+MERGE (p:Paper {title: title})
+SET p.access = access, p.type = type, p.pages = pages
+
+MERGE (ce:conferenceEdition {title: conferenceEdition})
+SET ce.year = year, ce.doiLink = doiLink
+
+MERGE (c:Conference {title: conference})
+
+MERGE (p)-[:PUBLISHED_IN]->(ce)
+
+MERGE (ce)-[:EDITION_OF]->(c)
+
+WITH p, authorList
+UNWIND authorList AS authors
+WITH [x in authors._authors WHERE x._type = "author"] AS individuals, p
+UNWIND individuals as individual
+MERGE (a:Author {name:individual._text})
+MERGE (a)-[:WROTE]->(p);
