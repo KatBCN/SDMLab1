@@ -1,5 +1,5 @@
-WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/BigDataMiningAndAnalytics.xml" AS uri
-CALL apoc.load.xml(uri, '', {}, true)
+WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/{}.xml" AS uri
+CALL apoc.load.xml(uri, '', {{}}, true)
 YIELD value
 UNWIND value._result as result
 UNWIND result._hits as hits
@@ -10,5 +10,5 @@ WITH [x in article._info WHERE x._type = "authors"] AS authorList, article,
 UNWIND authorList as authors
 WITH [x in authors._authors WHERE x._type = "author"] AS individual, title
 WITH individual[0]._text as author, title[0]._text as title
-MATCH (a:Author {name:author})-[w:WROTE]-(p:Paper {title:title})
+MATCH (a:Author {{name:author}})-[w:WROTE]-(p:Paper {{title:title}})
 SET w.role = "corresponding"

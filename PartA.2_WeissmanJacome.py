@@ -1,51 +1,77 @@
-import pandas as pd
 import numpy as np
-from neo4j import GraphDatabase
+import py2neo
+import random
+
+graph = py2neo.Graph("bolt://localhost:7687", user='neo4j', password='1234katmat')
 
 
-class Neo4jConnection:
-
-    def __init__(self, uri, user, pwd):
-        self.__uri = uri
-        self.__user = user
-        self.__pwd = pwd
-        self.__driver = None
-        try:
-            self.__driver = GraphDatabase.driver(self.__uri, auth=(self.__user, self.__pwd))
-        except Exception as e:
-            print("Failed to create the driver:", e)
-
-    def close(self):
-        if self.__driver is not None:
-            self.__driver.close()
-
-    def query(self, query, parameters=None, db=None):
-        assert self.__driver is not None, "Driver not initialized!"
-        session = None
-        response = None
-        try:
-            session = self.__driver.session(database=db) if db is not None else self.__driver.session()
-            response = list(session.run(query, parameters))
-        except Exception as e:
-            print("Query failed:", e)
-        finally:
-            if session is not None:
-                session.close()
-        return response
+def load_journals(filename):
+    with open('CYPHER_journals_creation.txt', 'r') as queryfile:
+        query = queryfile.read().format(filename)
+        graph.run(query)
+        print('Loaded {} into the DB!'.format(filename))
 
 
-conn = Neo4jConnection(uri="bolt://localhost:7687",
-                       user="neo4j",
-                       pwd="1234katmat")
+def load_conferences(filename):
+    with open('CYPHER_conferences_creation.txt', 'r') as queryfile:
+        query = queryfile.read().format(filename)
+        graph.run(query)
+        print('Loaded {} into the DB!'.format(filename))
 
-with open('CYPHER_journals_creation.txt', 'r') as file:
-    create_journals = file.read()
-with open('CYPHER_conferences_creation.txt', 'r') as file:
-    create_conferences = file.read()
-with open('CYPHER_corresponding_authors.txt', 'r') as file:
-    corr_authors = file.read()
 
-# conn.query(create_journals)
-# conn.query(create_conferences)
-# conn.query(corr_authors)
+def create_corresponding_authors(filename):
+    with open('CYPHER_corresponding_authors.txt', 'r') as queryfile:
+        query = queryfile.read().format(filename)
+        graph.run(query)
+        print('Loaded {}\'s corr. auth. into the DB!'.format(filename))
+
+
+journals = ['BigDataMiningAndAnalytics',
+            'IEEETransactionsOnBigData',
+            'DataIntelligence']
+conferences = ['IEEE_ACM_BDCAT',
+               'IEEE_BigComp']
+
+
+# for journal in journals:
+#     load_journals(journal)
+#
+# for conf in conferences:
+#     load_conferences(conf)
+#
+# for element in journals + conferences:
+#     create_corresponding_authors(element)
+
+
+def random_keywords():
+    n = np.random.randint(1, 3)
+
+    keywords = ['Data Management', 'Indexing', 'Data Modeling', 'Big Data',
+                'Data Processing', 'Data Storage', 'Data Querying']
+
+    assign_list = random.sample(keywords, n)
+    return assign_list
+
+
+def load_keywords():
+    keywords = ['Data Management', 'Indexing', 'Data Modeling', 'Big Data',
+                'Data Processing', 'Data Storage', 'Data Querying']
+    for kw in keywords:
+        graph.run('CREATE (n:Keyword {{topic: \'{}\'}}) '.format(kw))
+
+
+def assign_keywords():
+    paper_ids = graph.run('match (n:Paper) return ID(n) as id').to_data_frame()['id']
+
+    for paper_id in paper_ids:
+        keywords = random_keywords()
+        for kw in keywords:
+            graph.run('MATCH (p:Paper), (k:Keyword) WHERE ID(p) = {paper_id}'
+                      ' AND k.topic = \'{kw}\' MERGE (p)-[:DISCUSSES]->(k)'.format(paper_id=paper_id,
+                                                                              kw=kw))
+
+
+#load_keywords()
+#assign_keywords()
+
 

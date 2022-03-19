@@ -1,5 +1,5 @@
-WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/BigDataMiningAndAnalytics.xml" AS uri
-CALL apoc.load.xml(uri, '', {}, true)
+WITH "https://raw.githubusercontent.com/KatBCN/SDMLab1/main/{}.xml" AS uri
+CALL apoc.load.xml(uri, '', {{}}, true)
 YIELD value
 UNWIND value._result as result
 UNWIND result._hits as hits
@@ -19,13 +19,13 @@ WITH [item in article._info WHERE item._type="title"][0]._text as title,
 [item in article._info WHERE item._type="ee"][0]._text as doiLink,
 [item in article._info WHERE item._type = "authors"] AS authorList
 
-MERGE (p:Paper {title: title})
+MERGE (p:Paper {{title: title}})
 SET p.access = access, p.type = type, p.pages = pages, p.doiLink = doiLink
 
-MERGE (jv:JournalVolume {title: journalVolume})
+MERGE (jv:JournalVolume {{title: journalVolume}})
 SET jv.year = year, jv.volume = volume, jv.number = number
 
-MERGE (j:Journal {title: journal})
+MERGE (j:Journal {{title: journal}})
 
 MERGE (p)-[:PUBLISHED_IN]->(jv)
 
@@ -35,5 +35,5 @@ WITH p, authorList
 UNWIND authorList AS authors
 WITH [x in authors._authors WHERE x._type = "author"] AS individuals, p
 UNWIND individuals as individual
-MERGE (a:Author {name:individual._text})
+MERGE (a:Author {{name:individual._text}})
 MERGE (a)-[:WROTE]->(p);
