@@ -10,7 +10,7 @@ graph = py2neo.Graph("bolt://localhost:7687", user='neo4j', password='1234katmat
 random.seed(42)
 np.random.seed(42)
 
-
+# adding reviews' content and decision
 def upgrade_review_edges():
     papers = list(graph.run('match (n:Paper) return ID(n) as paperid').to_data_frame()['paperid'])
 
@@ -25,6 +25,7 @@ def upgrade_review_edges():
             graph.run(query)
 
 
+#adding organizations and affiliations
 def get_companies_list():
     # get the response in the form of html
     wikiurl = "https://en.wikipedia.org/wiki/List_of_largest_companies_by_revenue"
@@ -90,7 +91,7 @@ def assign_organizations():
                   'MERGE (a)-[:AFFILIATED_TO]->(c)'.format(author_id=author_id, org=organization))
 
 
-# run all functions
+# run required functions
 upgrade_review_edges()
 load_organizations()
 assign_organizations()
