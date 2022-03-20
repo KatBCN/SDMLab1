@@ -1,0 +1,9 @@
+MATCH(ce:conferenceEdition)
+CALL {
+    WITH ce
+    MATCH(ce)<-[:PUBLISHED_IN]-(p:Paper)<-[cites:CITES]-(:Paper)
+    RETURN count(cites) as numCitations,p
+    ORDER BY numCitations DESC 
+    LIMIT 3
+}
+RETURN ce as ConferenceEdition, p as Paper, numCitations
