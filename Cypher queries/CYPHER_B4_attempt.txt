@@ -22,10 +22,23 @@ CALL{
 RETURN a.name as Author, size(collect(p)) as numPapers, collect(numCitations)
 ORDER BY numPapers DESC
 
-Authors with Number of Papers and List of Numbers of Citations a different way:
+Authors with Number of Papers and SORTED List of Numbers of Citations:
 
 MATCH(a:Author)-[wrote:WROTE]->(p:Paper)
 OPTIONAL MATCH (p)<-[cites:CITES]-(p2:Paper)
 WITH count(cites) as numCites,a,p
-return a.name, size(collect(p)) as numPapers, collect(numCites)
+ORDER BY numCites DESC
+return a.name as Author, size(collect(p)) as numPapers, (collect(numCites)) as CitationList
 ORDER BY numPapers DESC
+
+Authors with H-index:
+
+MATCH(a:Author)-[wrote:WROTE]->(p:Paper)
+OPTIONAL MATCH (p)<-[cites:CITES]-(p2:Paper)
+WITH count(cites) as numCites,a,p
+ORDER BY numCites DESC
+WITH a.name as Author, (collect(numCites)) as CitationList
+WITH [i IN RANGE(0, SIZE(CitationList)-1) WHERE CitationList[i] >= i] as H_index, Author
+UNWIND H_index as h
+RETURN Author, max(h) as H_index
+ORDER BY H_index DESC
