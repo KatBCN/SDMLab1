@@ -96,9 +96,8 @@ def get_chronological_ids():         #THE QUERY IS PROBLEMATIC RIGHT NOW. REPEAT
 def assign_citations():
     chrono_ids = get_chronological_ids()
 
-    n = np.random.randint(1, 20)
-
     for key in chrono_ids.keys():
+        n = np.random.randint(1, 14)
         highest = len(chrono_ids.keys())
         lowest = key - highest
         rnge = list(range(lowest,key))
