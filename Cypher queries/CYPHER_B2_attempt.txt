@@ -1,0 +1,5 @@
+MATCH (conf:Conference), (a:Author)
+WITH conf, a, SIZE((a:Author)-[:WROTE]-(:Paper)-[:PUBLISHED_IN]->(:conferenceEdition)-[:EDITION_OF]->(conf)) as authorCnt
+ORDER BY authorCnt DESC LIMIT 10
+MATCH ((a:Author)-[:WROTE]-(p:Paper)-[:PUBLISHED_IN]->(confed:conferenceEdition)-[:EDITION_OF]->(conf))
+RETURN a.name, p.title, confed.title, conf.title
