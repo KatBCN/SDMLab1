@@ -166,7 +166,7 @@ def assign_reviewers():
 
     print('Reviewers assigned')
 
-# load data into the database
+### load data into the database
 for journal in journals:
     load_journals(journal)
 for conf in conferences:
@@ -174,13 +174,14 @@ for conf in conferences:
 for element in journals + conferences:
     create_corresponding_authors(element)
 
-
+### load and assign keywords to papers
 load_keywords()
 assign_keywords()
 
-
+### assign cites
 assign_citations()
 
+### assign reviewers
 assign_reviewers()
 
 
