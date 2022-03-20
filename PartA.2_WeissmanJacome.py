@@ -2,6 +2,7 @@ import numpy as np
 import py2neo
 import random
 
+
 graph = py2neo.Graph("bolt://localhost:7687", user='neo4j', password='1234katmat')
 
 random.seed(42)
@@ -36,29 +37,25 @@ journals = ['BigDataMiningAndAnalytics',
 conferences = ['IEEE_ACM_BDCAT',
                'IEEE_BigComp']
 
-#load data into the database
-for journal in journals:
-    load_journals(journal)
-for conf in conferences:
-    load_conferences(conf)
-for element in journals + conferences:
-    create_corresponding_authors(element)
-
 
 ### Keyword generator
-def random_keywords():
-    n = np.random.randint(1, 3)
-
+def get_keywords():
     keywords = ['Data Management', 'Indexing', 'Data Modeling', 'Big Data',
                 'Data Processing', 'Data Storage', 'Data Querying']
+    return keywords
+
+
+def random_keywords():
+    n = np.random.randint(1, 3)
+    keywords = get_keywords()
 
     assign_list = random.sample(keywords, n)
     return assign_list
 
 
 def load_keywords():
-    keywords = ['Data Management', 'Indexing', 'Data Modeling', 'Big Data',
-                'Data Processing', 'Data Storage', 'Data Querying']
+    keywords = get_keywords()
+
     for kw in keywords:
         graph.run('CREATE (n:Keyword {{topic: \'{}\'}}) '.format(kw))
 
@@ -73,10 +70,7 @@ def assign_keywords():
                       ' AND k.topic = \'{kw}\' MERGE (p)-[:DISCUSSES]->(k)'.format(paper_id=paper_id,
                                                                               kw=kw))
 
-
-#run functions
-load_keywords()
-assign_keywords()
+    print('Keywords assigned.')
 
 
 ### Citation generator
@@ -104,7 +98,7 @@ def assign_citations():
 
         potentially_cited = random.sample(rnge, n)
         cited_db_ids = [chrono_ids[x] for x in potentially_cited if x > 0] or None
-        print(key, chrono_ids[key], cited_db_ids)
+
 
         if cited_db_ids is not None:
             for db_id in cited_db_ids:
@@ -114,17 +108,80 @@ def assign_citations():
                 query = query.format(id1=chrono_ids[key], id2=db_id)
                 graph.run(query)
 
+    print('Citations assigned.')
+
+
+
+
+### Reviewer generator
+def get_keyword_authors(keyword):
+    query = 'match (a:Author)-[:WROTE]->(p:Paper)-[:DISCUSSES]->(k:Keyword)' \
+            'where k.topic = \'{}\'' \
+            ' return distinct a.name as author order by a.name'
+    query = query.format(keyword)
+
+    keyword_authors = list(graph.run(query).to_data_frame()['author'])
+
+    return keyword_authors
+
+
+def get_paper_keywords(paperid):
+    query = 'match (n:Paper)-[:DISCUSSES]-> (k:Keyword) where ID(n) = {} ' \
+            'return k.topic as keywords'
+    query = query.format(paperid)
+
+    paper_keywords = list(graph.run(query).to_data_frame()['keywords'])
+
+    return paper_keywords
+
+
+def assign_reviewers():
+    papers = list(graph.run('match (n:Paper) return ID(n) as paperid').to_data_frame()['paperid'])
+
+    for paper in papers:
+        #fetch a paper's related authors by it's keywords
+        keywords = get_paper_keywords(paper)
+        related_authors = []
+        for keyword in keywords:
+            kw_authors = get_keyword_authors(keyword)
+            related_authors += kw_authors
+
+        #get paper's authors to remove from related authors
+        self_authors_query = 'match (a:Author)-[:WROTE]->(p:Paper)' \
+                             'where ID(p) = {} return a.name as author'.format(paper)
+        self_authors_df = graph.run(self_authors_query).to_data_frame()
+        self_authors = list(self_authors_df['author']) if self_authors_df.shape != (0,0) else []
+
+        #get list of potential reviewers and sample it
+        potential_reviewers = [i for i in related_authors if i not in self_authors]
+        reviewers = random.sample(potential_reviewers, 3)
+
+        #load to database
+        for reviewer in reviewers:
+            query = 'MATCH (a:Author), (p:Paper) ' \
+                    'WHERE a.name = \"{reviewer}\" AND ID(p) = {paper} ' \
+                    'MERGE (a)-[:REVIEWED]->(p)'
+            query = query.format(reviewer=reviewer, paper=paper)
+            graph.run(query)
+
+    print('Reviewers assigned')
+
+# load data into the database
+for journal in journals:
+    load_journals(journal)
+for conf in conferences:
+    load_conferences(conf)
+for element in journals + conferences:
+    create_corresponding_authors(element)
+
+
+load_keywords()
+assign_keywords()
+
 
 assign_citations()
 
-
-
-
-
-
-
-
-
+assign_reviewers()
 
 
 
