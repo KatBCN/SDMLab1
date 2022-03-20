@@ -1,0 +1,31 @@
+Authors with number of papers:
+
+MATCH(a:Author)-[published:WROTE]->(p:Paper)
+RETURN a.name, count(published) as published
+ORDER BY published DESC
+
+Papers with number of citations:
+
+MATCH(p:Paper)<-[cites:CITES]-(p2:Paper)
+RETURN p, count(cites) as citations
+ORDER BY citations DESC
+
+Authors with Number of Papers and List of Numbers of Citations:
+
+MATCH(a:Author)-[published:WROTE]->(p:Paper)
+CALL{
+    with p
+    MATCH(p)<-[cites:CITES]-(p2:Paper)
+    RETURN count(p2) as numCitations
+    ORDER BY numCitations DESC
+}
+RETURN a.name as Author, size(collect(p)) as numPapers, collect(numCitations)
+ORDER BY numPapers DESC
+
+Authors with Number of Papers and List of Numbers of Citations a different way:
+
+MATCH(a:Author)-[wrote:WROTE]->(p:Paper)
+OPTIONAL MATCH (p)<-[cites:CITES]-(p2:Paper)
+WITH count(cites) as numCites,a,p
+return a.name, size(collect(p)) as numPapers, collect(numCites)
+ORDER BY numPapers DESC
