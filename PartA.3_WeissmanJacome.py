@@ -17,11 +17,17 @@ def upgrade_review_edges():
     for paper in papers:
         rev_outcomes = ['true', 'true'] + random.sample(['true', 'false'], 1)
 
-        for outcome in rev_outcomes:
+        rev_query = 'MATCH (a:Author)-[r:REVIEWED]->(p:Paper) ' \
+                    'WHERE ID(p) = {paper} RETURN ID(r) as reviews'.format(paper=paper)
+        reviews = list(graph.run(rev_query).to_data_frame()['reviews'])
+
+        zipped = zip(reviews, rev_outcomes)
+
+        for review, rev_outcomes in zipped:
             query = 'MATCH (:Author)-[rev:REVIEWED]->(p:Paper) ' \
-                    'WHERE ID(p) = {paper} ' \
-                    'SET rev.content = "some comments", rev.decision = {decision}'
-            query = query.format(paper=paper, decision=outcome)
+                    'WHERE ID(p) = {paper} AND ID(rev) = {review} ' \
+                    'SET rev.content = "some comments", rev.decision = {outcome}'
+            query = query.format(paper=paper, review=review, outcome=rev_outcomes)
             graph.run(query)
 
 
@@ -91,7 +97,7 @@ def assign_organizations():
                   'MERGE (a)-[:AFFILIATED_TO]->(c)'.format(author_id=author_id, org=organization))
 
 
-# run required functions
+### run required functions
 upgrade_review_edges()
 load_organizations()
 assign_organizations()
