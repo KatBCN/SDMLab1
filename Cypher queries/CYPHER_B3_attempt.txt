@@ -1,0 +1,7 @@
+MATCH (j:Journal)
+CALL {
+    WITH j
+    MATCH (j)<-[:VOLUME_OF]-(jv:JournalVolume {year:'2021'})<-[pub:PUBLISHED_IN]-(p:Paper)
+    RETURN jv.year as year, count(pub) as numPubs
+}
+RETURN j, year, numPubs
