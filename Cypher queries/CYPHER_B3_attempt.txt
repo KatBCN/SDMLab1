@@ -1,7 +1,30 @@
-MATCH (j:Journal)
-CALL {
-    WITH j
-    MATCH (j)<-[:VOLUME_OF]-(jv:JournalVolume {year:'2021'})<-[pub:PUBLISHED_IN]-(p:Paper)
-    RETURN jv.year as year, count(pub) as numPubs
-}
-RETURN j, year, numPubs
+Final Query:
+MATCH (j:Journal)<-[vol:VOLUME_OF]-(jv:JournalVolume)<-[pub:PUBLISHED_IN]-(p:Paper)
+WHERE jv.year IN ['2019','2020'] 
+OPTIONAL MATCH (p)<-[cites:CITES]-(p2:Paper)-[pub2:PUBLISHED_IN]->(jv2:JournalVolume)
+WHERE jv2.year = '2021'
+RETURN j as Journal, (toFloat(COUNT(cites) / toFloat(COUNT(pub)))) as ImpactFactor_2021
+
+Subgraph of all papers published in 2019 & 2020 with optional paper citations in 2021:
+
+MATCH (j:Journal)<-[vol:VOLUME_OF]-(jv:JournalVolume)<-[pub:PUBLISHED_IN]-(p:Paper)
+WHERE jv.year IN ['2019','2020'] 
+OPTIONAL MATCH (p)<-[cites:CITES]-(p2:Paper)-[pub2:PUBLISHED_IN]->(jv2:JournalVolume)
+WHERE jv2.year = '2021'
+RETURN j, jv, p, p2
+
+Query for .CSV output to check accuracy:
+
+MATCH (j:Journal)<-[vol:VOLUME_OF]-(jv:JournalVolume)<-[pub:PUBLISHED_IN]-(p:Paper)
+WHERE jv.year IN ['2019','2020'] 
+OPTIONAL MATCH (p)<-[cites:CITES]-(p2:Paper)-[pub2:PUBLISHED_IN]->(jv2:JournalVolume)
+WHERE jv2.year = '2021'
+RETURN j.title, jv.title, jv.year, p.title, p2.title, jv2.title, jv2.year
+
+Aggregations Query for .CSV output to check accuracy:
+
+MATCH (j:Journal)<-[vol:VOLUME_OF]-(jv:JournalVolume)<-[pub:PUBLISHED_IN]-(p:Paper)
+WHERE jv.year IN ['2019','2020'] 
+OPTIONAL MATCH (p)<-[cites:CITES]-(p2:Paper)-[pub2:PUBLISHED_IN]->(jv2:JournalVolume)
+WHERE jv2.year = '2021'
+RETURN j, count(pub) as Publications_2019_2020, count(cites) as numCitations_2021
