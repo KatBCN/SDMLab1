@@ -3,9 +3,10 @@ CALL apoc.load.xml(uri, '', {{}}, true)
 YIELD value
 UNWIND value._result as result
 UNWIND result._hits as hits
-WITH [x in hits._hit WHERE x._info] as articles
+WITH [x in hits._hit WHERE x._info] as articles, hits.id as id
 UNWIND articles as article
-WITH [item in article._info WHERE item._type="title"][0]._text as title,
+WITH id,
+[item in article._info WHERE item._type="title"][0]._text as title,
 [item in article._info WHERE item._type="venue"][0]._text as journal,
 [item in article._info WHERE item._type="volume"][0]._text as volume,
 [item in article._info WHERE item._type="number"][0]._text as number,
@@ -19,8 +20,8 @@ WITH [item in article._info WHERE item._type="title"][0]._text as title,
 [item in article._info WHERE item._type="ee"][0]._text as doiLink,
 [item in article._info WHERE item._type = "authors"] AS authorList
 
-MERGE (p:Paper {{title: title}})
-SET p.access = access, p.type = type, p.pages = pages, p.doiLink = doiLink
+MERGE (p:Paper {{dblp_id: id}})
+SET p.title = title, p.access = access, p.type = type, p.pages = pages, p.doiLink = doiLink
 
 MERGE (jv:JournalVolume {{title: journalVolume}})
 SET jv.year = year, jv.volume = volume, jv.number = number
