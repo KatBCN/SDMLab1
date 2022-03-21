@@ -40,35 +40,63 @@ conferences = ['IEEE_ACM_BDCAT',
 
 ### Keyword generator
 def get_keywords():
-    keywords = ['Data Management', 'Indexing', 'Data Modeling', 'Big Data',
+    db_keywords = ['Data Management', 'Indexing', 'Data Modeling', 'Big Data',
                 'Data Processing', 'Data Storage', 'Data Querying']
+    ai_keywords = ['Deep Learning', 'Machine Learning','Reinforcement',
+                   'Neural Networks', 'Natural Language Processing',
+                   'Artificial Intelligence', 'Bayesian Regression']
+    sc_keywords = ['High-Performance Computing', 'Supercomputing',
+                   'Parallelization','Quantum Computing', 'Cooling',
+                   'Chip Architecture', 'GPU Supercomputing']
+    keywords = [db_keywords, ai_keywords, sc_keywords]
     return keywords
 
 
-def random_keywords():
-    n = np.random.randint(1, 3)
-    keywords = get_keywords()
+def random_keywords(kw_set_no, oversample = 30):
+    #get keyword sets
+    kw_sets = get_keywords()
 
-    assign_list = random.sample(keywords, n)
+    #get non-selected sets' positions
+    fix_number = kw_set_no % 3
+    bad_sets = [x for x in [0,1,2] if x != fix_number]
+
+    #get sets, merge non-selected ones and pool with selected set oversampling
+    main = kw_sets[fix_number]
+    filling = kw_sets[bad_sets[0]] + kw_sets[bad_sets[1]]
+    kw_pool = main * oversample + filling
+
+    #get number of kws and sample
+    n = np.random.randint(1, 3)
+    assign_list = random.sample(kw_pool, n)
+
     return assign_list
 
 
 def load_keywords():
     keywords = get_keywords()
+    kw_pool = keywords[0] + keywords[1] + keywords[2]
 
-    for kw in keywords:
-        graph.run('CREATE (n:Keyword {{topic: \'{}\'}}) '.format(kw))
+    for kw in kw_pool:
+        graph.run('MERGE (n:Keyword {{topic: \'{}\'}}) '.format(kw))
 
 
 def assign_keywords():
-    paper_ids = graph.run('match (n:Paper) return ID(n) as id').to_data_frame()['id']
+    jc_paper_df = graph.run('match (n:Paper)-[:PUBLISHED_IN]->()-[]->(jc) '
+                          'WHERE (jc:Journal or jc:Conference) '
+                          'return ID(n) as paper_id, ID(jc) as jc_id').to_data_frame()
+    jc_list = list(jc_paper_df['jc_id'].unique())
 
-    for paper_id in paper_ids:
-        keywords = random_keywords()
-        for kw in keywords:
-            graph.run('MATCH (p:Paper), (k:Keyword) WHERE ID(p) = {paper_id}'
-                      ' AND k.topic = \'{kw}\' MERGE (p)-[:DISCUSSES]->(k)'.format(paper_id=paper_id,
-                                                                              kw=kw))
+    paper_lists = jc_paper_df.groupby('jc_id')['paper_id'].apply(list)
+
+    n = 0
+    for journal in jc_list:
+        for paper_id in paper_lists[journal]:
+            keywords = random_keywords(n)
+            for kw in keywords:
+                graph.run('MATCH (p:Paper), (k:Keyword) WHERE ID(p) = {paper_id}'
+                          ' AND k.topic = \'{kw}\' MERGE (p)-[:DISCUSSES]->(k)'.format(paper_id=paper_id,
+                                                                                  kw=kw))
+        n += 1
 
     print('Keywords assigned.')
 
@@ -109,8 +137,6 @@ def assign_citations():
                 graph.run(query)
 
     print('Citations assigned.')
-
-
 
 
 ### Reviewer generator
@@ -165,6 +191,7 @@ def assign_reviewers():
             graph.run(query)
 
     print('Reviewers assigned')
+
 
 ### load data into the database
 for journal in journals:
