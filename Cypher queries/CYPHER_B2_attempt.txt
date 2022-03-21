@@ -3,3 +3,15 @@ WITH conf, a, SIZE((a:Author)-[:WROTE]-(:Paper)-[:PUBLISHED_IN]->(:conferenceEdi
 ORDER BY authorCnt DESC LIMIT 10
 MATCH ((a:Author)-[:WROTE]-(p:Paper)-[:PUBLISHED_IN]->(confed:conferenceEdition)-[:EDITION_OF]->(conf))
 RETURN a.name, p.title, confed.title, conf.title
+
+
+
+MATCH(c:Conference)<-[ed:EDITION_OF]-(ce:conferenceEdition)<-[pub:PUBLISHED_IN]-(p:Paper)<-[wrote:WROTE]-(author:Author)
+RETURN author.name, c.title, collect(distinct(ce.title)) as conferenceEditions
+ORDER BY size(conferenceEditions) DESC
+
+MATCH(c:Conference)<-[ed:EDITION_OF]-(ce:conferenceEdition)<-[pub:PUBLISHED_IN]-(p:Paper)<-[wrote:WROTE]-(author:Author)
+WITH collect(distinct(ce.title)) as conferenceEditions,author,c
+WHERE size(conferenceEditions)>=4
+RETURN author.name as Author, c.title as Conference, conferenceEditions, size(conferenceEditions) as EditionsParticipated
+ORDER BY EditionsParticipated DESC
