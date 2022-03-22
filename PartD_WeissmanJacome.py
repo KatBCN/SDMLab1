@@ -54,16 +54,19 @@ def assign_community_keywords():
     print('Community keywords assigned.')
 
 
-def link_communities():  #### MIGHT LOOK INTO UNWINDING PAPERS, now disjoint
+def link_communities():
     #create relations between journals/congresses and their communities
-    query = '''match (co:Community)-[:STUDIES]-(keyword) with apoc.map.fromLists([co.name], [collect(keyword.topic)]) AS community_kws
+    query = '''match (co:Community)-[:STUDIES]-(keyword) 
+               with apoc.map.fromLists([co.name], [collect(keyword.topic)]) AS community_kws
                match (kw:Keyword)-[]-(p:Paper)-[]-(edition)-[]-(jc) 
                where (jc:Conference or jc:Journal) and (edition:JournalVolume or edition:conferenceEdition)
                unwind keys(community_kws) as comm
                with comm, jc, ID(p) as paper, kw.topic as keyword,
                case 
-                   when kw.topic in community_kws[comm] THEN 1
-                   ELSE 0 END as rel_papers
+                   when kw.topic in community_kws[comm] THEN true ELSE null 
+                   END as related
+               with jc, comm, paper, CASE 
+               WHEN any(x in collect(related) where x is NOT null) THEN 1 ELSE 0 END as rel_papers 
                with jc, comm, avg(rel_papers) as rel_score
                match (jc), (community:Community {name: comm})
                where rel_score >= 0.9
@@ -121,12 +124,12 @@ def recommend_reviewers(community):
 
 
 ### Run statements
-load_communities()
-assign_community_keywords()
-link_communities()
-
-create_graph_instances_D()
-run_pageRank()
+# load_communities()
+# assign_community_keywords()
+# link_communities()
+#
+# create_graph_instances_D()
+# run_pageRank()
 
 recommend_reviewers('Databases')
 
