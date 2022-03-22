@@ -1,12 +1,6 @@
-import numpy as np
 import py2neo
-import random
-
 
 graph = py2neo.Graph("bolt://localhost:7687", user='neo4j', password='1234katmat')
-
-random.seed(42)
-np.random.seed(42)
 
 
 def get_keywords():
@@ -78,9 +72,6 @@ def link_communities():  #### MIGHT LOOK INTO UNWINDING PAPERS, now disjoint
     graph.run(query)
 
     print('Journals/Congresses assigned to their communities.')
-
-
-
 
 
 def create_graph_instances_D():
