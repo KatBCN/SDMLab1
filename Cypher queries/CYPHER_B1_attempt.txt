@@ -7,3 +7,20 @@ CALL {
     LIMIT 3
 }
 RETURN c as Conference, ce as ConferenceEdition, p as Paper, numCitations
+
+
+
+Return lists per conference:
+
+MATCH(c:Conference)
+CALL {
+    WITH c
+    MATCH(c)<-[:EDITION_OF]-(ce:conferenceEdition)<-[:PUBLISHED_IN]-(p:Paper)<-[cites:CITES]-(:Paper)
+    RETURN p, count(cites) as numCitations
+    ORDER BY numCitations DESC 
+    LIMIT 3
+}
+RETURN c.title as Conference, collect(p.title) as Papers, collect(numCitations) as Citations
+
+
+

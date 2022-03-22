@@ -10,8 +10,41 @@ MATCH(c:Conference)<-[ed:EDITION_OF]-(ce:conferenceEdition)<-[pub:PUBLISHED_IN]-
 RETURN author.name, c.title, collect(distinct(ce.title)) as conferenceEditions
 ORDER BY size(conferenceEditions) DESC
 
+
 MATCH(c:Conference)<-[ed:EDITION_OF]-(ce:conferenceEdition)<-[pub:PUBLISHED_IN]-(p:Paper)<-[wrote:WROTE]-(author:Author)
 WITH collect(distinct(ce.title)) as conferenceEditions,author,c
 WHERE size(conferenceEditions)>=4
 RETURN author.name as Author, c.title as Conference, conferenceEditions, size(conferenceEditions) as EditionsParticipated
 ORDER BY EditionsParticipated DESC
+
+
+Another option using count instead of collect:
+
+
+MATCH(conference:Conference)<-[:EDITION_OF]-(ce:conferenceEdition)<-[:PUBLISHED_IN]-(:Paper)<-[:WROTE]-(author:Author)
+WITH count(distinct(ce.title)) as EditionsParticipated, author, conference
+WHERE EditionsParticipated >= 4
+RETURN author.name as Author, conference.title as Conference, EditionsParticipated
+ORDER BY EditionsParticipated DESC
+
+
+Another option - possibly less efficient:
+
+MATCH (c:Conference)
+CALL{
+    WITH c
+    MATCH (c)<-[ed:EDITION_OF]-(ce:conferenceEdition)<-[pub:PUBLISHED_IN]-(p:Paper)<-[wrote:WROTE]-(author:Author)
+    WITH count(distinct(ce)) as numEditions, author.name as Author
+    WHERE numEditions >= 4
+    RETURN Author, numEditions
+}
+
+RETURN c.title as Conference, Author, numEditions as EditionsParticipated
+ORDER BY EditionsParticipated DESC
+
+Authors in a list per conference:
+
+MATCH(conference:Conference)<-[:EDITION_OF]-(ce:conferenceEdition)<-[:PUBLISHED_IN]-(:Paper)<-[:WROTE]-(author:Author)
+WITH count(distinct(ce.title)) as EditionsParticipated, author.name as Author, conference.title as Conference
+WHERE EditionsParticipated>=4
+RETURN Conference, collect (Author) as Community

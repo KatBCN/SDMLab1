@@ -42,3 +42,14 @@ WITH [i IN RANGE(0, SIZE(CitationList)-1) WHERE CitationList[i] >= i] as H_index
 UNWIND H_index as h
 RETURN Author, max(h) as H_index
 ORDER BY H_index DESC
+
+Authors with H-index another way - changing the start index in RANGE, using SIZE instead of UNWIND and MAX :
+
+MATCH(a:Author)-[wrote:WROTE]->(p:Paper)
+OPTIONAL MATCH (p)<-[cites:CITES]-(p2:Paper)
+WITH count(cites) as numCites,a,p
+ORDER BY numCites DESC
+WITH a.name as Author, (collect(numCites)) as CitationList
+WITH [i IN RANGE(1, SIZE(CitationList)-1) WHERE CitationList[i] >= i] as H_index, Author
+RETURN Author, size(H_index) as H_index
+ORDER BY H_index DESC
