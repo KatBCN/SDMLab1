@@ -11,7 +11,7 @@ np.random.seed(42)
 
 def get_keywords():
     db_keywords = ['Data Management', 'Indexing', 'Data Modeling', 'Big Data',
-                'Data Processing', 'Data Storage', 'Data Querying']
+                   'Data Processing', 'Data Storage', 'Data Querying']
     ai_keywords = ['Deep Learning', 'Machine Learning','Reinforcement',
                    'Neural Networks', 'Natural Language Processing',
                    'Artificial Intelligence', 'Bayesian Regression']
@@ -22,17 +22,25 @@ def get_keywords():
     return keywords
 
 
-def get_communities():
+def define_communities():
     communities = ['Databases', 'AI', 'Supercomputing']
 
     return communities
 
 
 def load_communities():
-    communities = get_communities()
+    communities = define_communities()
 
     for comm in communities:
         graph.run('MERGE (n:Community {{name: \'{}\'}}) '.format(comm))
+
+
+def get_communities():
+    # Get communities
+    ask_query = '''MATCH (c:Community) RETURN c.name'''
+    communities = list(graph.run(ask_query).to_series())
+
+    return communities
 
 
 def assign_community_keywords():
@@ -72,38 +80,62 @@ def link_communities():  #### MIGHT LOOK INTO UNWINDING PAPERS, now disjoint
     print('Journals/Congresses assigned to their communities.')
 
 
-def create_graph_instance_D():
-    ###### TO DO
-    ###BUILD CYPHER QUERY TO CREATE SUBGRAPHS OF COMMUNITY--->PAPERS FOR EACH COMMUNITY
-    ###THEN BUILD A FUNCTION TO RUN PAGERANK OVER ALL OF THEM INDIVIDUALLY, GET TOP 100
-    ###THEN BUILD A FUNCTION TO GET THE AUTHORS OF THOSE PAPERS + THE GURUS OF THE COMM
 
-    #Get journal/conferences
-    ask_query = '''MATCH (p:Paper)-[:PUBLISHED_IN]-()-[]-(jc)-[:IS_PART_OF]->(:Community)
-                   WHERE (jc:Conference OR jc:Journal) RETURN jc.title'''
-    jourconf = list(graph.run(ask_query).to_series())
+
+
+def create_graph_instances_D():
+    communities = get_communities()
 
     # Creates a graph projection and stores it in the graph catalog
-    for jc in jourconf:
-        creation_query = '''CALL gds.graph.create('{}', 'Paper', 'CITES')'''.format(jc)
+    for comm in communities:
+        creation_query = '''CALL gds.graph.create.cypher(
+            '{comm}_Papers',
+            'MATCH (comm:Community)<-[:IS_PART_OF]-()<-[:EDITION_OF|VOLUME_OF]-()<-[:PUBLISHED_IN]-(p:Paper) 
+             WHERE comm.name = "{comm}" RETURN id(p) AS id, labels(p) AS labels',
+            'MATCH (p1)-[r:CITES]->(p2) RETURN id(p1) AS source, id(p2) AS target, type(r) AS type',
+            {{validateRelationships: false}})
+             YIELD graphName AS graph, nodeQuery, nodeCount AS nodes, relationshipCount AS rels'''
+        creation_query = creation_query.format(comm=comm)
+
         graph.run(creation_query)
 
 
 def run_pageRank():
-    # Runs the pageRank algorithm over the created database
-    query = '''CALL gds.pageRank.stream('myGraph') 
-               YIELD nodeId, score
-               RETURN gds.util.asNode(nodeId).title AS title, score
-               ORDER BY score DESC, title ASC'''
-    result = graph.query(query).to_data_frame()
-    return result
+    # get communities
+    communities = get_communities()
+
+    for comm in communities:
+        # Runs the pageRank algorithm over communities' sub-graphs and
+        # modifies the database to add the 'score' and 'top100' properties
+        # to papers in the top 100 of the pageRank score of a Community
+        query = '''CALL gds.pageRank.stream('{comm}_Papers') 
+                   YIELD nodeId, score
+                   WITH nodeId, score
+                   ORDER BY score DESC, nodeId ASC LIMIT 100
+                   MATCH (p:Paper) WHERE ID(p) = nodeId 
+                   SET p.{comm}_top100 = true 
+                   RETURN p.title, p.top100'''.format(comm=comm)
+        result = graph.run(query).to_data_frame()
+        print(comm, '\n', result)
+
+
+def recommend_reviewers(community):
+    query = '''MATCH (a:Author)-[:WROTE]->(p:Paper {{{comm}_top100: true}}) 
+               RETURN a.name as author, 
+               CASE WHEN count(*) >= 2 THEN true ELSE false END AS guru
+               ORDER BY guru DESC'''
+    query = query.format(comm=community)
+    result = graph.run(query).to_data_frame()
+    print(community, '\n', result)
 
 
 ### Run statements
-# load_communities()
-# assign_community_keywords()
-# link_communities()
+load_communities()
+assign_community_keywords()
+link_communities()
 
-create_graph_instance_D()
+create_graph_instances_D()
+run_pageRank()
 
+recommend_reviewers('Databases')
 
