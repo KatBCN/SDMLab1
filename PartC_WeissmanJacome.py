@@ -4,7 +4,7 @@ import pandas as pd
 graph = py2neo.Graph("bolt://localhost:7687", user='neo4j', password='1234katmat')
 
 
-def create_graph_instance():
+def create_graph_instance_C():
     # Creates a graph projection and stores it in the graph catalog
     query = '''CALL gds.graph.create('paperCitations', 'Paper', 'CITES')'''
     graph.run(query)
@@ -20,5 +20,5 @@ def run_pageRank():
     return result
 
 
-create_graph_instance()
+create_graph_instance_C()
 print(run_pageRank())
