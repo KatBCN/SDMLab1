@@ -1,3 +1,7 @@
+#pip install bs4
+#pip install lxml
+
+
 import numpy as np
 import py2neo
 import random
