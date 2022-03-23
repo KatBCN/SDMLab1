@@ -34,14 +34,15 @@ ORDER BY size DESC
 
 //Louvain mutate
 CALL gds.louvain.mutate(
-    "Author_Similarity_Graph_Papers",{relationshipTypes:['Similar'],
+    "Author_Similarity_Graph_Papers",{
+        nodeLabels:['Author'],relationshipTypes:['Similar'],
     relationshipWeightProperty:'score', mutateProperty:'louvainCommunity'});
 
 //Write mutated result
 CALL gds.graph.writeNodeProperties("Author_Similarity_Graph_Papers",['louvainCommunity']);
 
 //Export graph as database
-CALL gds.graph.export("Author_Similarity_Graph_Papers",{dbName:"AuthorCommunity"});
+CALL gds.graph.export('Author_Similarity_Graph_Papers', { dbName: 'AuthorCommunity', additionalNodeProperties: ['name','title']})
 
 :use system
 
