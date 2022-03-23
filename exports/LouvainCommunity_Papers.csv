@@ -1,0 +1,37 @@
+﻿Paper,Authors
+FAIR Principles - Interpretations and Implementation Considerations.,"[Nick S. Juty,Carole A. Goble,Keith G. Jeffery,Peter Wittenburg,George O. Strawn,Barend Mons,Luiz Olavo Bonino da Silva Santos,Ricardo de Miranda Azevedo,Michel Dumontier,Annalisa Montesanti,Simon J. Coles,Egon L. Willighagen,Giancarlo Guizzardi,Annika Jacobsen,Dominique Batista,Ronald Cornet,Mélanie Courtot,Mercè Crosas,Chris T. A. Evelo,Karsten Kryger Hansen,Ali Hasnain,Kristina M. Hettne,Jaap Heringa,Rob W. W. Hooft,Melanie Imming,Rajaram Kaliyaperumal,Martijn G. Kersloot,Christine R. Kirkpatrick,Tobias Kuhn,Ignasi Labastida,Barbara Magagna,Peter McQuilton,Natalie Meyers,Mirjam van Reisen,Philippe Rocca-Serra,Robert Pergl,Susanna-Assunta Sansone,Juliane Schneider,Mark Thompson 0002,Andra Waagmeester,Tobias Weigel,Mark D. Wilkinson,Marco Roos,Erik Schultes]"
+FAIR Convergence Matrix - Optimizing the Reuse of Existing FAIR-Related Resources.,"[Peter Wittenburg,Larry Lannom,Annika Jacobsen,Melanie Imming,Tobias Kuhn,Barbara Magagna,Peter McQuilton,Robert Pergl,Susanna-Assunta Sansone,Erik Schultes,Hana Pergl Sustkova,Kristina Maria Hettne,Jan Slifka,Markus Stocker,Mark A. Musen]"
+"Helping the Consumers and Producers of Standards, Repositories and Policies to Enable FAIR Data.","[Oya Beyan,Simon J. Coles,Dominique Batista,Peter McQuilton,Philippe Rocca-Serra,Robert Pergl,Susanna-Assunta Sansone,Ramón Granell,Massimiliano Izzo,Allyson L. Lister,Ben Schaap,Hugh P. Shanahan,Milo Thurston]"
+Distributed Analytics on Sensitive Medical Data - The Personal Health Train.,"[Luiz Olavo Bonino da Silva Santos,Stefan Decker,Oya Beyan,Michel Dumontier,Ananya Choudhury,Johan van Soest,Oliver Kohlbacher,Lukas Zimmermann,Holger Stenzhorn,Md. Rezaul Karim 0001,Andre Dekker]"
+State of FAIRness in ESFRI Projects.,"[Keith G. Jeffery,Peter Wittenburg,Franciska de Jong,Dieter Van Uytvanck,Massimo Cocco,Michael Lautenschlager,Hannes Thiemann,Margareta Hellström,Ari Asmi,Petr Holub]"
+FAIR Computational Workflows.,"[Carole A. Goble,Sarah Cohen-Boulakia,Stian Soiland-Reyes,Daniel Garijo,Yolanda Gil,Michael R. Crusoe,Kristian Peters,Daniel Schober]"
+Data Management Planning - How Requirements and Solutions are Beginning to Converge.,"[Rob W. W. Hooft,Robert Pergl,Sarah Jones,Tomasz Miksa,Robert Samors,Judit Ungvari,Rowena I. Davis,Tina Lee]"
+FAIR Practices in Africa.,"[Christine R. Kirkpatrick,Mirjam van Reisen,Mia Stokmans,Mariam Basajja,Antony Otieno Ong'ayo,Munyaradzi Mawere,Primrose Nakazibwe,Kudakwashe Chindoza]"
+Not Ready for Convergence in Data Infrastructures.,"[Keith G. Jeffery,Peter Wittenburg,Larry Lannom,George O. Strawn,Claudia Biniossek,Dirk Betz,Christophe Blanchi]"
+A Generic Workflow for the Data FAIRification Process.,"[Barend Mons,Luiz Olavo Bonino da Silva Santos,Annika Jacobsen,Rajaram Kaliyaperumal,Mark Thompson 0002,Marco Roos,Erik Schultes]"
+GO FAIR Brazil - A Challenge for Brazilian Data Science.,"[Luiz Olavo Bonino da Silva Santos,Luana Sales,Patrícia Henning,Viviane Veiga,Maira Murrieta Costa,Luís Fernando Sayão,Luís Ferreira Pires]"
+"The ""A"" of FAIR - As Open as Possible, as Closed as Necessary.","[Luiz Olavo Bonino da Silva Santos,Ignasi Labastida,Mark Thompson 0002,Marco Roos,Annalisa Landi,Viviana Giannuzzi,Fedele Bonifazi]"
+"Unique, Persistent, Resolvable - Identifiers as the Foundation of FAIR.","[Nick S. Juty,Carole A. Goble,Stian Soiland-Reyes,Tim Clark,Sarala M. Wimalaratne,John A. Kunze]"
+Towards the Tipping Point for FAIR Implementation.,"[Barend Mons,Christine R. Kirkpatrick,Mirjam van Reisen,Mia Stokmans,Mariam Basajja,Antony Otieno Ong'ayo]"
+DAMS - A Distributed Analytics Metadata Schema.,"[Sascha Welten,Laurenz Neumann,Yeliz Ucer Yediel,Luiz Olavo Bonino da Silva Santos,Stefan Decker,Oya Beyan]"
+"Exploring the Current Practices, Costs and Benefits of FAIR Implementation in Pharmaceutical Research and Development - A Qualitative Interview Study.","[Ebtisam Alharbi,Rigina Skeva,Nick S. Juty,Caroline Jay,Carole A. Goble]"
+FAIR Practices in Europe.,"[Peter Wittenburg,Michael Lautenschlager,Hannes Thiemann,Carsten Baldauf,Paul Trilsbeek]"
+Making FAIR Easy with FAIR Tools - From Creolization to Convergence.,"[Luiz Olavo Bonino da Silva Santos,Rajaram Kaliyaperumal,Mark Thompson 0002,Marco Roos,Kees Burger]"
+Making Data and Workflows Findable for Machines.,"[Tobias Weigel,Ulrich Schwardmann,Jens Klump,Sofiane Bendoukha,Robert Quick]"
+FAIR Data Reuse - the Path through Data Citation.,"[Carole A. Goble,Paul Groth,Helena Cousijn,Tim Clark]"
+The FAIR Principles - First Generation Implementation Choices and Challenges.,"[Barend Mons,Annika Jacobsen,Erik Schultes,Fenghong Liu]"
+Taking FAIR on the ChIN - The Chemistry Implementation Network.,"[Simon J. Coles,Jeremy G. Frey,Egon L. Willighagen,Stuart J. Chalk]"
+Comments to Jean-Claude Burgelman's article Politics and Open Science - How the European Open Science Cloud Became Reality (the Untold Story).,"[Peter Wittenburg,George O. Strawn,Dimitris Koureas]"
+FAIR Data and Services in Biodiversity Science and Geoscience.,"[Larry Lannom,Dimitris Koureas,Alex R. Hardisty]"
+The Need of Industry to Go FAIR.,"[Luiz Olavo Bonino da Silva Santos,Martijn G. Kersloot,Christine R. Kirkpatrick]"
+Editors' Note.,"[Peter Wittenburg,George O. Strawn]"
+Considerations for the Conduction and Interpretation of FAIRness Evaluations.,"[Ricardo de Miranda Azevedo,Michel Dumontier]"
+The FAIR Funding Model - Providing a Framework for Research Funders to Drive the Transition toward FAIR Data Management and Stewardship Practices.,"[Margreet Bloemers,Annalisa Montesanti]"
+Licensing FAIR Data for Reuse.,"[Ignasi Labastida,Thomas Margoni]"
+From Persistent Identifiers to Digital Objects to Make Data Science More Efficient.,[Peter Wittenburg]
+Open Science and Data Science.,[Peter Wittenburg]
+Open Science and the Hype Cycle.,[George O. Strawn]
+FAIR Science for Social Machines - Let's Share Metadata Knowlets in the Internet of FAIR Data and Services.,[Barend Mons]
+A Journal for Human and Machine.,[Barend Mons]
+"Comments to Jean-Claude Burgelman's article Politics and Open Science - How the European Open Science Cloud Became Reality (the Untold Story) - ""EOSC is a bigger ME"" and the Dunning Kruger effect.",[Barend Mons]
+"Ontology, Ontologies and the ""I"" of FAIR.",[Giancarlo Guizzardi]
