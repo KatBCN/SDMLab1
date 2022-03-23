@@ -24,15 +24,7 @@ CALL gds.nodeSimilarity.mutate(
     similarityCutoff:0.1,
     degreeCutoff:3});
 
-//Louvain stream
-CALL gds.louvain.stream(
-    "Author_Similarity_Graph_Papers",{relationshipTypes:['Similar'],
-    relationshipWeightProperty:'score'})
-YIELD nodeId, communityId
-RETURN communityId, count(nodeId) as size
-ORDER BY size DESC
-
-//Louvain mutate
+//Louvain community detection - mutate with author community ids
 CALL gds.louvain.mutate(
     "Author_Similarity_Graph_Papers",{
         nodeLabels:['Author'],relationshipTypes:['Similar'],
@@ -41,8 +33,11 @@ CALL gds.louvain.mutate(
 //Write mutated result
 CALL gds.graph.writeNodeProperties("Author_Similarity_Graph_Papers",['louvainCommunity']);
 
-//Export graph as database
+//Export graph as new database
 CALL gds.graph.export('Author_Similarity_Graph_Papers', { dbName: 'AuthorCommunity', additionalNodeProperties: ['name','title']})
+
+//Delete in-memory database
+CALL gds.graph.drop("Author_Similarity_Graph_Papers");
 
 :use system
 
@@ -50,10 +45,20 @@ CREATE DATABASE AuthorCommunity
 
 :use authorcommunity
 
-MATCH(n:Author) RETURN n LIMIT 25
+//Explore new database with similarity and Louvain communities
 
-MATCH p=()-[r:WROTE]->() RETURN p LIMIT 100;
+MATCH(a:Author)
+RETURN COUNT(DISTINCT(id(a))) AS CommunitySize, a.louvainCommunity AS louvainCommunityID
+ORDER BY CommunitySize DESC
 
-CALL gds.graph.drop("Author_Similarity_Graph_Papers");
+MATCH(a:Author {louvainCommunity:1961})-[:WROTE]-(p:Paper)
+RETURN a, p
 
+MATCH(a:Author {louvainCommunity:1961})-[:WROTE]-(p:Paper)
+RETURN a.name as Author, collect(p.title) as Papers
+ORDER BY size(Papers) DESC
 
+MATCH(p:Paper)<-[:WROTE]-(a:Author {name:"Peter Wittenburg"})
+OPTIONAL MATCH (c:Author)-[:WROTE]->(p)
+WHERE c <> a
+RETURN p.title as Papers, a.name as Author, collect(c.name) as CoAuthors
