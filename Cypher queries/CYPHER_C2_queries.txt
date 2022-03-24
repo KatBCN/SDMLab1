@@ -1,0 +1,23 @@
+//C2 Exploration of New Graph After Similarity and Community Detection
+
+//Explore new database with similarity and Louvain communities
+
+//Find sizes of communities
+MATCH(a:Author)
+RETURN COUNT(DISTINCT(id(a))) AS CommunitySize, a.louvainCommunity AS louvainCommunityID
+ORDER BY CommunitySize DESC;
+
+//Return subgraph of largest community of authors with papers
+MATCH(a:Author {louvainCommunity:1961})-[:WROTE]-(p:Paper)
+RETURN a, p;
+
+//Return table of authors in largest community with papers they wrote
+MATCH(a:Author {louvainCommunity:1961})-[:WROTE]-(p:Paper)
+RETURN a.name as Author, collect(p.title) as Papers
+ORDER BY size(Papers) DESC;
+
+//Return table of papers written by authors in largest community
+MATCH(p:Paper)<-[:WROTE]-(a:Author {name:"Peter Wittenburg"})
+OPTIONAL MATCH (c:Author)-[:WROTE]->(p)
+WHERE c <> a
+RETURN p.title as Papers, a.name as Author, collect(c.name) as CoAuthors;
