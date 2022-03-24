@@ -31,15 +31,20 @@ def create_corresponding_authors(filename):
 
 
 #define desired journals and conferences
-journals = ['BigDataMiningAndAnalytics',
+def return_journals():
+    journals = ['BigDataMiningAndAnalytics',
             'IEEETransactionsOnBigData',
             'DataIntelligence']
-conferences = ['IEEE_ACM_BDCAT',
-               'IEEE_BigComp']
+    return journals
 
+def return_conferences():
+    conferences = ['IEEE_ACM_BDCAT',
+               'IEEE_BigComp']
+    return conferences
 
 ### Keyword generator
 def get_keywords():
+    # Hard code the three sets of keywords
     db_keywords = ['Data Management', 'Indexing', 'Data Modeling', 'Big Data',
                 'Data Processing', 'Data Storage', 'Data Querying']
     ai_keywords = ['Deep Learning', 'Machine Learning','Reinforcement',
@@ -53,19 +58,19 @@ def get_keywords():
 
 
 def random_keywords(kw_set_no, oversample = 30):
-    #get keyword sets
+    # get keyword sets
     kw_sets = get_keywords()
 
-    #get non-selected sets' positions
+    # get non-selected sets' positions
     fix_number = kw_set_no % 3
     bad_sets = [x for x in [0,1,2] if x != fix_number]
 
-    #get sets, merge non-selected ones and pool with selected set oversampling
+    # get sets, merge non-selected ones and pool with selected set oversampling
     main = kw_sets[fix_number]
     filling = kw_sets[bad_sets[0]] + kw_sets[bad_sets[1]]
     kw_pool = main * oversample + filling
 
-    #get number of kws and sample
+    # get number of kws and sample
     n = np.random.randint(1, 3)
     assign_list = random.sample(kw_pool, n)
 
@@ -73,6 +78,7 @@ def random_keywords(kw_set_no, oversample = 30):
 
 
 def load_keywords():
+    # Load Keywords into the DB
     keywords = get_keywords()
     kw_pool = keywords[0] + keywords[1] + keywords[2]
 
@@ -81,9 +87,9 @@ def load_keywords():
 
 
 def assign_keywords():
-    jc_paper_df = graph.run('match (n:Paper)-[:PUBLISHED_IN]->()-[]->(jc) '
-                          'WHERE (jc:Journal or jc:Conference) '
-                          'return ID(n) as paper_id, ID(jc) as jc_id').to_data_frame()
+    jc_paper_df = graph.run('''MATCH (n:Paper)-[:PUBLISHED_IN]->()-[]->(jc) 
+                               WHERE (jc:Journal or jc:Conference) 
+                               RETURN ID(n) as paper_id, ID(jc) as jc_id''').to_data_frame()
     jc_list = list(jc_paper_df['jc_id'].unique())
 
     paper_lists = jc_paper_df.groupby('jc_id')['paper_id'].apply(list)
@@ -102,7 +108,7 @@ def assign_keywords():
 
 
 ### Citation generator
-def get_chronological_ids():         #THE QUERY IS PROBLEMATIC RIGHT NOW. REPEATED IDs come up.
+def get_chronological_ids():
     query = 'MATCH(author:Author)-[:WROTE {role:"corresponding"}]->' \
             '(paper:Paper)-[:PUBLISHED_IN]->(volumeEdition)-[]->(journalConference) ' \
             'RETURN ID(paper) as id, author.name as author, paper.title as title, ' \
@@ -126,7 +132,6 @@ def assign_citations():
 
         potentially_cited = random.sample(rnge, n)
         cited_db_ids = [chrono_ids[x] for x in potentially_cited if x > 0] or None
-
 
         if cited_db_ids is not None:
             for db_id in cited_db_ids:
@@ -194,18 +199,18 @@ def assign_reviewers():
 
 
 ### load data into the database
-for journal in journals:
+for journal in return_journals():
     load_journals(journal)
-for conf in conferences:
+for conf in return_conferences():
     load_conferences(conf)
-for element in journals + conferences:
+for element in return_journals() + return_conferences():
     create_corresponding_authors(element)
 
 ### load and assign keywords to papers
 load_keywords()
 assign_keywords()
 
-### assign cites
+### assign citations
 assign_citations()
 
 ### assign reviewers

@@ -80,10 +80,10 @@ def load_organizations():
     companies = get_companies_list()
 
     for uni in universities:
-        graph.run('CREATE (n:University {{name: "{}"}}) '.format(uni))
+        graph.run('CREATE (n:Organization {{name: "{}", type: "University"}}) '.format(uni))
 
     for comp in companies:
-        graph.run('CREATE (n:Company {{name: "{}"}}) '.format(comp))
+        graph.run('CREATE (n:Organization {{name: "{}", type: "Company"}}) '.format(comp))
 
 
 def assign_organizations():
