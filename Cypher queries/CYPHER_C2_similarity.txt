@@ -14,15 +14,16 @@ CALL gds.nodeSimilarity.mutate(
     mutateProperty:'score',
     topK:10,
     similarityCutoff:0.1});
-//OR
-//Node similarity - mutate graph with similarity score - degreeCutoff:3
-CALL gds.nodeSimilarity.mutate(
-    "Author_Similarity_Graph_Papers",
-    {mutateRelationshipType:'Similar',
-    mutateProperty:'score',
-    topK:10,
-    similarityCutoff:0.1,
-    degreeCutoff:3});
+
+////OR
+////Node similarity - mutate graph with similarity score - degreeCutoff:3
+//CALL gds.nodeSimilarity.mutate(
+//    "Author_Similarity_Graph_Papers",
+//    {mutateRelationshipType:'Similar',
+//    mutateProperty:'score',
+//    topK:10,
+//    similarityCutoff:0.1,
+//    degreeCutoff:3});
 
 //Louvain community detection - mutate with author community ids
 CALL gds.louvain.mutate(
@@ -30,11 +31,8 @@ CALL gds.louvain.mutate(
         nodeLabels:['Author'],relationshipTypes:['Similar'],
     relationshipWeightProperty:'score', mutateProperty:'louvainCommunity'});
 
-//Write mutated result
-CALL gds.graph.writeNodeProperties("Author_Similarity_Graph_Papers",['louvainCommunity']);
-
 //Export graph as new database
-CALL gds.graph.export('Author_Similarity_Graph_Papers', { dbName: 'AuthorCommunity', additionalNodeProperties: ['name','title']})
+CALL gds.graph.export('Author_Similarity_Graph_Papers', { dbName: 'AuthorCommunity', additionalNodeProperties: ['name','title']});
 
 //Delete in-memory database
 CALL gds.graph.drop("Author_Similarity_Graph_Papers");
@@ -49,16 +47,16 @@ CREATE DATABASE AuthorCommunity
 
 MATCH(a:Author)
 RETURN COUNT(DISTINCT(id(a))) AS CommunitySize, a.louvainCommunity AS louvainCommunityID
-ORDER BY CommunitySize DESC
+ORDER BY CommunitySize DESC;
 
 MATCH(a:Author {louvainCommunity:1961})-[:WROTE]-(p:Paper)
-RETURN a, p
+RETURN a, p;
 
 MATCH(a:Author {louvainCommunity:1961})-[:WROTE]-(p:Paper)
 RETURN a.name as Author, collect(p.title) as Papers
-ORDER BY size(Papers) DESC
+ORDER BY size(Papers) DESC;
 
 MATCH(p:Paper)<-[:WROTE]-(a:Author {name:"Peter Wittenburg"})
 OPTIONAL MATCH (c:Author)-[:WROTE]->(p)
 WHERE c <> a
-RETURN p.title as Papers, a.name as Author, collect(c.name) as CoAuthors
+RETURN p.title as Papers, a.name as Author, collect(c.name) as CoAuthors;
