@@ -124,12 +124,12 @@ def recommend_reviewers(community):
 
 
 ### Run statements
-# load_communities()
-# assign_community_keywords()
-# link_communities()
-#
-# create_graph_instances_D()
-# run_pageRank()
+load_communities()
+assign_community_keywords()
+link_communities()
+
+create_graph_instances_D()
+run_pageRank()
 
 recommend_reviewers('Databases')
 
