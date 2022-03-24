@@ -19,24 +19,19 @@ def run_node_similarity():
 
 
 def run_louvain():
-    query = '''CALL gds.louvain.mutate("Author_Similarity_Graph_Papers",
+    query = '''CALL gds.louvain.stream("Author_Similarity_Graph_Papers",
                {nodeLabels:['Author'], relationshipTypes:['Similar'], 
-               relationshipWeightProperty:'score', mutateProperty:'louvainCommunity'});'''
-    graph.run(query)
-
-
-def drop_and_export():
-    query1 = '''CALL gds.graph.export('Author_Similarity_Graph_Papers', 
-               { dbName: 'AuthorCommunity', additionalNodeProperties: ['name','title']});'''
-    query2 = '''CALL gds.graph.drop("Author_Similarity_Graph_Papers");'''
-
-    graph.run(query1)
-    graph.run(query2)
+               relationshipWeightProperty:'score'})
+               YIELD nodeId, communityId
+               RETURN gds.util.asNode(nodeId).name as author, communityId
+               ORDER BY communityId '''
+    louvain_results = graph.run(query).to_data_frame()
+    print(louvain_results)
+    print(louvain_results.value_counts('communityId'))
 
 
 #run all calls
-create_graph_instance()
-run_node_similarity()
+# create_graph_instance()
+# run_node_similarity()
 run_louvain()
-drop_and_export()
 

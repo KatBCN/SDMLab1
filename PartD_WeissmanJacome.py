@@ -70,7 +70,7 @@ def link_communities():
                UNWIND keys(community_kws) AS comm 
                WITH comm, jc, ID(p) AS paper, kw.topic AS keyword, 
                CASE  
-                   WHERE kw.topic in community_kws[comm] THEN true ELSE null  
+                   WHEN kw.topic in community_kws[comm] THEN true ELSE null  
                    END as related 
                WITH jc, comm, paper, CASE  
                WHEN any(x in collect(related) WHERE x IS NOT null) THEN 1 ELSE 0 END AS rel_papers  
