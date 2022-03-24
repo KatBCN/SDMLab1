@@ -31,7 +31,7 @@ def run_louvain():
 
 
 #run all calls
-# create_graph_instance()
-# run_node_similarity()
+create_graph_instance()
+run_node_similarity()
 run_louvain()
 
